@@ -151,7 +151,9 @@ export const personalInfo: PersonalInfo = {
   resumeConfigured: false,
   aboutText: `I am a Software Engineer with a distinct background spanning industrial instrumentation and controls, electrical systems, full-stack software development, cloud infrastructure, AI platforms, and IoT edge computing. 
 
-Having worked directly with PLC-connected devices, 4–20 mA loop instrumentation, calibration protocols, and field troubleshooting, I bring a physical-world systems mindset to modern software engineering. I engineer auditable, resilient software applications—ranging from AWS-backed industrial SaaS platforms and AI-assisted data pipelines to edge vision telemetry on Raspberry Pi.`,
+Having worked directly with PLC-connected devices, 4–20 mA loop instrumentation, calibration protocols, and field troubleshooting, I bring a physical-world systems mindset to modern software engineering. I engineer auditable, resilient software applications—ranging from AWS-backed industrial SaaS platforms and AI-assisted data pipelines to edge vision telemetry on Raspberry Pi.
+
+My technical training also includes Palantir Foundry and AIP, with coursework in agentic AI workflows, enterprise data operations, data governance, and business-process modeling.`,
   corePrinciples: [
     {
       title: 'Physical & Digital Integration',
@@ -174,6 +176,16 @@ Having worked directly with PLC-connected devices, 4–20 mA loop instrumentatio
       highlights: [
         'Focusing on Data Structures, Algorithms, Cloud Architecture, Distributed Systems, Software Design Patterns, and Operating Systems',
         'Hands-on research and development in Cloud SaaS, Edge AI, Embedded Linux, and Full-Stack web architecture'
+      ]
+    },
+    {
+      degree: 'Palantir Foundry & AIP Training',
+      field: 'Palantir Technologies Learning Credentials',
+      institution: 'Palantir Technologies',
+      status: 'May 2026',
+      highlights: [
+        'Completed a series of Palantir Technologies learning credentials covering Foundry, AIP workflows, agentic AI workflows, business process modeling, data science fundamentals, enterprise use-case scoping, code repositories, and data governance.',
+        'Completed Credentials: Speedrun: Mining Your First Business Process • Speedrun: Data Science Fundamentals • Scoping Use Cases in Foundry & AIP • Introduction to Foundry & AIP for Enterprise Organizations • Speedrun: Your First AIP Workflow • Speedrun: Your First Agentic AIP Workflow • Deep Dive: Transforming your Data with Code Repositories • Deep Dive: Data Governance Tools in Foundry'
       ]
     },
     {
@@ -574,6 +586,20 @@ export const skillCategories: SkillCategory[] = [
       { name: 'Vercel', featured: true, tag: 'Edge Hosting' },
       { name: 'Linux OS', featured: true, tag: 'Bash / CLI / Daemons' },
       { name: 'Git & GitHub', featured: true, tag: 'Version Control' }
+    ]
+  },
+  {
+    title: 'AI & Data Platforms',
+    description: 'Applied training in modern AI-assisted data platforms, workflow design, data governance, and enterprise data operations.',
+    iconName: 'Cpu',
+    skills: [
+      { name: 'Palantir Foundry', featured: true, tag: 'Data Platform' },
+      { name: 'Palantir AIP', featured: true, tag: 'AI Workflows' },
+      { name: 'Agentic AI Workflows', featured: true, tag: 'AI Design' },
+      { name: 'Palantir Foundry Data Governance', featured: true, tag: 'Governance' },
+      { name: 'Business Process Modeling', featured: false, tag: 'Process Mining' },
+      { name: 'Palantir Foundry Code Repositories', featured: true, tag: 'Data Transformation' },
+      { name: 'Data Science Workflows', featured: false, tag: 'Foundry Data Science' }
     ]
   },
   {

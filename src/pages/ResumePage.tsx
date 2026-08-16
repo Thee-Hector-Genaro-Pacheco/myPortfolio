@@ -111,6 +111,16 @@ export const ResumePage: React.FC = () => {
                   <span className="font-mono text-muted">{edu.status}</span>
                 </div>
                 {edu.institution && <span className="doc-edu-inst text-muted">{edu.institution}</span>}
+                {edu.highlights && edu.highlights.length > 0 && (
+                  <ul className="doc-bullet-list">
+                    {edu.highlights.map((item, hIdx) => (
+                      <li key={hIdx}>
+                        <CheckCircle2 size={13} className="text-emerald" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
             ))}
           </section>
