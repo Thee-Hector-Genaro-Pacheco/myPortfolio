@@ -17,7 +17,9 @@ import {
   Smartphone,
   Server,
   Lock,
-  ArrowRight
+  ArrowRight,
+  Clock,
+  Compass
 } from 'lucide-react';
 import './CaseStudyPage.css';
 
@@ -28,8 +30,13 @@ export const CaseStudyPage: React.FC = () => {
   const project = featuredProjects.find((p) => p.slug === slug);
 
   useEffect(() => {
+    if (project) {
+      document.title = `${project.title} | Hector Pacheco`;
+    } else {
+      document.title = 'Project | Hector Pacheco';
+    }
     window.scrollTo(0, 0);
-  }, [slug]);
+  }, [project, slug]);
 
   if (!project) {
     return (
@@ -44,6 +51,12 @@ export const CaseStudyPage: React.FC = () => {
   }
 
   const { caseStudy } = project;
+
+  const getStatusClass = (status: string) => {
+    if (status.includes('Live') || status.includes('Client')) return 'live';
+    if (status.includes('Active')) return 'active';
+    return 'embedded';
+  };
 
   return (
     <div 
@@ -65,7 +78,9 @@ export const CaseStudyPage: React.FC = () => {
         <header className="case-study-header">
           <div className="header-meta">
             <span className="case-category font-mono">{project.category}</span>
-            <span className="case-status-badge live">{project.status}</span>
+            <span className={`case-status-badge ${getStatusClass(project.status)}`}>
+              {project.status}
+            </span>
           </div>
 
           <h1 className="case-title">{project.title}</h1>
@@ -78,14 +93,14 @@ export const CaseStudyPage: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-primary btn-sm live-app-btn"
-                aria-label={`Open ${project.title} live application`}
+                aria-label={`Open ${project.title} live link`}
               >
                 <span>{project.liveUrlLabel || 'View Live App'}</span>
                 <ExternalLink size={16} />
               </a>
             )}
 
-            {project.githubUrl ? (
+            {project.githubUrl && (
               <a
                 href={project.githubUrl}
                 target="_blank"
@@ -95,10 +110,6 @@ export const CaseStudyPage: React.FC = () => {
                 <Github size={16} />
                 <span>GitHub Repository</span>
               </a>
-            ) : (
-              <div className="repo-note-tag font-mono">
-                <span>REPOS: Configurable in Central Data Model</span>
-              </div>
             )}
           </div>
         </header>
@@ -129,19 +140,19 @@ export const CaseStudyPage: React.FC = () => {
         {/* Architecture Section */}
         <section className="case-section architecture-section">
           <h2 className="case-section-title font-mono">
-            <Cpu size={18} className="text-blue" /> SYSTEM & CLOUD ARCHITECTURE
+            <Cpu size={18} className="text-blue" /> SYSTEM ARCHITECTURE
           </h2>
           
-          {/* Visual Cloud Flow for CalTrack if available */}
+          {/* Visual Cloud Flow for CalTrack */}
           {caseStudy.architecture.cloudStack && (
             <div className="cloud-visual-diagram">
-              <div className="diagram-title font-mono">PRODUCTION AWS CLOUD DATA FLOW</div>
+              <div className="diagram-title font-mono">PRODUCTION AWS CLOUD ARCHITECTURE FLOW</div>
               
               <div className="flow-nodes">
                 <div className="flow-node">
                   <div className="node-box">
                     <span className="node-type font-mono">CLIENT LAYER</span>
-                    <strong className="node-name">Web Browser / Tablet</strong>
+                    <strong className="node-name">Web Browser / Mobile</strong>
                   </div>
                 </div>
 
@@ -180,11 +191,54 @@ export const CaseStudyPage: React.FC = () => {
                 </div>
                 <div className="service-badge">
                   <Lock size={14} className="text-purple" />
-                  <span>SECRETS: AWS Secrets Manager & KMS</span>
+                  <span>SECRETS: AWS Secrets Manager &amp; KMS</span>
                 </div>
                 <div className="service-badge">
                   <Cloud size={14} className="text-blue" />
                   <span>NETWORKING: AWS VPC Subnets</span>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Visual Layered Flow for FieldTrack AI */}
+          {caseStudy.architecture.layeredStack && (
+            <div className="cloud-visual-diagram">
+              <div className="diagram-title font-mono">LAYERED EDGE-TO-WEB ARCHITECTURE</div>
+              
+              <div className="flow-nodes">
+                <div className="flow-node">
+                  <div className="node-box">
+                    <span className="node-type font-mono">HARDWARE SENSORS</span>
+                    <strong className="node-name">{caseStudy.architecture.layeredStack.hardware}</strong>
+                  </div>
+                </div>
+
+                <ArrowRight size={18} className="flow-arrow" />
+
+                <div className="flow-node">
+                  <div className="node-box accent-emerald">
+                    <span className="node-type font-mono">PYTHON / FASTAPI</span>
+                    <strong className="node-name">{caseStudy.architecture.layeredStack.edgeAgent}</strong>
+                  </div>
+                </div>
+
+                <ArrowRight size={18} className="flow-arrow" />
+
+                <div className="flow-node">
+                  <div className="node-box accent-cyan">
+                    <span className="node-type font-mono">NODE / TS / OPENCV</span>
+                    <strong className="node-name">{caseStudy.architecture.layeredStack.apiServices}</strong>
+                  </div>
+                </div>
+
+                <ArrowRight size={18} className="flow-arrow" />
+
+                <div className="flow-node">
+                  <div className="node-box accent-purple">
+                    <span className="node-type font-mono">REACT DASHBOARD</span>
+                    <strong className="node-name">{caseStudy.architecture.layeredStack.webUI}</strong>
+                  </div>
                 </div>
               </div>
             </div>
@@ -205,6 +259,27 @@ export const CaseStudyPage: React.FC = () => {
           </div>
         </section>
 
+        {/* Engineering Roadmap Section (if present) */}
+        {caseStudy.roadmapPhases && caseStudy.roadmapPhases.length > 0 && (
+          <section className="case-section engineering-roadmap-section">
+            <h2 className="case-section-title font-mono">
+              <Compass size={18} className="text-cyan" /> ENGINEERING ROADMAP (PLANNED PHASES)
+            </h2>
+            <div className="roadmap-phases-grid">
+              {caseStudy.roadmapPhases.map((phase, idx) => (
+                <div key={idx} className="roadmap-phase-card">
+                  <div className="phase-header">
+                    <span className="phase-tag font-mono">{phase.phase}</span>
+                    <span className="phase-status font-mono">{phase.status}</span>
+                  </div>
+                  <h4 className="phase-title">{phase.title}</h4>
+                  <p className="phase-desc">{phase.description}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
         {/* Mobile & Field Engineering Roadmap Section (if present) */}
         {caseStudy.mobileRoadmap && (
           <section className="case-section mobile-roadmap-section">
@@ -220,8 +295,8 @@ export const CaseStudyPage: React.FC = () => {
 
               <div className="roadmap-features-grid">
                 {caseStudy.mobileRoadmap.plannedFeatures.map((feat, idx) => (
-                  <div key={idx} className="roadmap-feature-item">
-                    <CheckCircle2 size={16} className="text-cyan" />
+                  <div key={idx} className="roadmap-feature-item planned">
+                    <Clock size={15} className="text-cyan" />
                     <span>{feat}</span>
                   </div>
                 ))}
@@ -230,11 +305,11 @@ export const CaseStudyPage: React.FC = () => {
           </section>
         )}
 
-        {/* Key Features & Technologies */}
+        {/* Verified Implemented Key Features */}
         <section className="case-section features-tech-grid">
           <div className="features-card">
             <h2 className="case-section-title font-mono">
-              <ShieldCheck size={18} className="text-emerald" /> KEY FEATURES
+              <ShieldCheck size={18} className="text-emerald" /> VERIFIED IMPLEMENTED FEATURES
             </h2>
             <ul className="features-list">
               {caseStudy.keyFeatures.map((feature, idx) => (
@@ -300,21 +375,22 @@ export const CaseStudyPage: React.FC = () => {
           </div>
         </section>
 
-        {/* Media / Screenshots Placeholder */}
-        <section className="case-section gallery-placeholder-section">
-          <h2 className="case-section-title font-mono">
-            <ImageIcon size={18} className="text-blue" /> SYSTEM GALLERY & SCREENSHOTS
-          </h2>
-          <div className="gallery-placeholder-card">
-            <div className="placeholder-icon">
-              <ImageIcon size={32} className="text-muted" />
+        {/* Gallery Section - Renders ONLY when actual images are provided */}
+        {caseStudy.gallery && caseStudy.gallery.length > 0 && (
+          <section className="case-section gallery-section">
+            <h2 className="case-section-title font-mono">
+              <ImageIcon size={18} className="text-blue" /> SYSTEM GALLERY &amp; SCREENSHOTS
+            </h2>
+            <div className="gallery-grid">
+              {caseStudy.gallery.map((img, idx) => (
+                <div key={idx} className="gallery-item font-mono">
+                  <img src={img.src} alt={img.alt} />
+                  {img.caption && <p className="gallery-caption">{img.caption}</p>}
+                </div>
+              ))}
             </div>
-            <h4>Project Screenshots Placeholder</h4>
-            <p className="text-muted font-mono">
-              Place screenshot assets inside <code>public/images/projects/{project.slug}/</code> and reference them in <code>portfolioData.ts</code>.
-            </p>
-          </div>
-        </section>
+          </section>
+        )}
       </div>
     </div>
   );

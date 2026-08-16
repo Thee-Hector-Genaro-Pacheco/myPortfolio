@@ -15,7 +15,7 @@ export const Footer: React.FC = () => {
             <span className="footer-name">{personalInfo.name}</span>
           </div>
           <p className="footer-tagline">
-            Software Engineer • Full-Stack • AI • IoT • Embedded Systems
+            Software Engineer • Full-Stack • Cloud • AI • IoT • Embedded Systems
           </p>
         </div>
 

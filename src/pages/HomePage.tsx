@@ -13,6 +13,8 @@ export const HomePage: React.FC = () => {
   const location = useLocation();
 
   useEffect(() => {
+    document.title = 'Hector Pacheco | Software Engineer • Full-Stack, Cloud, AI & IoT';
+    
     // Handle cross-route scroll to section if state was passed
     if (location.state && (location.state as any).scrollTo) {
       const targetId = (location.state as any).scrollTo;

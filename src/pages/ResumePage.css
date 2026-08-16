@@ -8,39 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 2rem;
-}
-
-.resume-config-banner {
-  background: var(--bg-card);
-  border: 1px solid var(--border-medium);
-  border-left: 4px solid var(--accent-blue);
-  border-radius: var(--radius-lg);
-  padding: 1.25rem 1.5rem;
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
   margin-bottom: 2.5rem;
-}
-
-.banner-text h4 {
-  font-size: 0.82rem;
-  color: var(--accent-blue);
-  letter-spacing: 0.05em;
-  margin-bottom: 0.25rem;
-}
-
-.banner-text p {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  line-height: 1.5;
-}
-
-.banner-text code {
-  color: var(--text-bright);
-  background: var(--bg-surface);
-  padding: 0.15rem 0.4rem;
-  border-radius: 4px;
 }
 
 /* Document Styling */

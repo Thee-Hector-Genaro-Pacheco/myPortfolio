@@ -6,11 +6,9 @@ import './ProjectCard.css';
 
 interface ProjectCardProps {
   project: Project;
-  onOpenGithubModal?: (projectName: string) => void;
 }
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onOpenGithubModal }) => {
-  // Select icon based on slug
+export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   const renderIcon = () => {
     switch (project.slug) {
       case 'caltrack':
@@ -26,13 +24,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onOpenGithubM
     }
   };
 
-  const handleGithubClick = (e: React.MouseEvent) => {
-    if (!project.githubUrl) {
-      e.preventDefault();
-      if (onOpenGithubModal) {
-        onOpenGithubModal(project.title);
-      }
-    }
+  const getStatusClass = (status: string) => {
+    if (status.includes('Live') || status.includes('Client')) return 'live';
+    if (status.includes('Active')) return 'active';
+    return 'embedded';
   };
 
   return (
@@ -48,7 +43,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onOpenGithubM
       {/* Top Banner / Identity Bar */}
       <div className="card-top-bar">
         <span className="project-category">{project.category}</span>
-        <span className={`project-status-badge ${project.status.includes('Live') ? 'live' : ''}`}>
+        <span className={`project-status-badge ${getStatusClass(project.status)}`}>
           {project.status}
         </span>
       </div>
@@ -67,7 +62,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onOpenGithubM
 
         <p className="project-description">{project.shortDescription}</p>
 
-        {/* Tech Badges */}
+        {/* Tech Badges (Max 6-7) */}
         <div className="project-tech-stack">
           {project.technologies.slice(0, 6).map((tech, idx) => (
             <span key={idx} className="tech-badge">
@@ -88,7 +83,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onOpenGithubM
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-primary btn-sm live-app-btn"
-            aria-label={`Open ${project.title} live application`}
+            aria-label={`Open ${project.title} live link`}
           >
             <span>{project.liveUrlLabel || 'View Live App'}</span>
             <ExternalLink size={14} />
@@ -100,7 +95,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onOpenGithubM
           <ArrowRight size={14} />
         </Link>
 
-        {project.githubUrl ? (
+        {project.githubUrl && (
           <a
             href={project.githubUrl}
             target="_blank"
@@ -111,15 +106,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onOpenGithubM
             <Github size={14} />
             <span>GitHub</span>
           </a>
-        ) : (
-          <button
-            onClick={handleGithubClick}
-            className="btn btn-outline btn-sm github-card-btn placeholder"
-            title="Repository status"
-          >
-            <Github size={14} />
-            <span>Repo</span>
-          </button>
         )}
       </div>
     </div>

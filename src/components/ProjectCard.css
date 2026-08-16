@@ -58,9 +58,21 @@
 }
 
 .project-status-badge.live {
-  background: rgba(6, 182, 212, 0.12);
-  border-color: rgba(6, 182, 212, 0.35);
-  color: var(--accent-cyan);
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.35);
+  color: var(--accent-emerald);
+}
+
+.project-status-badge.active {
+  background: rgba(56, 189, 248, 0.12);
+  border-color: rgba(56, 189, 248, 0.35);
+  color: var(--accent-blue);
+}
+
+.project-status-badge.embedded {
+  background: rgba(249, 115, 22, 0.12);
+  border-color: rgba(249, 115, 22, 0.35);
+  color: var(--accent-orange);
 }
 
 .card-body {
@@ -158,12 +170,4 @@
   background: var(--card-accent-bg);
   border-color: var(--card-accent-border);
   color: var(--card-accent);
-}
-
-.github-card-btn.placeholder {
-  opacity: 0.7;
-}
-
-.github-card-btn.placeholder:hover {
-  opacity: 1;
 }

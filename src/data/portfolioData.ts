@@ -1,3 +1,16 @@
+export interface ProjectGalleryImage {
+  src: string;
+  alt: string;
+  caption?: string;
+}
+
+export interface RoadmapPhase {
+  phase: string;
+  title: string;
+  description: string;
+  status: 'Planned' | 'In Progress' | 'Upcoming';
+}
+
 export interface Project {
   id: string;
   slug: string;
@@ -10,9 +23,9 @@ export interface Project {
   accentBorder: string;
   shortDescription: string;
   technologies: string[];
-  githubUrl?: string; // Optional/Placeholder
-  liveUrl?: string; // Production live URL
-  liveUrlLabel?: string; // e.g. "Live App" or "Live Demo"
+  githubUrl?: string; // Optional public repository
+  liveUrl?: string; // Optional live production application/site
+  liveUrlLabel?: string; // e.g. "Live App" or "Project Site"
   featured: boolean;
   status: 'Production Live' | 'Active Development' | 'Prototype' | 'Embedded Build' | 'Production Client Work';
   caseStudy: CaseStudy;
@@ -34,7 +47,14 @@ export interface CaseStudy {
       secretsAndSecurity: string;
       networking: string;
     };
+    layeredStack?: {
+      hardware: string;
+      edgeAgent: string;
+      apiServices: string;
+      webUI: string;
+    };
   };
+  roadmapPhases?: RoadmapPhase[];
   mobileRoadmap?: {
     title: string;
     status: string;
@@ -46,6 +66,7 @@ export interface CaseStudy {
   engineeringChallenges: string[];
   whatIBuilt: string[];
   whatILearned: string[];
+  gallery?: ProjectGalleryImage[];
   metricsOrNotes?: string;
 }
 
@@ -104,14 +125,14 @@ export interface PersonalInfo {
   email: string;
   github: string;
   linkedin: string;
-  resumePath: string; // Documented path where resume PDF should be placed
-  resumeConfigured: boolean;
+  resumePath: string; // Path to resume PDF when configured
+  resumeConfigured: boolean; // Set to true when public/resume.pdf is placed
   aboutText: string;
   corePrinciples: { title: string; desc: string }[];
   education: {
     degree: string;
     field: string;
-    institution: string;
+    institution?: string;
     status: string;
     highlights: string[];
   }[];
@@ -128,9 +149,9 @@ export const personalInfo: PersonalInfo = {
   linkedin: 'https://linkedin.com/in/hector-pacheco',
   resumePath: '/resume.pdf',
   resumeConfigured: false,
-  aboutText: `I am a Software Engineer with a distinct engineering background spanning industrial instrumentation and controls, electrical systems, full-stack software development, cloud infrastructure, AI platforms, and IoT edge computing. 
+  aboutText: `I am a Software Engineer with a distinct background spanning industrial instrumentation and controls, electrical systems, full-stack software development, cloud infrastructure, AI platforms, and IoT edge computing. 
 
-Having worked directly with PLC-connected devices, 4–20 mA loop instrumentation, calibration protocols, and industrial troubleshooting in field environments, I bring a physical-world systems mindset to modern software engineering. I engineer deterministic, auditable, and resilient software applications—ranging from AWS-backed industrial SaaS platforms and AI-assisted data pipelines to edge vision telemetry on Raspberry Pi.`,
+Having worked directly with PLC-connected devices, 4–20 mA loop instrumentation, calibration protocols, and field troubleshooting, I bring a physical-world systems mindset to modern software engineering. I engineer auditable, resilient software applications—ranging from AWS-backed industrial SaaS platforms and AI-assisted data pipelines to edge vision telemetry on Raspberry Pi.`,
   corePrinciples: [
     {
       title: 'Physical & Digital Integration',
@@ -147,9 +168,8 @@ Having worked directly with PLC-connected devices, 4–20 mA loop instrumentatio
   ],
   education: [
     {
-      degree: 'Software Engineering Studies',
+      degree: 'Software Engineering Coursework',
       field: 'Computer Science & Software Engineering',
-      institution: 'Higher Education Program',
       status: 'In Progress',
       highlights: [
         'Focusing on Data Structures, Algorithms, Cloud Architecture, Distributed Systems, Software Design Patterns, and Operating Systems',
@@ -157,9 +177,8 @@ Having worked directly with PLC-connected devices, 4–20 mA loop instrumentatio
       ]
     },
     {
-      degree: 'Instrumentation & Industrial Electrical Controls Training',
+      degree: 'Instrumentation & Process Controls Training',
       field: 'Industrial Automation & Process Controls',
-      institution: 'Technical Vocational / Field Certifications',
       status: 'Completed Field Training',
       highlights: [
         'Comprehensive training in 4–20 mA current loops, PLC ladder logic, process transmitter calibration, and electrical safety standards'
@@ -179,9 +198,9 @@ export const featuredProjects: Project[] = [
     accentGradient: 'linear-gradient(135deg, rgba(6, 182, 212, 0.15) 0%, rgba(56, 189, 248, 0.05) 100%)',
     accentBg: 'rgba(6, 182, 212, 0.1)',
     accentBorder: 'rgba(6, 182, 212, 0.3)',
-    shortDescription: 'A full-stack industrial calibration platform deployed to AWS ECS Fargate and Vercel. Engineered to manage process plant instruments, 4–20 mA loop tolerances, NIST calibration histories, and compliance reporting.',
-    technologies: ['React', 'TypeScript', 'Node.js', 'Express', 'AWS ECS Fargate', 'Amazon RDS PostgreSQL', 'Amazon ECR', 'AWS Secrets Manager', 'Docker', 'Vercel'],
-    githubUrl: undefined,
+    shortDescription: 'A full-stack industrial calibration platform deployed to AWS ECS Fargate and Vercel. Engineered to manage process plant instrument tags, 4–20 mA loop tolerances, NIST traceability, and compliance records.',
+    technologies: ['React', 'TypeScript', 'Node.js', 'Express', 'AWS ECS Fargate', 'Amazon RDS', 'Docker'],
+    githubUrl: 'https://github.com/Thee-Hector-Genaro-Pacheco/caltrack',
     liveUrl: 'https://caltrack-web-six.vercel.app/login',
     liveUrlLabel: 'Live App',
     featured: true,
@@ -196,10 +215,10 @@ export const featuredProjects: Project[] = [
         components: [
           'Frontend Layer: React & TypeScript SPA deployed on Vercel Edge Network',
           'API Microservices: Node.js & Express application containerized via Docker and deployed on AWS ECS Fargate',
-          'Container Registry: Amazon ECR for secure container image storage and automated deployment tagging',
-          'Managed Relational DB: Amazon RDS PostgreSQL configured with isolated subnets and connection pooling',
-          'Security & Secrets: AWS Secrets Manager & AWS KMS for secure database credentials and application keys',
-          'Networking: AWS VPC with isolated container subnets and security group boundary rules'
+          'Container Registry: Amazon ECR for secure container image storage and deployment tagging',
+          'Managed Relational DB: Amazon RDS PostgreSQL configured with isolated subnets and Prisma ORM',
+          'Security & Secrets: AWS Secrets Manager & AWS KMS for runtime credential injection',
+          'Networking: AWS VPC with isolated container subnets and security group rules'
         ],
         cloudStack: {
           frontend: 'React / TypeScript on Vercel Edge',
@@ -210,25 +229,45 @@ export const featuredProjects: Project[] = [
           networking: 'AWS VPC (Virtual Private Cloud)'
         }
       },
+      roadmapPhases: [
+        {
+          phase: 'v0.7',
+          title: 'Work Orders & Scheduling',
+          description: 'Work order management, technician assignment, calibration calendar, and automated notifications.',
+          status: 'Planned'
+        },
+        {
+          phase: 'v0.8',
+          title: 'Advanced Calculation Math Engine',
+          description: 'Interactive 5-point calibration calculation math engine, automated MPE tolerance validation, and reference-standard checks.',
+          status: 'Planned'
+        },
+        {
+          phase: 'v0.9',
+          title: 'Certificates & Cryptography',
+          description: 'Exportable PDF calibration certificates, cryptographic digital signatures, and formal QA approval workflow.',
+          status: 'Planned'
+        }
+      ],
       mobileRoadmap: {
-        title: 'Mobile & Field Engineering Roadmap',
-        status: 'In Engineering Design / Development Phase',
-        description: 'An offline-first mobile suite engineered for field calibration technicians operating in remote facilities with low or zero cellular connectivity.',
+        title: 'Planned Mobile & Field Engineering Roadmap',
+        status: 'Planned / Future Mobile Roadmap',
+        description: 'An offline-first mobile suite planned for field calibration technicians operating in remote facilities with low or zero cellular connectivity.',
         plannedFeatures: [
           'Offline-First Field Workflows with Progressive Web App (PWA) support',
           'Native Mobile Technician Application optimized for rugged tablets',
           'Local SQLite Database Synchronization for zero-latency offline data entry',
           'Auto-Reconnect Sync Protocol to push queued calibration runs upon network restoration',
-          'Future Bluetooth Low Energy (BLE) integration for direct digital calibrator data capture'
+          'Bluetooth Low Energy (BLE) integration for direct digital calibrator data capture'
         ]
       },
       technologies: ['React', 'TypeScript', 'Node.js', 'Express', 'AWS ECS Fargate', 'Amazon RDS PostgreSQL', 'Amazon ECR', 'AWS Secrets Manager', 'AWS KMS', 'Docker', 'Vercel', 'Prisma ORM'],
       keyFeatures: [
         'Instrument Tag Database (Pressure, Temperature, Level, Flow, Control Valves)',
-        'Automatic 4–20 mA Span & Error Math (% URV / LRV Tolerance Verification)',
+        'User Authentication & Role-Based Access Control (RBAC)',
+        'Historical Calibration Record Management & Audit Trail Preservation',
         'Traceable Reference Standard Mapping & NIST Tracking IDs',
-        'Automated Calibration Due-Date Alerting & Maintenance Dashboard',
-        'Exportable Audit Logs & Equipment Calibration Certificates',
+        'Designed with auditability and traceability patterns inspired by regulated industrial calibration workflows',
         'Live Deployed Production Web Application'
       ],
       engineeringChallenges: [
@@ -239,12 +278,72 @@ export const featuredProjects: Project[] = [
       whatIBuilt: [
         'Architected and containerized the Node.js backend using Docker and deployed to AWS ECS Fargate with Amazon ECR image hosting.',
         'Configured Amazon RDS PostgreSQL for persistent relational data storage with Prisma ORM data modeling.',
-        'Built precision frontend calculation components in React/TypeScript to provide instant tolerance feedback for field technicians.',
+        'Built frontend instrument registry components in React/TypeScript to manage calibration records and status states.',
         'Deployed the production web application on Vercel at caltrack-web-six.vercel.app/login.'
       ],
       whatILearned: [
-        'Mastered production AWS container orchestration (ECS Fargate), ECR workflows, Secrets Manager integration, and RDS database management.',
-        'Directly translated real-world process instrumentation standards (NIST, ISA-5.1) into scalable cloud SaaS software.'
+        'Gained hands-on experience deploying containerized applications with AWS ECS Fargate, ECR, Secrets Manager, and RDS.',
+        'Applied industrial process instrumentation standards (NIST, ISA-5.1 concepts) to scalable cloud SaaS software design.'
+      ]
+    }
+  },
+  {
+    id: 'fieldtrack-ai',
+    slug: 'fieldtrack-ai',
+    title: 'FieldTrack AI',
+    subtitle: 'Edge AI & Sensor Telemetry Platform',
+    category: 'IoT / Edge AI / Embedded',
+    accentColor: '#10B981',
+    accentGradient: 'linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(52, 211, 153, 0.05) 100%)',
+    accentBg: 'rgba(16, 185, 129, 0.1)',
+    accentBorder: 'rgba(16, 185, 129, 0.3)',
+    shortDescription: 'A Raspberry Pi edge-computing platform combining Python hardware daemons, OpenCV computer vision, GPS tracking, PIR motion sensing, and a Node/React telemetry dashboard.',
+    technologies: ['Raspberry Pi 5', 'Python', 'FastAPI', 'Node.js', 'TypeScript', 'React', 'OpenCV'],
+    githubUrl: 'https://github.com/Thee-Hector-Genaro-Pacheco/fieldtrack-ai',
+    liveUrl: undefined,
+    featured: true,
+    status: 'Active Development',
+    caseStudy: {
+      overview: 'FieldTrack AI bridges physical edge sensing with modern web browser interfaces. Running locally on a Raspberry Pi 5, it collects multi-sensor telemetry, runs lightweight computer vision inference, and streams real-time status data to a remote or local web dashboard.',
+      problem: 'Remote physical monitoring systems often depend heavily on continuous cloud availability and high-bandwidth video streaming, leading to bandwidth bottlenecks, high latency, and vulnerability during network drops.',
+      solution: 'FieldTrack AI performs edge processing directly on device hardware (Raspberry Pi 5). Sensor events, GPS coordinate streams, PIR motion detection, and computer vision detections are processed on-device and pushed as lightweight WebSocket telemetry frames to a low-latency dashboard.',
+      architecture: {
+        title: 'Layered Edge-to-Web Telemetry Architecture',
+        description: 'Multi-layer system separating physical sensor hardware daemons, Python/FastAPI hardware services, Node/TypeScript API servers, and React monitoring dashboards.',
+        components: [
+          'Physical Hardware Layer: Raspberry Pi 5, Camera Module, GPS Unit, PIR Motion Sensor, 16x2 LCD, RGB Indicators',
+          'Edge Hardware Agent (Python / FastAPI): Camera capture, GPS NMEA serial stream, PIR GPIO interrupts, LCD display, RGB status pins',
+          'API & Vision Layer (Node.js / TypeScript / Express): Hand gesture & computer vision detection service, WebSocket telemetry server, network status monitoring',
+          'Web Command Interface (React / TypeScript): Real-time map rendering, camera preview, diagnostic gauges, and motion alert logging'
+        ],
+        layeredStack: {
+          hardware: 'Raspberry Pi 5, Camera Module, GPS Unit, PIR Motion Sensor, 16x2 LCD',
+          edgeAgent: 'Python / FastAPI Hardware Daemon (GPS Serial NMEA, GPIO Interrupts)',
+          apiServices: 'Node.js / TypeScript Express & OpenCV Vision Service',
+          webUI: 'React & TypeScript Telemetry Monitoring Interface'
+        }
+      },
+      technologies: ['Raspberry Pi 5', 'Python', 'FastAPI', 'Node.js', 'TypeScript', 'React', 'OpenCV', 'WebSockets', 'PySerial (NMEA)', 'PIR GPIO'],
+      keyFeatures: [
+        'Real-Time Camera Feed & Computer Vision Detection Service',
+        'Live GPS Tracking with NMEA Sentence Parsing and Map Plotting',
+        'PIR Motion Hardware Interrupt Triggering & Event Logging',
+        'Bidirectional WebSocket Data Streaming Protocol',
+        'System Diagnostics Panel (CPU Temp, RAM Usage, Network Signal, Voltages)'
+      ],
+      engineeringChallenges: [
+        'Managing concurrent hardware threads in Python without blocking the high-frequency sensor telemetry loop.',
+        'Optimizing computer vision frame analysis to run efficiently on low-power ARM architecture without CPU thermal throttling.',
+        'Handling intermittent network connections gracefully with local buffer queues on the Pi.'
+      ],
+      whatIBuilt: [
+        'Wrote Python hardware integration scripts for reading serial NMEA data from the GPS unit and handling PIR GPIO pin interrupts.',
+        'Created a Node.js/TypeScript telemetry gateway server running directly on the Raspberry Pi.',
+        'Built a custom React dashboard component displaying telemetry charts, camera previews, and live location updates.'
+      ],
+      whatILearned: [
+        'Gained hands-on experience in physical hardware interfacing, GPIO pin control, serial NMEA parsing, and WebSocket streaming under low-bandwidth edge conditions.',
+        'Engineered resilient WebSocket communication protocols tailored for intermittent network conditions.'
       ]
     }
   },
@@ -259,8 +358,8 @@ export const featuredProjects: Project[] = [
     accentBg: 'rgba(139, 92, 246, 0.1)',
     accentBorder: 'rgba(139, 92, 246, 0.3)',
     shortDescription: 'A funding-intelligence platform designed to discover, normalize, evaluate, and manage grant opportunities while maintaining source provenance, audit history, and human approval controls.',
-    technologies: ['React', 'TypeScript', 'Node.js', 'Express', 'PostgreSQL', 'Prisma', 'Docker', 'REST APIs'],
-    githubUrl: undefined,
+    technologies: ['React', 'TypeScript', 'Node.js', 'Express', 'PostgreSQL', 'Prisma', 'Docker'],
+    githubUrl: undefined, // Private repository - button omitted
     liveUrl: undefined,
     featured: true,
     status: 'Active Development',
@@ -303,60 +402,6 @@ export const featuredProjects: Project[] = [
     }
   },
   {
-    id: 'fieldtrack-ai',
-    slug: 'fieldtrack-ai',
-    title: 'FieldTrack AI',
-    subtitle: 'Edge AI & Telemetry IoT Platform',
-    category: 'IoT / Edge AI / Embedded',
-    accentColor: '#10B981',
-    accentGradient: 'linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(52, 211, 153, 0.05) 100%)',
-    accentBg: 'rgba(16, 185, 129, 0.1)',
-    accentBorder: 'rgba(16, 185, 129, 0.3)',
-    shortDescription: 'A Raspberry Pi edge-computing platform combining real-time computer vision, GPS tracking, motion sensing, system telemetry, networking, and a browser-based monitoring dashboard.',
-    technologies: ['Raspberry Pi 5', 'Python', 'Node.js', 'TypeScript', 'React', 'Computer Vision', 'WebSockets', 'GPS / Sensors'],
-    githubUrl: undefined,
-    liveUrl: undefined,
-    featured: true,
-    status: 'Active Development',
-    caseStudy: {
-      overview: 'FieldTrack AI bridges physical edge sensing with modern web browser interfaces. Running locally on a Raspberry Pi 5, it collects multi-sensor telemetry, runs lightweight computer vision inference, and streams real-time status data to a remote or local web dashboard.',
-      problem: 'Remote physical monitoring systems often depend heavily on continuous cloud availability and high-bandwidth video streaming, leading to bandwidth bottlenecks, high latency, and vulnerability during network drops.',
-      solution: 'FieldTrack AI performs edge processing directly on device hardware (Raspberry Pi 5). Sensor events, GPS coordinate streams, PIR motion detection, and computer vision detections are processed on-device and pushed as lightweight WebSocket telemetry frames to a low-latency dashboard.',
-      architecture: {
-        title: 'Edge-to-Web Telemetry Architecture',
-        description: 'On-device hardware integration communicating via WebSockets with a web-based command node.',
-        components: [
-          'Edge Sensing Layer: Raspberry Pi 5, Camera Module, GPS Module, PIR Motion Sensors',
-          'Edge Daemon (Python): OpenCV vision detection pipeline & hardware interrupt handling',
-          'Telemetry Server (Node.js/TS): WebSocket server broadcasting state updates and metrics',
-          'Web Command Interface (React): Low-latency real-time map, telemetry gauge, and alert visualizer'
-        ]
-      },
-      technologies: ['Raspberry Pi 5', 'Python (OpenCV, PySerial, GPIO)', 'Node.js', 'TypeScript', 'React', 'WebSockets', 'GPS NMEA Stream', 'PIR Motion Hardware'],
-      keyFeatures: [
-        'Real-Time Camera Feed & Edge Computer Vision Detection Overlay',
-        'Live GPS Tracking with NMEA Sentence Parsing and Dynamic Map Plotting',
-        'PIR Motion Hardware Interrupt Triggering & Event Logging',
-        'Low-Latency Bidirectional WebSocket Data Stream',
-        'System Diagnostics Gauge Panel (CPU Temp, RAM Usage, Network Signal, Voltages)'
-      ],
-      engineeringChallenges: [
-        'Managing concurrent hardware threads in Python without blocking the high-frequency sensor telemetry loop.',
-        'Optimizing computer vision frame analysis to run efficiently on low-power ARM architecture without CPU thermal throttling.',
-        'Handling intermittent network connections gracefully with local buffer queues on the Pi.'
-      ],
-      whatIBuilt: [
-        'Wrote Python hardware integration scripts for reading serial NMEA data from the GPS unit and handling PIR GPIO pin interrupts.',
-        'Created a Node.js/TypeScript telemetry gateway server running directly on the Raspberry Pi.',
-        'Built a custom React dashboard component displaying telemetry charts, camera previews, and live location updates.'
-      ],
-      whatILearned: [
-        'Mastered physical hardware interfacing, GPIO event loops, serial protocol communication, and ARM Linux optimization.',
-        'Engineered resilient WebSocket communication protocols tailored for intermittent network conditions.'
-      ]
-    }
-  },
-  {
     id: 'pi-arcade-os',
     slug: 'pi-arcade-os',
     title: 'Pi Arcade OS',
@@ -366,42 +411,52 @@ export const featuredProjects: Project[] = [
     accentGradient: 'linear-gradient(135deg, rgba(249, 115, 22, 0.15) 0%, rgba(251, 146, 60, 0.05) 100%)',
     accentBg: 'rgba(249, 115, 22, 0.1)',
     accentBorder: 'rgba(249, 115, 22, 0.3)',
-    shortDescription: 'A Raspberry Pi-based embedded gaming platform demonstrating physical controller integration, GPIO input mapping, custom Linux system configuration, application logic, and hardware/software interaction.',
-    technologies: ['Raspberry Pi', 'Linux', 'GPIO', 'Physical Controls', 'Hardware Integration', 'Python / C++'],
-    githubUrl: undefined,
-    liveUrl: undefined,
+    shortDescription: 'A Raspberry Pi embedded gaming system built in Python and Pygame featuring GPIO arcade controls, I2C LCD display, passive buzzer audio, Snake, Pong, Tetris, and an achievement engine.',
+    technologies: ['Raspberry Pi', 'Python', 'Pygame', 'GPIO Wiring', 'I2C LCD', 'Linux OS'],
+    githubUrl: 'https://github.com/Thee-Hector-Genaro-Pacheco/pi-arcade-os',
+    liveUrl: 'https://thee-hector-genaro-pacheco.github.io/pi-arcade-os/',
+    liveUrlLabel: 'Project Site',
     featured: true,
     status: 'Embedded Build',
     caseStudy: {
-      overview: 'Pi Arcade OS is a custom hardware and software embedded project. It combines physical arcade controls (joysticks, microswitch buttons, coin acceptors) with a tailored Linux operating environment running on Raspberry Pi hardware.',
-      problem: 'Off-the-shelf gaming setups lack low-level physical control customization and often introduce input latency when translating physical switch closures through generic USB wrappers.',
-      solution: 'Pi Arcade OS connects physical microswitches directly to Raspberry Pi GPIO headers, utilizing kernel-level GPIO polling and custom daemon scripts for direct input mapping, resulting in near-zero input latency and direct hardware feedback.',
+      overview: 'Pi Arcade OS is a custom hardware and software embedded arcade platform. Built in Python and Pygame on Raspberry Pi hardware, it integrates microswitch arcade joysticks and buttons via direct GPIO wiring, a 16x2 I2C LCD stats display, passive buzzer audio effects, and custom game engines.',
+      problem: 'Generic arcade setups often rely on heavy emulator suites that lack hardware-level peripheral integration, custom game engines, or direct physical status display integration.',
+      solution: 'Pi Arcade OS connects physical microswitches directly to Raspberry Pi GPIO headers, utilizing software debouncing logic and event loops to power custom Python games (Snake, Pong, Tetris) with real-time I2C LCD status reporting.',
       architecture: {
-        title: 'Hardware Switch to OS Input Stack',
-        description: 'Physical switch closure translated through GPIO interrupts directly to Linux system input events.',
+        title: 'Hardware & Game Architecture Stack',
+        description: 'Direct GPIO switch closure and I2C peripherals integrated with Python Pygame execution loops.',
         components: [
-          'Physical Hardware Layer: Microswitch joysticks, pushbuttons, coin mechanism, wiring harness',
-          'GPIO Interfacing: Direct pin wire termination with pull-up/pull-down resistor logic',
-          'System Input Daemon: Low-level driver mapping pin state changes to Linux kernel virtual key events',
-          'User Interface Layer: Lightweight frontend shell launcher optimized for low memory usage'
+          'Physical Arcade Interface: Microswitch joysticks, pushbuttons, wiring harness connected to Raspberry Pi GPIO headers',
+          'I2C Peripheral Integration: 16x2 LCD display for live game statistics, player scores, and notifications',
+          'Game Engine Core: Python & Pygame modular architecture supporting Snake, Pong, and Tetris',
+          'Achievement & Persistence System: JSON-backed save states, high score tracking, and achievement notifications'
         ]
       },
-      technologies: ['Raspberry Pi', 'Linux (Debian / Custom Systemd Services)', 'GPIO Hardware Wiring', 'Physical Arcade Controls', 'Python / C++', 'Shell Scripting'],
+      roadmapPhases: [
+        {
+          phase: 'Sprint 7',
+          title: 'Systemd Kiosk Autostart',
+          description: 'Configuring custom Linux systemd services for instant headless autostart upon Pi power-on.',
+          status: 'Planned'
+        }
+      ],
+      technologies: ['Raspberry Pi', 'Python', 'Pygame', 'GPIO Hardware Wiring', '16x2 I2C LCD Display', 'Passive Buzzer Audio', 'Linux OS'],
       keyFeatures: [
-        'Direct GPIO Microswitch Wiring & Pull-Up Resistor Configuration',
-        'Low-Latency Hardware Interrupt Driver for Switch State Changes',
-        'Custom Systemd Linux Service for Autostart & Headless Boot Management',
-        'Physical Coin Acceptor Pulse Decoding & Credit Management',
-        'Thermal Management & Custom Enclosure Integration'
+        'Custom Python Game Engine Suite (Snake, Pong, Tetris)',
+        'Direct GPIO Arcade Microswitch Interfacing with Software Debouncing Logic',
+        '16x2 I2C LCD Display Integration for Score & System Telemetry Output',
+        'Passive Buzzer Audio Sound Effect Generation',
+        'JSON Achievement & Save-State Persistence System',
+        'Modular Game Registry Architecture for adding new titles'
       ],
       engineeringChallenges: [
-        'Mitigating mechanical switch contact chatter (debouncing) both in physical hardware RC circuits and software timing logic.',
-        'Configuring custom Linux systemd daemons for instant headless booting without unnecessary desktop manager overhead.'
+        'Mitigating mechanical switch contact chatter (debouncing) in software timing loops.',
+        'Managing concurrent display updates to the 16x2 I2C LCD without causing frame drops in Pygame game loops.'
       ],
       whatIBuilt: [
-        'Designed and wired the complete physical electrical harness connecting arcade controls to the Raspberry Pi GPIO expansion headers.',
-        'Wrote custom software input daemons to debouncing signals and map switch states directly to system inputs.',
-        'Configured the custom Linux shell boot environment for smooth, reliable system startup.'
+        'Wired physical arcade joysticks and buttons to Raspberry Pi GPIO expansion headers.',
+        'Wrote custom Python game engines for Snake, Pong, and Tetris utilizing Pygame surface rendering.',
+        'Integrated I2C LCD library calls to display live player statistics and achievement notifications.'
       ],
       whatILearned: [
         'Solidified low-level hardware/software integration skills, mechanical switch debouncing techniques, and Linux system administration.'
@@ -485,6 +540,7 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       { name: 'Node.js', featured: true, tag: 'Runtime' },
       { name: 'Express.js', featured: true, tag: 'REST Framework' },
+      { name: 'FastAPI', featured: true, tag: 'Python APIs' },
       { name: 'REST APIs', featured: true, tag: 'API Design' },
       { name: 'WebSockets', featured: true, tag: 'Real-Time Telemetry' },
       { name: 'Zod Validation', featured: true, tag: 'Schema Safety' }
@@ -539,9 +595,9 @@ export const experienceItems: ExperienceItem[] = [
   {
     id: 'exp-1',
     title: 'Instrumentation & Controls Technician',
-    companyOrContext: 'Industrial Controls & Process Systems',
+    companyOrContext: 'Process Control & Industrial Automation Systems',
     location: 'Southern California',
-    period: 'Professional Engineering Experience',
+    period: 'Field Engineering Experience',
     type: 'Industrial Engineering',
     summary: 'Hands-on field engineering role focused on industrial instrumentation, process controls, PLC-connected devices, calibration, commissioning, and physical system troubleshooting.',
     highlights: [
@@ -569,7 +625,7 @@ export const clientWorkItems: ClientWorkItem[] = [
       'Administrative portal for client media showcases and customer inquiry management',
       'Deployed live on Vercel with custom domain configuration & SSL security'
     ],
-    technologies: ['Next.js', 'TypeScript', 'Supabase PostgreSQL', 'Zod Validation', 'Auth', 'Lead Intake', 'SEO', 'Vercel'],
+    technologies: ['Next.js', 'TypeScript', 'Supabase PostgreSQL', 'Zod Validation', 'Vercel'],
     status: 'Live / Deployed Production',
     liveUrl: 'https://www.ocwaterfeaturesinc.com/'
   },

@@ -4,13 +4,13 @@ import { personalInfo, experienceItems, skillCategories } from '../data/portfoli
 import { 
   Download, 
   ArrowLeft, 
-  CheckCircle2, 
-  Info 
+  CheckCircle2 
 } from 'lucide-react';
 import './ResumePage.css';
 
 export const ResumePage: React.FC = () => {
   useEffect(() => {
+    document.title = 'Resume | Hector Pacheco';
     window.scrollTo(0, 0);
   }, []);
 
@@ -24,30 +24,19 @@ export const ResumePage: React.FC = () => {
             <span>Back to Portfolio</span>
           </Link>
 
-          <div className="resume-actions">
-            <a
-              href={personalInfo.resumePath}
-              download="Hector_Pacheco_Resume.pdf"
-              className="btn btn-primary btn-sm"
-              title="Download Resume PDF"
-            >
-              <Download size={16} />
-              <span>Download PDF</span>
-            </a>
-          </div>
-        </div>
-
-        {/* PDF Placeholder Configuration Banner */}
-        <div className="resume-config-banner">
-          <div className="banner-icon">
-            <Info size={20} className="text-blue" />
-          </div>
-          <div className="banner-text">
-            <h4 className="font-mono">RESUME FILE SETUP INSTRUCTIONS</h4>
-            <p>
-              To enable direct PDF download, place your compiled resume file at <code>public/resume.pdf</code> inside the project root. The button above and link targets will automatically serve the document.
-            </p>
-          </div>
+          {personalInfo.resumeConfigured && (
+            <div className="resume-actions">
+              <a
+                href={personalInfo.resumePath}
+                download="Hector_Pacheco_Resume.pdf"
+                className="btn btn-primary btn-sm"
+                title="Download Resume PDF"
+              >
+                <Download size={16} />
+                <span>Download PDF</span>
+              </a>
+            </div>
+          )}
         </div>
 
         {/* Structured Resume Document Preview */}
@@ -75,7 +64,7 @@ export const ResumePage: React.FC = () => {
 
           {/* Experience */}
           <section className="doc-section">
-            <h2 className="doc-section-title font-mono">TECHNICAL & FIELD EXPERIENCE</h2>
+            <h2 className="doc-section-title font-mono">TECHNICAL &amp; FIELD EXPERIENCE</h2>
             {experienceItems.map((item) => (
               <div key={item.id} className="doc-experience-item">
                 <div className="doc-exp-top">
@@ -114,14 +103,14 @@ export const ResumePage: React.FC = () => {
 
           {/* Education */}
           <section className="doc-section">
-            <h2 className="doc-section-title font-mono">EDUCATION & TRAINING</h2>
+            <h2 className="doc-section-title font-mono">EDUCATION &amp; TRAINING</h2>
             {personalInfo.education.map((edu, idx) => (
               <div key={idx} className="doc-edu-item">
                 <div className="doc-edu-top">
                   <strong>{edu.degree}</strong> ({edu.field})
                   <span className="font-mono text-muted">{edu.status}</span>
                 </div>
-                <span className="doc-edu-inst text-muted">{edu.institution}</span>
+                {edu.institution && <span className="doc-edu-inst text-muted">{edu.institution}</span>}
               </div>
             ))}
           </section>

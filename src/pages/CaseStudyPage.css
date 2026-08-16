@@ -39,6 +39,7 @@
 .case-status-badge {
   font-family: var(--font-mono);
   font-size: 0.75rem;
+  font-weight: 600;
   padding: 0.2rem 0.6rem;
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
@@ -47,9 +48,21 @@
 }
 
 .case-status-badge.live {
-  background: rgba(6, 182, 212, 0.12);
-  border-color: rgba(6, 182, 212, 0.3);
-  color: var(--accent-cyan);
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.3);
+  color: var(--accent-emerald);
+}
+
+.case-status-badge.active {
+  background: rgba(56, 189, 248, 0.12);
+  border-color: rgba(56, 189, 248, 0.3);
+  color: var(--accent-blue);
+}
+
+.case-status-badge.embedded {
+  background: rgba(249, 115, 22, 0.12);
+  border-color: rgba(249, 115, 22, 0.3);
+  color: var(--accent-orange);
 }
 
 .case-title {
@@ -69,15 +82,6 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 1rem;
-}
-
-.repo-note-tag {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  background: var(--bg-surface);
-  padding: 0.4rem 0.8rem;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border-subtle);
 }
 
 .case-section {
@@ -304,6 +308,61 @@
   font-weight: 500;
 }
 
+/* Engineering Roadmap Phases */
+.roadmap-phases-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .roadmap-phases-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.roadmap-phase-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.phase-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.phase-tag {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+}
+
+.phase-status {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  background: var(--bg-surface);
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  border: 1px solid var(--border-subtle);
+}
+
+.phase-title {
+  font-size: 1.05rem;
+  color: var(--text-bright);
+}
+
+.phase-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
 /* Mobile & Field Engineering Roadmap */
 .mobile-roadmap-card {
   background: var(--bg-card);
@@ -363,6 +422,10 @@
   padding: 0.6rem 0.85rem;
   border-radius: var(--radius-sm);
   border: 1px solid var(--border-subtle);
+}
+
+.roadmap-feature-item.planned {
+  color: var(--text-secondary);
 }
 
 .roadmap-feature-item svg {
@@ -480,23 +543,20 @@
   line-height: 1.6;
 }
 
-/* Gallery Placeholder */
-.gallery-placeholder-card {
-  background: var(--bg-card);
-  border: 2px dashed var(--border-medium);
-  border-radius: var(--radius-lg);
-  padding: 3rem 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  gap: 0.75rem;
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
 }
 
-.gallery-placeholder-card code {
-  color: var(--accent-blue);
-  background: var(--bg-surface);
-  padding: 0.2rem 0.5rem;
-  border-radius: 4px;
+.gallery-item img {
+  width: 100%;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-medium);
+}
+
+.gallery-caption {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
 }

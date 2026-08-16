@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { 
   ArrowDown, 
   Github, 
@@ -8,21 +8,15 @@ import {
   Activity, 
   Radio, 
   ShieldCheck, 
-  Cloud 
+  Cloud,
+  Terminal,
+  Database
 } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 import './Hero.css';
 
 export const Hero: React.FC = () => {
-  const [telemetryCount, setTelemetryCount] = useState(1048);
-  const [activeTab, setActiveTab] = useState<'architecture' | 'telemetry'>('architecture');
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTelemetryCount((prev) => prev + Math.floor(Math.random() * 3) + 1);
-    }, 2500);
-    return () => clearInterval(timer);
-  }, []);
+  const [activeTab, setActiveTab] = useState<'architecture' | 'systems'>('architecture');
 
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
@@ -38,7 +32,7 @@ export const Hero: React.FC = () => {
         <div className="hero-content">
           <div className="hero-status-pill">
             <span className="status-dot"></span>
-            <span className="font-mono">Available for Software & Cloud Engineering Roles</span>
+            <span className="font-mono">Available for Software &amp; Cloud Engineering Roles</span>
           </div>
 
           <h1 className="hero-title">
@@ -47,7 +41,7 @@ export const Hero: React.FC = () => {
           </h1>
 
           <p className="hero-description">
-            I build software across web, cloud infrastructure, AI platforms, IoT edge computing, and industrial technology. Bringing physical-world systems thinking to scalable full-stack software development.
+            I build software across web applications, cloud infrastructure (AWS / Vercel), AI platforms, IoT edge computing, and industrial technology. Bringing a physical-world systems mindset to scalable full-stack development.
           </p>
 
           <div className="hero-key-differentiator">
@@ -56,7 +50,7 @@ export const Hero: React.FC = () => {
             </span>
             <span className="differentiator-divider">•</span>
             <span className="differentiator-tag">
-              <Cloud size={14} /> Cloud & AWS Infrastructure
+              <Cloud size={14} /> Cloud &amp; AWS Infrastructure
             </span>
             <span className="differentiator-divider">•</span>
             <span className="differentiator-tag">
@@ -64,7 +58,7 @@ export const Hero: React.FC = () => {
             </span>
             <span className="differentiator-divider">•</span>
             <span className="differentiator-tag">
-              <Activity size={14} /> IoT & Edge AI
+              <Activity size={14} /> IoT &amp; Edge AI
             </span>
           </div>
 
@@ -95,7 +89,7 @@ export const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Right Column: Engineering Visual Panel */}
+        {/* Right Column: Factual Engineering Overview Panel */}
         <div className="hero-visual">
           <div className="telemetry-card">
             {/* Card Header */}
@@ -113,15 +107,15 @@ export const Hero: React.FC = () => {
                   Architecture Stack
                 </button>
                 <button
-                  className={`tab-btn ${activeTab === 'telemetry' ? 'active' : ''}`}
-                  onClick={() => setActiveTab('telemetry')}
+                  className={`tab-btn ${activeTab === 'systems' ? 'active' : ''}`}
+                  onClick={() => setActiveTab('systems')}
                 >
-                  System Telemetry
+                  Engineering Systems
                 </button>
               </div>
             </div>
 
-            {/* Card Body - Content View */}
+            {/* Card Body */}
             {activeTab === 'architecture' ? (
               <div className="telemetry-card-body">
                 <div className="system-node-row">
@@ -130,7 +124,7 @@ export const Hero: React.FC = () => {
                   </div>
                   <div className="node-info">
                     <span className="node-title">CalTrack Cloud Platform</span>
-                    <span className="node-subtitle">AWS ECS Fargate • RDS PostgreSQL • ECR • Vercel</span>
+                    <span className="node-subtitle">Vercel Edge → AWS ECS Fargate → Amazon RDS</span>
                   </div>
                   <span className="node-badge green">LIVE APP</span>
                 </div>
@@ -145,7 +139,7 @@ export const Hero: React.FC = () => {
                   </div>
                   <div className="node-info">
                     <span className="node-title">Bridge AI Ingestion</span>
-                    <span className="node-subtitle">PostgreSQL • Prisma • Express • Provenance</span>
+                    <span className="node-subtitle">React → Express → Prisma → PostgreSQL</span>
                   </div>
                   <span className="node-badge blue">ACTIVE</span>
                 </div>
@@ -159,32 +153,52 @@ export const Hero: React.FC = () => {
                     <Radio size={16} />
                   </div>
                   <div className="node-info">
-                    <span className="node-title">FieldTrack AI Edge</span>
-                    <span className="node-subtitle">Raspberry Pi 5 • OpenCV • WebSockets • GPS</span>
+                    <span className="node-title">FieldTrack AI Edge Agent</span>
+                    <span className="node-subtitle">RPi 5 → Python/FastAPI → Node/TS → React</span>
                   </div>
-                  <span className="node-badge green">STREAMING</span>
+                  <span className="node-badge green">EDGE SYSTEM</span>
                 </div>
               </div>
             ) : (
-              <div className="telemetry-card-body font-mono">
-                <div className="telemetry-line">
-                  <span className="text-muted">[00:00:01]</span>{' '}
-                  <span className="text-emerald">AWS ECS</span> Container Tasks Healthy (Fargate)
+              <div className="telemetry-card-body">
+                <div className="system-node-row">
+                  <div className="node-icon bg-cyan">
+                    <Cloud size={16} />
+                  </div>
+                  <div className="node-info">
+                    <span className="node-title">CLOUD INFRASTRUCTURE</span>
+                    <span className="node-subtitle">AWS ECS Fargate • Amazon RDS • ECR • Vercel</span>
+                  </div>
                 </div>
-                <div className="telemetry-line">
-                  <span className="text-muted">[00:00:02]</span>{' '}
-                  <span className="text-cyan">STATUS</span> Amazon RDS PostgreSQL Operational
+
+                <div className="system-node-row margin-top-sm">
+                  <div className="node-icon bg-emerald">
+                    <Cpu size={16} />
+                  </div>
+                  <div className="node-info">
+                    <span className="node-title">EDGE &amp; EMBEDDED</span>
+                    <span className="node-subtitle">Raspberry Pi 5 • Python FastAPI • GPIO • Linux</span>
+                  </div>
                 </div>
-                <div className="telemetry-line">
-                  <span className="text-muted">[00:00:03]</span>{' '}
-                  <span className="text-purple">SECRETS</span> AWS Secrets Manager Injected
+
+                <div className="system-node-row margin-top-sm">
+                  <div className="node-icon bg-purple">
+                    <Database size={16} />
+                  </div>
+                  <div className="node-info">
+                    <span className="node-title">FULL-STACK WEB &amp; APIS</span>
+                    <span className="node-subtitle">React • TypeScript • Node.js • Express • PostgreSQL</span>
+                  </div>
                 </div>
-                <div className="telemetry-line">
-                  <span className="text-muted">[LIVE]</span> Telemetry Frames:{' '}
-                  <span className="text-bright">{telemetryCount}</span> | Latency: 4.2ms
-                </div>
-                <div className="telemetry-line">
-                  <span className="text-muted">[STATUS]</span> Zero Dropped Packets | 100% Signal Integrity
+
+                <div className="system-node-row margin-top-sm">
+                  <div className="node-icon bg-orange">
+                    <Terminal size={16} />
+                  </div>
+                  <div className="node-info">
+                    <span className="node-title">INDUSTRIAL CONTROLS</span>
+                    <span className="node-subtitle">PLC I/O • 4–20 mA Loops • Instrument Calibration</span>
+                  </div>
                 </div>
               </div>
             )}
@@ -193,10 +207,10 @@ export const Hero: React.FC = () => {
             <div className="telemetry-card-footer font-mono">
               <div className="footer-status font-mono">
                 <ShieldCheck size={14} className="text-emerald" />
-                <span>FAULT TOLERANT CLOUD ARCHITECTURE</span>
+                <span>MULTI-DOMAIN ENGINEERING SYSTEMS</span>
               </div>
               <div className="footer-metrics font-mono">
-                <span>PKTS: {telemetryCount}</span>
+                <span>FULL-STACK • CLOUD • EDGE</span>
               </div>
             </div>
           </div>
