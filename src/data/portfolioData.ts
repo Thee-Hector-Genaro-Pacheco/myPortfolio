@@ -144,9 +144,9 @@ export const personalInfo: PersonalInfo = {
   subTitle: 'Full-Stack • Cloud Infrastructure • AI • IoT • Embedded Systems',
   tagline: 'Building software across web, cloud infrastructure, AI, IoT, and real-world hardware.',
   location: 'Southern California, USA',
-  email: 'hectorpacheco.engineering@gmail.com',
+  email: 'hector.genaro.pacheco@gmail.com',
   github: 'https://github.com/Thee-Hector-Genaro-Pacheco',
-  linkedin: 'https://linkedin.com/in/hector-pacheco',
+  linkedin: 'https://www.linkedin.com/in/hectorgenaropacheco/',
   resumePath: '/resume.pdf',
   resumeConfigured: false,
   aboutText: `I am a Software Engineer with a distinct background spanning industrial instrumentation and controls, electrical systems, full-stack software development, cloud infrastructure, AI platforms, and IoT edge computing. 

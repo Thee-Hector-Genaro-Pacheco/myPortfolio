@@ -38,11 +38,11 @@ export const ContactSection: React.FC = () => {
         {/* Section Header */}
         <div className="section-header">
           <div className="section-label">
-            <MessageSquare size={14} /> Get In Touch
+            <MessageSquare size={14} /> Contact
           </div>
-          <h2 className="section-title">Let's Build Together</h2>
+          <h2 className="section-title">Get In Touch</h2>
           <p className="section-description">
-            Whether you are looking to collaborate on a full-stack project, an edge AI platform, an embedded systems build, or want to discuss engineering opportunities, reach out directly.
+            I’m open to software engineering opportunities, technical collaborations, and conversations around full-stack development, cloud infrastructure, AI, IoT, and embedded systems.
           </p>
         </div>
 
