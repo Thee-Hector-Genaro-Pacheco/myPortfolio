@@ -198,7 +198,7 @@ export const featuredProjects: Project[] = [
     accentGradient: 'linear-gradient(135deg, rgba(6, 182, 212, 0.15) 0%, rgba(56, 189, 248, 0.05) 100%)',
     accentBg: 'rgba(6, 182, 212, 0.1)',
     accentBorder: 'rgba(6, 182, 212, 0.3)',
-    shortDescription: 'A full-stack industrial calibration platform deployed to AWS ECS Fargate and Vercel. Engineered to manage process plant instrument tags, 4–20 mA loop tolerances, NIST traceability, and compliance records.',
+    shortDescription: 'A full-stack industrial calibration platform deployed to AWS ECS Fargate and Vercel. Engineered to manage process plant instrument tags, calibration records, role-based access control, and persistent audit histories.',
     technologies: ['React', 'TypeScript', 'Node.js', 'Express', 'AWS ECS Fargate', 'Amazon RDS', 'Docker'],
     githubUrl: 'https://github.com/Thee-Hector-Genaro-Pacheco/caltrack',
     liveUrl: 'https://caltrack-web-six.vercel.app/login',
@@ -206,9 +206,9 @@ export const featuredProjects: Project[] = [
     featured: true,
     status: 'Production Live',
     caseStudy: {
-      overview: 'CalTrack applies industrial instrumentation calibration protocols to modern cloud software architecture. Deployed in production with a React/TypeScript frontend on Vercel Edge and a containerized Node.js API on AWS ECS Fargate, it models real-world plant workflows—tracking 4–20 mA pressure, temperature, and flow transmitter zero/span tolerances, calibration schedules, NIST traceability, and compliance records.',
-      problem: 'Industrial facilities frequently rely on disconnected spreadsheets or paper logbooks for recording instrument calibrations. This introduces compliance risks, unmonitored sensor drift in critical 4–20 mA process loops, and missed calibration windows across operating process units.',
-      solution: 'CalTrack provides a secure, cloud-hosted SaaS system for instrument tag indexing, automated multi-point tolerance calculation (0%, 25%, 50%, 75%, 100% span), pass/fail verification, NIST reference mapping, and audit-ready report generation.',
+      overview: 'CalTrack applies industrial instrumentation calibration protocols to modern cloud software architecture. Deployed in production with a React/TypeScript frontend on Vercel Edge and a containerized Node.js API on AWS ECS Fargate, it models real-world plant instrument workflows—managing instrument tags, process parameter metadata, user authentication, role-based access control, and persistent audit histories.',
+      problem: 'Industrial facilities frequently rely on disconnected spreadsheets or paper logbooks for recording instrument calibrations. This introduces compliance risks, untracked asset records, and unmonitored equipment drift across operating process units.',
+      solution: 'CalTrack provides a secure, cloud-hosted SaaS system for instrument tag indexing, calibration record management, user authentication, role-based access control (RBAC), audit history tracking, and persistent PostgreSQL data modeling deployed across AWS ECS Fargate and Vercel.',
       architecture: {
         title: 'Production AWS Cloud & Full-Stack Architecture',
         description: 'Multi-tier cloud deployment separating high-performance Vercel edge frontend delivery from containerized AWS backend microservices and managed relational storage.',
@@ -266,24 +266,24 @@ export const featuredProjects: Project[] = [
         'Instrument Tag Database (Pressure, Temperature, Level, Flow, Control Valves)',
         'User Authentication & Role-Based Access Control (RBAC)',
         'Historical Calibration Record Management & Audit Trail Preservation',
-        'Traceable Reference Standard Mapping & NIST Tracking IDs',
-        'Designed with auditability and traceability patterns inspired by regulated industrial calibration workflows',
+        'Industrial Instrument Specification & Parameter Metadata Management',
+        'Containerized AWS ECS Fargate & Amazon RDS Backend Deployment',
         'Live Deployed Production Web Application'
       ],
       engineeringChallenges: [
         'Deploying a containerized Node.js API to AWS ECS Fargate while ensuring secure runtime secret injection via AWS Secrets Manager.',
         'Structuring relational database tables in PostgreSQL to maintain historic calibration snapshots even when physical instrument parameters are modified.',
-        'Accurately modeling industrial instrumentation math (e.g., converting 4–20 mA signals to engineering units with square-root extraction for differential pressure flow elements).'
+        'Designing clean RESTful API contracts with Prisma ORM for efficient equipment query resolution.'
       ],
       whatIBuilt: [
         'Architected and containerized the Node.js backend using Docker and deployed to AWS ECS Fargate with Amazon ECR image hosting.',
         'Configured Amazon RDS PostgreSQL for persistent relational data storage with Prisma ORM data modeling.',
-        'Built frontend instrument registry components in React/TypeScript to manage calibration records and status states.',
+        'Built frontend instrument registry components in React/TypeScript to manage instrument tags, user roles, and calibration records.',
         'Deployed the production web application on Vercel at caltrack-web-six.vercel.app/login.'
       ],
       whatILearned: [
         'Gained hands-on experience deploying containerized applications with AWS ECS Fargate, ECR, Secrets Manager, and RDS.',
-        'Applied industrial process instrumentation standards (NIST, ISA-5.1 concepts) to scalable cloud SaaS software design.'
+        'Designed full-stack data models for industrial equipment indexing and role-based audit trail preservation.'
       ]
     }
   },
