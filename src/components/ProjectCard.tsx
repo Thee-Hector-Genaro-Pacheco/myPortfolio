@@ -17,7 +17,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         return <FileSpreadsheet size={20} />;
       case 'fieldtrack-ai':
         return <Activity size={20} />;
-      case 'bridge-ai':
+      case 'thriveward-funding-intelligence':
         return <Layers size={20} />;
       case 'pi-arcade-os':
         return <Terminal size={20} />;

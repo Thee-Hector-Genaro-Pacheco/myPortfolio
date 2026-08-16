@@ -438,56 +438,56 @@ export const featuredProjects: Project[] = [
     }
   },
   {
-    id: 'bridge-ai',
-    slug: 'bridge-ai',
-    title: 'Bridge AI',
+    id: 'thriveward-funding-intelligence',
+    slug: 'thriveward-funding-intelligence',
+    title: 'Thriveward Funding Intelligence',
     subtitle: 'AI-Assisted Funding Intelligence Platform',
-    category: 'Full-Stack / AI Platform',
+    category: 'AI · Data Intelligence · Governance',
     accentColor: '#8B5CF6',
     accentGradient: 'linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(167, 139, 250, 0.05) 100%)',
     accentBg: 'rgba(139, 92, 246, 0.1)',
     accentBorder: 'rgba(139, 92, 246, 0.3)',
-    shortDescription: 'A funding-intelligence platform designed to discover, normalize, evaluate, and manage grant opportunities while maintaining source provenance, audit history, and human approval controls.',
-    technologies: ['React', 'TypeScript', 'Node.js', 'Express', 'PostgreSQL', 'Prisma', 'Docker'],
+    shortDescription: 'An AI-assisted funding intelligence platform that collects, normalizes, and evaluates funding opportunities while preserving source provenance, retrieval history, data integrity, role-based access, and human review.',
+    technologies: ['React', 'TypeScript', 'Node.js', 'Express', 'PostgreSQL', 'Prisma ORM', 'Docker', 'Argon2id', 'JWT'],
     githubUrl: undefined, // Private repository - button omitted
     liveUrl: undefined,
     featured: true,
     status: 'Active Development',
     caseStudy: {
-      overview: 'Bridge AI is a specialized funding intelligence platform built to solve the fragmentation, lack of auditability, and manual overhead involved in discovering and evaluating grant funding opportunities for non-profits and institutions.',
-      problem: 'Grant discovery today relies on disconnected databases, non-standardized application schemas, and unstructured document formats. Traditional keyword tools lack data provenance, making it difficult for organizations to verify funding source accuracy or maintain auditable evaluation decisions.',
-      solution: 'Bridge AI introduces an auditable ingestion pipeline that fetches, normalizes, and indexes funding metrics while enforcing strict human-in-the-loop governance. Intelligent evaluators score suitability while keeping raw document lineage intact for full transparency.',
+      overview: 'Thriveward Funding Intelligence is an AI-assisted platform for discovering, structuring, and evaluating funding opportunities. The system emphasizes trustworthy source provenance, persistent opportunity records, governed data workflows, and human decision-making rather than autonomous submission.',
+      problem: 'Funding opportunities are distributed across government portals, foundations, agencies, and other sources with inconsistent formats, deadlines, eligibility criteria, and update cycles. Manual research makes it difficult to preserve source context, identify changes, and maintain a reliable opportunity pipeline.',
+      solution: 'Thriveward Funding Intelligence creates a structured funding-opportunity data layer that can ingest and normalize source information while preserving provenance, retrieval timestamps, authority metadata, and human-owned review fields.',
       architecture: {
-        title: 'Ingestion & Governance Architecture',
-        description: 'Multi-tiered pipeline separating source data ingestion, normalization, evaluation logic, and human approval workflows.',
+        title: 'Ingestion, Provenance & Governance Architecture',
+        description: 'Multi-tier architecture separating external Grants.gov API ingestion, PostgreSQL relational storage, Argon2id authentication, RBAC authorization, and human-controlled outreach review.',
         components: [
-          'Source Ingestion Layer: REST API adapters & document parsers',
-          'Provenance Engine: Hash-verified raw payload archiving in PostgreSQL',
-          'Evaluation Core: AI-assisted relevance scoring with rule-based boundary checks',
-          'Governance Dashboard: Human-in-the-loop review portal with immutable audit logs'
+          'Frontend Layer: React & TypeScript dashboard SPA with real-time status indicators and human approval drawers',
+          'API Gateway & Auth: Node.js & Express API with Argon2id session hashing, HttpOnly cookies, and X-Thriveward-CSRF anti-CSRF protection',
+          'Database Tier: PostgreSQL managed database modeling funding opportunities, citations, readiness plans, and audit logs via Prisma ORM',
+          'Provenance & Integrity Engine: Hash-verified raw payload archiving, payload deduplication, and preservation of human-owned fields during source updates',
+          'Governance & Safeguards: Strict human-in-the-loop controls preventing automated email transmission, submission, or unauthorized state advances'
         ]
       },
-      technologies: ['React', 'TypeScript', 'Node.js', 'Express', 'PostgreSQL', 'Prisma ORM', 'Docker', 'REST APIs', 'Data Provenance Protocols'],
+      technologies: ['React', 'TypeScript', 'Node.js', 'Express', 'PostgreSQL', 'Prisma ORM', 'Docker', 'Argon2id', 'JWT', 'REST APIs'],
       keyFeatures: [
-        'Automated Grant Opportunity Normalization & De-duplication',
-        'Source Provenance Tracking & Immutable Audit History',
-        'Human-in-the-Loop Approval & Governance Workflow',
-        'Custom Scoring Rules based on Institutional Eligibility Criteria',
-        'Containerized Architecture using Docker for seamless local & cloud deployment'
+        'Source Provenance & Authority Metadata Tracking',
+        'Automated Grant Opportunity Normalization & Deduplication',
+        'Human-in-the-Loop Review & Approval Workflows',
+        'Argon2id Password Hashing, Session Cookies & Anti-CSRF Defense',
+        'Role-Based Access Control (RBAC) & Verified Actor Attribution',
+        'Containerized Docker Environment for Local & Cloud Execution'
       ],
       engineeringChallenges: [
-        'Designing a schema flexible enough to handle disparate grant structures while maintaining strict type safety with Prisma & TypeScript.',
-        'Implementing data provenance patterns to trace every generated insight back to its original source document.',
-        'Preventing AI hallucination risks by enforcing deterministic fallback rules and requiring human verification on critical evaluation decisions.'
+        'Designing a provenance-aware persistence layer in PostgreSQL to update external opportunity records without overwriting human-edited analysis.',
+        'Enforcing strict server-side state machines that reject invalid status transitions and block automated external actions.'
       ],
       whatIBuilt: [
-        'Designed the relational database schema in PostgreSQL using Prisma ORM to represent opportunities, organizations, evaluations, and audit logs.',
-        'Implemented backend Express endpoints with TypeScript for processing ingestion pipelines and managing approval states.',
-        'Created a responsive React & TypeScript frontend interface with real-time status indicators, filtering, and audit inspection drawers.'
+        'Architected the relational PostgreSQL schema in Prisma ORM to model opportunities, source citations, audit logs, and user sessions.',
+        'Implemented Express 4 middleware for Argon2id session hashing, HttpOnly cookie management, and anti-CSRF header verification.',
+        'Built the React / TypeScript web interface featuring interactive opportunity triage, partner matching, and governance safeguards.'
       ],
       whatILearned: [
-        'Deepened expertise in data provenance, auditability standards, and human-in-the-loop AI governance.',
-        'Refined full-stack TypeScript architecture patterns across API boundaries and relational database models.'
+        'Mastered data provenance design patterns, server-authoritative state machine modeling, and human-in-the-loop AI governance.'
       ]
     }
   },

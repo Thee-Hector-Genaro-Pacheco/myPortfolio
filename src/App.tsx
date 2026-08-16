@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { HomePage } from './pages/HomePage';
@@ -12,6 +12,10 @@ export const App: React.FC = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route
+          path="/projects/bridge-ai"
+          element={<Navigate to="/projects/thriveward-funding-intelligence" replace />}
+        />
         <Route path="/projects/:slug" element={<CaseStudyPage />} />
         <Route path="/resume" element={<ResumePage />} />
       </Routes>

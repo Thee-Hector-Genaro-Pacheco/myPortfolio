@@ -138,7 +138,7 @@ export const Hero: React.FC = () => {
                     <Layers size={16} />
                   </div>
                   <div className="node-info">
-                    <span className="node-title">Bridge AI Ingestion</span>
+                    <span className="node-title">Thriveward Ingestion</span>
                     <span className="node-subtitle">React → Express → Prisma → PostgreSQL</span>
                   </div>
                   <span className="node-badge blue">ACTIVE</span>
