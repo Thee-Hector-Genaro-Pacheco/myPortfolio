@@ -75,6 +75,12 @@
   color: var(--accent-orange);
 }
 
+.project-status-badge.completed {
+  background: rgba(236, 72, 153, 0.12);
+  border-color: rgba(236, 72, 153, 0.35);
+  color: #ec4899;
+}
+
 .card-body {
   display: flex;
   flex-direction: column;

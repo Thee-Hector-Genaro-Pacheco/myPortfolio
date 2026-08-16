@@ -27,7 +27,7 @@ export interface Project {
   liveUrl?: string; // Optional live production application/site
   liveUrlLabel?: string; // e.g. "Live App" or "Project Site"
   featured: boolean;
-  status: 'Production Live' | 'Active Development' | 'Prototype' | 'Embedded Build' | 'Production Client Work';
+  status: 'Production Live' | 'Active Development' | 'Prototype' | 'Embedded Build' | 'Production Client Work' | 'Completed Project';
   caseStudy: CaseStudy;
 }
 
@@ -134,6 +134,7 @@ export interface PersonalInfo {
     field: string;
     institution?: string;
     status: string;
+    period?: string;
     highlights: string[];
   }[];
 }
@@ -148,7 +149,7 @@ export const personalInfo: PersonalInfo = {
   github: 'https://github.com/Thee-Hector-Genaro-Pacheco',
   linkedin: 'https://www.linkedin.com/in/hectorgenaropacheco/',
   resumePath: '/resume.pdf',
-  resumeConfigured: false,
+  resumeConfigured: true,
   aboutText: `I am a Software Engineer with a distinct background spanning industrial instrumentation and controls, electrical systems, full-stack software development, cloud infrastructure, AI platforms, and IoT edge computing. 
 
 Having worked directly with PLC-connected devices, 4–20 mA loop instrumentation, calibration protocols, and field troubleshooting, I bring a physical-world systems mindset to modern software engineering. I engineer auditable, resilient software applications—ranging from AWS-backed industrial SaaS platforms and AI-assisted data pipelines to edge vision telemetry on Raspberry Pi.
@@ -170,9 +171,11 @@ My technical training also includes Palantir Foundry and AIP, with coursework in
   ],
   education: [
     {
-      degree: 'Software Engineering Coursework',
-      field: 'Computer Science & Software Engineering',
+      degree: 'B.S. Software Engineering',
+      field: 'Software Engineering',
+      institution: 'Western Governors University (WGU)',
       status: 'In Progress',
+      period: '2026–Present',
       highlights: [
         'Focusing on Data Structures, Algorithms, Cloud Architecture, Distributed Systems, Software Design Patterns, and Operating Systems',
         'Hands-on research and development in Cloud SaaS, Edge AI, Embedded Linux, and Full-Stack web architecture'
@@ -186,6 +189,24 @@ My technical training also includes Palantir Foundry and AIP, with coursework in
       highlights: [
         'Completed a series of Palantir Technologies learning credentials covering Foundry, AIP workflows, agentic AI workflows, business process modeling, data science fundamentals, enterprise use-case scoping, code repositories, and data governance.',
         'Completed Credentials: Speedrun: Mining Your First Business Process • Speedrun: Data Science Fundamentals • Scoping Use Cases in Foundry & AIP • Introduction to Foundry & AIP for Enterprise Organizations • Speedrun: Your First AIP Workflow • Speedrun: Your First Agentic AIP Workflow • Deep Dive: Transforming your Data with Code Repositories • Deep Dive: Data Governance Tools in Foundry'
+      ]
+    },
+    {
+      degree: 'SU-890 iCAM Operations and Maintenance',
+      field: 'Certificate of Achievement (16.00 Continued Education Credits)',
+      institution: 'Mirion Technologies',
+      status: 'March 2026',
+      highlights: [
+        'Completed manufacturer training in SU-890 iCAM operations and maintenance for radiation-monitoring instrumentation.'
+      ]
+    },
+    {
+      degree: 'Radiation Worker II Training',
+      field: 'Technical Training (Two-Day Specialized Instruction)',
+      institution: 'NV5 Training Academy',
+      status: 'January 2026',
+      highlights: [
+        'Completed two days of specialized Radiation Worker II instruction through NV5 Training Academy.'
       ]
     },
     {
@@ -296,6 +317,63 @@ export const featuredProjects: Project[] = [
       whatILearned: [
         'Gained hands-on experience deploying containerized applications with AWS ECS Fargate, ECR, Secrets Manager, and RDS.',
         'Designed full-stack data models for industrial equipment indexing and role-based audit trail preservation.'
+      ]
+    }
+  },
+  {
+    id: 'procurement-tracking',
+    slug: 'procurement-tracking',
+    title: 'Procurement Tracking System',
+    subtitle: 'Enterprise Procurement Workflow Platform',
+    category: 'Full-Stack · GraphQL · Business Operations',
+    accentColor: '#F59E0B',
+    accentGradient: 'linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(251, 191, 36, 0.05) 100%)',
+    accentBg: 'rgba(245, 158, 11, 0.1)',
+    accentBorder: 'rgba(245, 158, 11, 0.3)',
+    shortDescription: 'A full-stack procurement operations platform for managing purchase requests, approval workflows, vendors, purchase orders, and goods receiving. Built with React/TypeScript, GraphQL/Apollo, Node/Express, Prisma, and PostgreSQL with role-based access control.',
+    technologies: ['React 19', 'TypeScript', 'Node.js', 'Express', 'GraphQL', 'Apollo Server', 'Prisma ORM', 'PostgreSQL'],
+    githubUrl: 'https://github.com/Thee-Hector-Genaro-Pacheco/procurementTracking',
+    liveUrl: 'https://procurement-tracking-xg87.vercel.app/',
+    liveUrlLabel: 'Live App',
+    featured: true,
+    status: 'Production Live',
+    caseStudy: {
+      overview: 'The Procurement Tracking System models an end-to-end operational purchasing workflow, connecting procurement requests, multi-role approvals, vendor management, purchase-order lifecycles, and receiving operations through a type-safe GraphQL application.',
+      problem: 'Procurement processes become difficult to audit when requests, approvals, vendor data, purchase orders, and receiving records are distributed across spreadsheets, email threads, and disconnected systems.',
+      solution: 'The platform centralizes procurement operations into a role-aware application with structured workflows, persistent PostgreSQL data, GraphQL APIs, and permissions enforced across both the user interface and backend resolvers.',
+      architecture: {
+        title: 'Production Full-Stack GraphQL Architecture',
+        description: 'Client-side React 19 application consuming a Node/Express GraphQL API backed by Prisma ORM and managed PostgreSQL.',
+        components: [
+          'Frontend Layer: React 19 & TypeScript SPA deployed on Vercel Edge with Apollo Client',
+          'GraphQL API: Node.js & Express 5 server using Apollo Server 4 deployed on Render',
+          'Database Tier: Managed PostgreSQL database on Neon with Prisma ORM 6 data modeling',
+          'Security & Auth: JWT authentication, HTTP-only cookies, BCrypt password hashing, and RBAC permission enforcement',
+          'Role Model: Multi-role permission system enforcing ADMIN, REQUESTER, APPROVER, BUYER, and RECEIVER access controls'
+        ]
+      },
+      technologies: ['React 19', 'TypeScript', 'Node.js', 'Express 5', 'GraphQL', 'Apollo Client 4', 'Apollo Server 4', 'Prisma ORM 6', 'PostgreSQL', 'JWT', 'Vercel', 'Render'],
+      keyFeatures: [
+        'Procurement Request Creation & Line-Item Management',
+        'Multi-Role Approval & Rejection Workflows',
+        'Vendor Directory & Qualification Status Tracking',
+        'Purchase Order Generation & Lifecycle Management',
+        'Partial & Full Goods Receiving with Remaining Quantity Tracking',
+        'Role-Based Access Control (ADMIN, REQUESTER, APPROVER, BUYER, RECEIVER)',
+        'Backend GraphQL Resolver Permission Enforcement',
+        'Live Deployed Production Application on Vercel & Render'
+      ],
+      engineeringChallenges: [
+        'Enforcing role-based access control rules consistently across GraphQL query and mutation resolvers.',
+        'Accurately modeling purchase order lifecycle state transitions from request creation to partial or full goods receiving.'
+      ],
+      whatIBuilt: [
+        'Designed the relational PostgreSQL schema in Prisma ORM to model requests, line items, approvals, purchase orders, vendors, and receiving logs.',
+        'Implemented Express 5 and Apollo Server 4 GraphQL resolvers with JWT authentication and RBAC middleware.',
+        'Built the React 19 / TypeScript frontend application with Apollo Client for managing purchasing workflows and inventory receiving.'
+      ],
+      whatILearned: [
+        'Mastered GraphQL schema design, Apollo Server resolver authorization, and complex multi-role state machine modeling in full-stack applications.'
       ]
     }
   },
@@ -474,6 +552,59 @@ export const featuredProjects: Project[] = [
         'Solidified low-level hardware/software integration skills, mechanical switch debouncing techniques, and Linux system administration.'
       ]
     }
+  },
+  {
+    id: 'ecommerce-store',
+    slug: 'ecommerce-store',
+    title: 'E-Commerce Store',
+    subtitle: 'MERN + GraphQL Commerce Application',
+    category: 'Full-Stack · GraphQL · AWS',
+    accentColor: '#EC4899',
+    accentGradient: 'linear-gradient(135deg, rgba(236, 72, 153, 0.15) 0%, rgba(244, 114, 182, 0.05) 100%)',
+    accentBg: 'rgba(236, 72, 153, 0.1)',
+    accentBorder: 'rgba(236, 72, 153, 0.3)',
+    shortDescription: 'A full-stack e-commerce application built with React/TypeScript, Node/Express, MongoDB, and GraphQL, featuring JWT authentication, role-aware users, and AWS S3 image uploads using pre-signed URLs.',
+    technologies: ['React', 'TypeScript', 'Node.js', 'Express', 'MongoDB', 'GraphQL', 'Apollo Client', 'AWS S3', 'JWT'],
+    githubUrl: 'https://github.com/Thee-Hector-Genaro-Pacheco/ecommerce-store',
+    liveUrl: undefined,
+    featured: true,
+    status: 'Completed Project',
+    caseStudy: {
+      overview: 'E-Commerce Store is a full-stack web application built to explore MERN stack architecture integrated with GraphQL APIs and AWS cloud object storage. It provides user registration, authentication, product catalog management, and secure media uploads via AWS S3.',
+      problem: 'Traditional REST e-commerce APIs can lead to over-fetching product data and complex file upload handling on backend application servers.',
+      solution: 'The application utilizes GraphQL queries for precise data retrieval and decouples image uploads by generating secure, pre-signed AWS S3 URLs directly on the server for direct client upload.',
+      architecture: {
+        title: 'Full-Stack MERN & GraphQL Cloud Architecture',
+        description: 'React/TypeScript frontend communicating via GraphQL to a Node/Express API backed by MongoDB document storage and AWS S3 object storage.',
+        components: [
+          'Frontend: React & TypeScript SPA with Apollo Client state management',
+          'API Tier: Node.js & Express server exposing GraphQL endpoints',
+          'Database: MongoDB for flexible product catalog and user document storage',
+          'Object Storage: AWS S3 with server-generated pre-signed upload URLs',
+          'Security: JWT authentication with admin vs standard user authorization'
+        ]
+      },
+      technologies: ['React', 'TypeScript', 'Node.js', 'Express', 'MongoDB', 'GraphQL', 'Apollo Client', 'AWS S3', 'JWT', 'Mongoose'],
+      keyFeatures: [
+        'User Registration & Authentication Workflow',
+        'Role-Based Authorization (Admin vs Regular Users)',
+        'AWS S3 Product & Profile Image Uploads via Pre-Signed URLs',
+        'GraphQL Product Catalog Querying & Mutation Endpoints',
+        'Toast-Based User Feedback Notifications',
+        'Decoupled Media Upload Architecture'
+      ],
+      engineeringChallenges: [
+        'Configuring pre-signed AWS S3 URL generation to allow clients to upload images directly to cloud storage without burdening the Node API server.'
+      ],
+      whatIBuilt: [
+        'Developed the React/TypeScript frontend components for product catalog browsing, user auth forms, and image upload inputs.',
+        'Implemented Node/Express GraphQL resolvers and MongoDB Mongoose schemas for products and users.',
+        'Integrated AWS S3 SDK on the backend to issue secure pre-signed upload URLs.'
+      ],
+      whatILearned: [
+        'Gained practical experience integrating GraphQL with MongoDB document stores and leveraging AWS S3 pre-signed URLs for cloud object storage.'
+      ]
+    }
   }
 ];
 
@@ -482,7 +613,7 @@ export const controlsToCodeSteps: ProgressionStep[] = [
     stepNumber: 1,
     title: 'Instrumentation & Controls',
     subtitle: 'Physical Hardware Foundation',
-    description: 'Hands-on field experience with industrial sensors, 4–20 mA current loops, process transmitters, electrical wiring, and physical measurement devices.',
+    description: 'Hands-on field experience and technical training involving industrial sensors, 4–20 mA current loops, process transmitters, monitoring instrumentation, electrical wiring, and physical measurement devices.',
     iconName: 'Cpu',
     keySkills: ['4–20 mA Current Loops', 'Transmitters & Sensors', 'Electrical Wiring', 'Multimeters & Calibrators']
   },
@@ -610,6 +741,7 @@ export const skillCategories: SkillCategory[] = [
       { name: 'Raspberry Pi 5', featured: true, tag: 'Edge Hardware' },
       { name: 'GPIO & Pin Interfacing', featured: true, tag: 'Embedded I/O' },
       { name: 'Sensors & GPS', featured: true, tag: 'NMEA / Telemetry' },
+      { name: 'Radiation Monitoring Instrumentation', featured: false, tag: 'Mirion iCAM' },
       { name: 'Instrumentation & Controls', featured: true, tag: '4–20 mA Loops' },
       { name: 'PLC-Connected Systems', featured: true, tag: 'Industrial Automation' },
       { name: 'Electrical Troubleshooting', featured: true, tag: 'Commissioning & Field' }
@@ -654,19 +786,5 @@ export const clientWorkItems: ClientWorkItem[] = [
     technologies: ['Next.js', 'TypeScript', 'Supabase PostgreSQL', 'Zod Validation', 'Vercel'],
     status: 'Live / Deployed Production',
     liveUrl: 'https://www.ocwaterfeaturesinc.com/'
-  },
-  {
-    id: 'client-2',
-    clientName: 'West Harbor Painting',
-    industry: 'Commercial & Residential Contracting',
-    focusAreas: ['Web Development', 'Digital Presence', 'Service Portfolio Showcase'],
-    description: 'Client web development, digital branding, and customer inquiry management platform currently under active development.',
-    deliverables: [
-      'Service offering architecture and project gallery layout',
-      'Customer inquiry intake workflow',
-      'Mobile-optimized performance and layout'
-    ],
-    technologies: ['React', 'TypeScript', 'CSS Modules', 'Web Forms'],
-    status: 'In Development'
   }
 ];

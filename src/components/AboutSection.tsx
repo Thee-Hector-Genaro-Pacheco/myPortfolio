@@ -1,16 +1,20 @@
 import React from 'react';
 import { personalInfo } from '../data/portfolioData';
-import { User, GraduationCap, Compass, ShieldCheck } from 'lucide-react';
+import { User, GraduationCap, Compass, ShieldCheck, Award } from 'lucide-react';
 import './AboutSection.css';
 
 export const AboutSection: React.FC = () => {
+  // Partition education data cleanly into Academic/AI Training vs Technical/Industrial Training
+  const primaryEducation = personalInfo.education.slice(0, 2);
+  const technicalTraining = personalInfo.education.slice(2);
+
   return (
     <section className="about-section" id="about">
       <div className="container">
         {/* Section Header */}
         <div className="section-header">
           <div className="section-label">
-            <User size={14} /> Background & Philosophy
+            <User size={14} /> Background &amp; Philosophy
           </div>
           <h2 className="section-title">About Hector Pacheco</h2>
           <p className="section-description">
@@ -18,7 +22,7 @@ export const AboutSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Content Layout */}
+        {/* Upper Two-Column Layout */}
         <div className="about-grid">
           {/* Left Column: Bio & Core Principles */}
           <div className="about-bio-column">
@@ -52,19 +56,21 @@ export const AboutSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column: Education */}
+          {/* Right Column: Academic Education & AI Platform Training */}
           <div className="about-education-column">
             <div className="education-card-header font-mono">
               <GraduationCap size={18} className="text-purple" />
-              <span>EDUCATION & CERTIFICATIONS</span>
+              <span>EDUCATION &amp; AI TRAINING</span>
             </div>
 
             <div className="education-list">
-              {personalInfo.education.map((edu, idx) => (
+              {primaryEducation.map((edu, idx) => (
                 <div key={idx} className="education-item">
                   <div className="edu-top">
                     <h4 className="edu-degree">{edu.degree}</h4>
-                    <span className="edu-status font-mono">{edu.status}</span>
+                    <span className="edu-status font-mono">
+                      {edu.period ? `${edu.status} (${edu.period})` : edu.status}
+                    </span>
                   </div>
                   <span className="edu-field font-mono">{edu.field}</span>
                   <span className="edu-institution">{edu.institution}</span>
@@ -79,6 +85,34 @@ export const AboutSection: React.FC = () => {
             </div>
           </div>
         </div>
+
+        {/* Lower Full-Width Section: Professional & Technical Training */}
+        {technicalTraining.length > 0 && (
+          <div className="about-training-section">
+            <h4 className="principles-header font-mono margin-bottom-md">
+              <Award size={16} className="text-emerald" /> PROFESSIONAL &amp; TECHNICAL TRAINING
+            </h4>
+
+            <div className="training-grid">
+              {technicalTraining.map((item, idx) => (
+                <div key={idx} className="training-card">
+                  <div className="training-card-top">
+                    <h5 className="training-title">{item.degree}</h5>
+                    <span className="training-status font-mono">{item.status}</span>
+                  </div>
+                  <span className="training-field font-mono">{item.field}</span>
+                  <span className="training-institution">{item.institution}</span>
+
+                  <ul className="training-highlights">
+                    {item.highlights.map((h, hIdx) => (
+                      <li key={hIdx}>{h}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

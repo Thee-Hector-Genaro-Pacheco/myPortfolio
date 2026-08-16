@@ -55,6 +55,7 @@ export const CaseStudyPage: React.FC = () => {
   const getStatusClass = (status: string) => {
     if (status.includes('Live') || status.includes('Client')) return 'live';
     if (status.includes('Active')) return 'active';
+    if (status.includes('Completed')) return 'completed';
     return 'embedded';
   };
 

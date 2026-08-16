@@ -60,6 +60,10 @@
   margin-bottom: 1rem;
 }
 
+.margin-bottom-md {
+  margin-bottom: 1.25rem;
+}
+
 .principles-grid {
   display: flex;
   flex-direction: column;
@@ -192,4 +196,98 @@
   font-size: 0.88rem;
   color: var(--text-secondary);
   line-height: 1.45;
+}
+
+/* Lower Full-Width Training Section */
+.about-training-section {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.training-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .training-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .training-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.training-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-fast);
+}
+
+.training-card:hover {
+  border-color: var(--border-highlight);
+  transform: translateY(-2px);
+}
+
+.training-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+
+.training-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-bright);
+  line-height: 1.35;
+}
+
+.training-status {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--accent-emerald);
+  background: rgba(16, 185, 129, 0.12);
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  white-space: nowrap;
+}
+
+.training-field {
+  font-size: 0.82rem;
+  color: var(--accent-cyan);
+  margin-bottom: 0.2rem;
+}
+
+.training-institution {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.training-highlights {
+  list-style: disc;
+  padding-left: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-top: auto;
+}
+
+.training-highlights li {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
 }

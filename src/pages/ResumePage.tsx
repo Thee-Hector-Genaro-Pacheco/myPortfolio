@@ -28,7 +28,7 @@ export const ResumePage: React.FC = () => {
             <div className="resume-actions">
               <a
                 href={personalInfo.resumePath}
-                download="Hector_Pacheco_Resume.pdf"
+                download="Hector_Pacheco_Software_Engineer_Resume.pdf"
                 className="btn btn-primary btn-sm"
                 title="Download Resume PDF"
               >
@@ -108,7 +108,9 @@ export const ResumePage: React.FC = () => {
               <div key={idx} className="doc-edu-item">
                 <div className="doc-edu-top">
                   <strong>{edu.degree}</strong> ({edu.field})
-                  <span className="font-mono text-muted">{edu.status}</span>
+                  <span className="font-mono text-muted">
+                    {edu.period ? `${edu.status} (${edu.period})` : edu.status}
+                  </span>
                 </div>
                 {edu.institution && <span className="doc-edu-inst text-muted">{edu.institution}</span>}
                 {edu.highlights && edu.highlights.length > 0 && (

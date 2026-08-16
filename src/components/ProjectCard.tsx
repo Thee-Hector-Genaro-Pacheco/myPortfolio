@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Github, ArrowRight, Activity, Terminal, Shield, Layers, ExternalLink } from 'lucide-react';
+import { Github, ArrowRight, Activity, Terminal, Shield, Layers, ExternalLink, ShoppingBag, FileSpreadsheet } from 'lucide-react';
 import { Project } from '../data/portfolioData';
 import './ProjectCard.css';
 
@@ -13,12 +13,16 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     switch (project.slug) {
       case 'caltrack':
         return <Shield size={20} />;
-      case 'bridge-ai':
-        return <Layers size={20} />;
+      case 'procurement-tracking':
+        return <FileSpreadsheet size={20} />;
       case 'fieldtrack-ai':
         return <Activity size={20} />;
+      case 'bridge-ai':
+        return <Layers size={20} />;
       case 'pi-arcade-os':
         return <Terminal size={20} />;
+      case 'ecommerce-store':
+        return <ShoppingBag size={20} />;
       default:
         return <Terminal size={20} />;
     }
@@ -27,6 +31,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   const getStatusClass = (status: string) => {
     if (status.includes('Live') || status.includes('Client')) return 'live';
     if (status.includes('Active')) return 'active';
+    if (status.includes('Completed')) return 'completed';
     return 'embedded';
   };
 

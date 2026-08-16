@@ -15,7 +15,7 @@ export const FeaturedProjects: React.FC = () => {
           </div>
           <h2 className="section-title">Systems &amp; Full-Stack Projects</h2>
           <p className="section-description">
-            A curated collection of industrial SaaS platforms, AWS cloud deployments, edge AI telemetry pipelines, and embedded hardware builds.
+            A curated collection of industrial SaaS platforms, cloud deployments, operational business systems, edge AI telemetry, full-stack applications, and embedded hardware builds.
           </p>
         </div>
 

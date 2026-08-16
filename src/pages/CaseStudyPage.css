@@ -65,6 +65,12 @@
   color: var(--accent-orange);
 }
 
+.case-status-badge.completed {
+  background: rgba(236, 72, 153, 0.12);
+  border-color: rgba(236, 72, 153, 0.3);
+  color: #ec4899;
+}
+
 .case-title {
   font-size: clamp(2.2rem, 4vw, 3.2rem);
   font-weight: 800;
