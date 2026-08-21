@@ -1,6 +1,7 @@
 import React from 'react';
 import { personalInfo } from '../data/portfolioData';
 import { Terminal, Github, Linkedin, ShieldCheck } from 'lucide-react';
+import { GitlabIcon } from './GitlabIcon';
 import './Footer.css';
 
 export const Footer: React.FC = () => {
@@ -29,6 +30,9 @@ export const Footer: React.FC = () => {
           <div className="footer-socials">
             <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
               <Github size={18} />
+            </a>
+            <a href={personalInfo.gitlab} target="_blank" rel="noopener noreferrer" aria-label="View Hector Pacheco on GitLab">
+              <GitlabIcon size={18} />
             </a>
             <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <Linkedin size={18} />

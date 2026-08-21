@@ -10,6 +10,7 @@ import {
   ChevronRight 
 } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
+import { GitlabIcon } from './GitlabIcon';
 import './Navbar.css';
 
 export const Navbar: React.FC = () => {
@@ -98,6 +99,16 @@ export const Navbar: React.FC = () => {
             <Github size={18} />
           </a>
           <a
+            href={personalInfo.gitlab}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="social-icon-btn"
+            title="GitLab Profile"
+            aria-label="View Hector Pacheco on GitLab"
+          >
+            <GitlabIcon size={18} />
+          </a>
+          <a
             href={personalInfo.linkedin}
             target="_blank"
             rel="noopener noreferrer"
@@ -167,11 +178,15 @@ export const Navbar: React.FC = () => {
             </div>
             
             <div className="mobile-menu-footer">
-              <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-sm">
+              <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-sm" aria-label="GitHub Profile">
                 <Github size={16} />
                 <span>GitHub</span>
               </a>
-              <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-sm">
+              <a href={personalInfo.gitlab} target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-sm" aria-label="View Hector Pacheco on GitLab">
+                <GitlabIcon size={16} />
+                <span>GitLab</span>
+              </a>
+              <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-sm" aria-label="LinkedIn Profile">
                 <Linkedin size={16} />
                 <span>LinkedIn</span>
               </a>

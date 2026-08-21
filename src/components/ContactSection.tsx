@@ -10,6 +10,7 @@ import {
   Send, 
   MessageSquare 
 } from 'lucide-react';
+import { GitlabIcon } from './GitlabIcon';
 import './ContactSection.css';
 
 export const ContactSection: React.FC = () => {
@@ -90,15 +91,27 @@ export const ContactSection: React.FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn btn-secondary btn-sm"
+                    aria-label="GitHub Profile"
                   >
                     <Github size={16} />
                     <span>GitHub Profile</span>
+                  </a>
+                  <a
+                    href={personalInfo.gitlab}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-secondary btn-sm"
+                    aria-label="View Hector Pacheco on GitLab"
+                  >
+                    <GitlabIcon size={16} />
+                    <span>GitLab Profile</span>
                   </a>
                   <a
                     href={personalInfo.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn btn-secondary btn-sm"
+                    aria-label="LinkedIn Profile"
                   >
                     <Linkedin size={16} />
                     <span>LinkedIn Profile</span>
