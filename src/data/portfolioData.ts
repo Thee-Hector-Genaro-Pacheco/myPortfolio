@@ -31,6 +31,18 @@ export interface Project {
   caseStudy: CaseStudy;
 }
 
+export interface TechnicalDemo {
+  title: string;
+  label: string;
+  caption: string;
+  videoPath: string;
+  posterPath?: string;
+  problem: string;
+  whyItMatters: string;
+  engineeringResponse: string;
+  result: string;
+}
+
 export interface CaseStudy {
   overview: string;
   problem: string;
@@ -53,7 +65,12 @@ export interface CaseStudy {
       apiServices: string;
       webUI: string;
     };
+    ragStack?: {
+      nodeName: string;
+      subText: string;
+    }[];
   };
+  technicalDemo?: TechnicalDemo;
   roadmapPhases?: RoadmapPhase[];
   mobileRoadmap?: {
     title: string;
@@ -124,6 +141,7 @@ export interface PersonalInfo {
   location: string;
   email: string;
   github: string;
+  gitlab: string;
   linkedin: string;
   resumePath: string; // Path to resume PDF when configured
   resumeConfigured: boolean; // Set to true when public/resume.pdf is placed
@@ -147,6 +165,7 @@ export const personalInfo: PersonalInfo = {
   location: 'Southern California, USA',
   email: 'hector.genaro.pacheco@gmail.com',
   github: 'https://github.com/Thee-Hector-Genaro-Pacheco',
+  gitlab: 'https://gitlab.com/hpache17',
   linkedin: 'https://www.linkedin.com/in/hectorgenaropacheco/',
   resumePath: '/resume.pdf',
   resumeConfigured: true,
@@ -441,53 +460,81 @@ export const featuredProjects: Project[] = [
     id: 'thriveward-funding-intelligence',
     slug: 'thriveward-funding-intelligence',
     title: 'Thriveward Funding Intelligence',
-    subtitle: 'AI-Assisted Funding Intelligence Platform',
-    category: 'AI · Data Intelligence · Governance',
+    subtitle: 'Retrieval-Augmented Funding Intelligence Platform',
+    category: 'AI · RAG · Data Intelligence · Governance',
     accentColor: '#8B5CF6',
     accentGradient: 'linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(167, 139, 250, 0.05) 100%)',
     accentBg: 'rgba(139, 92, 246, 0.1)',
     accentBorder: 'rgba(139, 92, 246, 0.3)',
-    shortDescription: 'An AI-assisted funding intelligence platform that collects, normalizes, and evaluates funding opportunities while preserving source provenance, retrieval history, data integrity, role-based access, and human review.',
-    technologies: ['React', 'TypeScript', 'Node.js', 'Express', 'PostgreSQL', 'Prisma ORM', 'Docker', 'Argon2id', 'JWT'],
+    shortDescription: 'Funding intelligence platform combining provenance-aware document ingestion, pgvector semantic retrieval, RAG grounding, Argon2id RBAC auth, and human-governed decision workflows.',
+    technologies: ['React', 'TypeScript', 'Node.js', 'Express', 'PostgreSQL', 'Prisma ORM', 'pgvector', 'OpenAI API', 'Docker', 'Argon2id', 'JWT'],
     githubUrl: undefined, // Private repository - button omitted
     liveUrl: undefined,
     featured: true,
     status: 'Active Development',
     caseStudy: {
-      overview: 'Thriveward Funding Intelligence is an AI-assisted platform for discovering, structuring, and evaluating funding opportunities. The system emphasizes trustworthy source provenance, persistent opportunity records, governed data workflows, and human decision-making rather than autonomous submission.',
-      problem: 'Funding opportunities are distributed across government portals, foundations, agencies, and other sources with inconsistent formats, deadlines, eligibility criteria, and update cycles. Manual research makes it difficult to preserve source context, identify changes, and maintain a reliable opportunity pipeline.',
-      solution: 'Thriveward Funding Intelligence creates a structured funding-opportunity data layer that can ingest and normalize source information while preserving provenance, retrieval timestamps, authority metadata, and human-owned review fields.',
+      overview: 'Thriveward Funding Intelligence is a Retrieval-Augmented Generation (RAG) platform for discovering, structuring, and evaluating funding opportunities. The system combines PDF document ingestion, page-bounded text chunking, vector embedding, PostgreSQL pgvector cosine retrieval, structured LLM analysis, and human-in-the-loop governance.',
+      problem: 'Funding notices and official grant documents are published with inconsistent formats, complex eligibility rules, and frequent addendums. Traditional keyword search misses semantic context, while ungrounded LLMs hallucinate rules and lack verifiable citations.',
+      solution: 'Thriveward Funding Intelligence builds an end-to-end RAG grounding pipeline. Official documents are parsed into page-bounded chunks, embedded into a 1536-dimensional vector space using OpenAI text-embedding-3-small, indexed in PostgreSQL via pgvector, and retrieved using controlled multi-query semantic search to ground structured LLM evaluations with exact page citations.',
       architecture: {
-        title: 'Ingestion, Provenance & Governance Architecture',
-        description: 'Multi-tier architecture separating external Grants.gov API ingestion, PostgreSQL relational storage, Argon2id authentication, RBAC authorization, and human-controlled outreach review.',
+        title: 'Document Ingestion, pgvector Retrieval & RAG Grounding Architecture',
+        description: 'Server-authoritative pipeline isolating raw PDF ingestion, page parsing, deterministic chunking, vector embeddings, pgvector semantic search, citation evidence binding, structured OpenAI LLM evaluation, and human review.',
         components: [
-          'Frontend Layer: React & TypeScript dashboard SPA with real-time status indicators and human approval drawers',
-          'API Gateway & Auth: Node.js & Express API with Argon2id session hashing, HttpOnly cookies, and X-Thriveward-CSRF anti-CSRF protection',
-          'Database Tier: PostgreSQL managed database modeling funding opportunities, citations, readiness plans, and audit logs via Prisma ORM',
-          'Provenance & Integrity Engine: Hash-verified raw payload archiving, payload deduplication, and preservation of human-owned fields during source updates',
-          'Governance & Safeguards: Strict human-in-the-loop controls preventing automated email transmission, submission, or unauthorized state advances'
+          'Document Ingestion & PDF Parser: Validates raw PDF uploads with SHA-256 hashes, extracts page-bounded text with page numbers, character counts, and citation references.',
+          'Deterministic Chunking Service: Generates page-bounded document chunks (document-chunker-v1) with token constraints and exact start/end offsets.',
+          'Embedding & Index Identity Engine: Embeds text chunks via OpenAI text-embedding-3-small, tracks configuration hashes, and prevents stale index reuse.',
+          'pgvector Semantic Retrieval: Executes cosine similarity search (<=>) across vector(1536) columns in PostgreSQL with token budget limits and query deduplication.',
+          'Evidence Catalog Grounding: Constructs citation-bound evidence snapshots (AiEvaluationRetrievalEvidence) linking LLM analysis directly to page-level excerpts.',
+          'Structured LLM Analyst: Executes OpenAI gpt-4o-mini with strict JSON schema response format to output eligibility verdicts, alignment scores, and risk factors.',
+          'Human-in-the-Loop Review & Governance: Enforces mandatory human approval/rejection workflows with immutable audit reasons, prohibiting autonomous submissions.'
+        ],
+        ragStack: [
+          { nodeName: 'Funding Documents', subText: 'Official NOFO / Grant PDFs' },
+          { nodeName: 'PDF Page Parser', subText: 'Text & SHA-256 Extraction' },
+          { nodeName: 'Page Chunker', subText: 'Token-Bounded Offsets' },
+          { nodeName: 'OpenAI Embeddings', subText: 'text-embedding-3-small' },
+          { nodeName: 'pgvector Index', subText: 'PostgreSQL vector(1536)' },
+          { nodeName: 'Semantic Retrieval', subText: 'Cosine Similarity (<=>)' },
+          { nodeName: 'Evidence Catalog', subText: 'Citation-Bound Grounding' },
+          { nodeName: 'Structured LLM', subText: 'OpenAI gpt-4o-mini' },
+          { nodeName: 'Human Review', subText: 'Immutable Approval Gate' }
         ]
       },
-      technologies: ['React', 'TypeScript', 'Node.js', 'Express', 'PostgreSQL', 'Prisma ORM', 'Docker', 'Argon2id', 'JWT', 'REST APIs'],
+      technicalDemo: {
+        title: 'RAG Index Integrity — Technical Demo',
+        label: 'Development Recording',
+        caption: 'Debugging and hardening Thriveward\'s retrieval pipeline, embedding configuration, and semantic-index integrity.',
+        videoPath: '/media/thriveward/rag-index-integrity.mp4',
+        posterPath: '/media/thriveward/rag-index-integrity-poster.png',
+        problem: 'Semantic vector indexes are only valid relative to the exact embedding model, provider, dimensions, and chunking configuration used to create them. If embedding configuration changes without index identity tracking, the vector index silently reuses stale embeddings, breaking semantic retrieval accuracy and citation binding.',
+        whyItMatters: 'Vector similarity search relies on mathematical spatial alignment. Comparing query embeddings against document chunk embeddings from a different model or dimension results in arbitrary distance scores, degraded retrieval precision, and invalid grounding evidence.',
+        engineeringResponse: 'Thriveward implements server-authoritative index identity tracking using deterministic payload hashes, source manifest hashes, and configuration hashes (embedding provider, model, dimensions, chunker version). The database enforces a unique constraint (documentVersionId, configurationHash) to isolate index versions.',
+        result: 'Incompatible or stale embedding configurations cannot be silently reused. Any configuration change generates a new document index version, ensuring index identity and retrieval grounding invariants remain strictly enforced.'
+      },
+      technologies: ['React', 'TypeScript', 'Node.js', 'Express', 'PostgreSQL', 'Prisma ORM', 'pgvector', 'OpenAI API', 'Docker', 'Argon2id', 'JWT'],
       keyFeatures: [
-        'Source Provenance & Authority Metadata Tracking',
-        'Automated Grant Opportunity Normalization & Deduplication',
-        'Human-in-the-Loop Review & Approval Workflows',
+        'PDF Page Extraction & Page-Bounded Deterministic Text Chunking',
+        'OpenAI text-embedding-3-small Vector Generation & Batching',
+        'PostgreSQL pgvector Cosine Distance Search (<=>) & Rank Sorting',
+        'Index Identity Tracking & Configuration Hash Invalidation Defense',
+        'Citation-Bound Evidence Catalog & Grounded LLM Analysis',
+        'Structured LLM Output via OpenAI gpt-4o-mini & JSON Schema',
         'Argon2id Password Hashing, Session Cookies & Anti-CSRF Defense',
-        'Role-Based Access Control (RBAC) & Verified Actor Attribution',
-        'Containerized Docker Environment for Local & Cloud Execution'
+        'Role-Based Access Control (RBAC) & Immutable Human Review Gate'
       ],
       engineeringChallenges: [
-        'Designing a provenance-aware persistence layer in PostgreSQL to update external opportunity records without overwriting human-edited analysis.',
-        'Enforcing strict server-side state machines that reject invalid status transitions and block automated external actions.'
+        'Preventing vector space corruption when updating embedding models or chunking parameters by implementing configuration hashing and index version isolation in PostgreSQL.',
+        'Enforcing verifiable citation grounding by binding LLM analysis exclusively to retrieved document chunk evidence with page-level snapshots and text hashes.',
+        'Maintaining server-authoritative state transitions to guarantee human approval is required before any grant evaluation advances.'
       ],
       whatIBuilt: [
-        'Architected the relational PostgreSQL schema in Prisma ORM to model opportunities, source citations, audit logs, and user sessions.',
-        'Implemented Express 4 middleware for Argon2id session hashing, HttpOnly cookie management, and anti-CSRF header verification.',
-        'Built the React / TypeScript web interface featuring interactive opportunity triage, partner matching, and governance safeguards.'
+        'Architected the full document indexing and retrieval pipeline using Prisma ORM, PostgreSQL pgvector, and OpenAI embeddings.',
+        'Implemented server-side index identity tracking with configuration hashes to prevent stale vector reuse across model updates.',
+        'Built controlled multi-query semantic search algorithms with token budget limits and evidence deduplication.',
+        'Integrated Argon2id authentication, RBAC authorization middleware, and human-in-the-loop evaluation review UI.'
       ],
       whatILearned: [
-        'Mastered data provenance design patterns, server-authoritative state machine modeling, and human-in-the-loop AI governance.'
+        'Mastered pgvector indexing in PostgreSQL, vector space mathematical invariants, index identity hashing, and RAG citation grounding design.'
       ]
     }
   },

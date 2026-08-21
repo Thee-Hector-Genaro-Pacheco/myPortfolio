@@ -19,7 +19,9 @@ import {
   Lock,
   ArrowRight,
   Clock,
-  Compass
+  Compass,
+  Video,
+  Film
 } from 'lucide-react';
 import './CaseStudyPage.css';
 
@@ -245,6 +247,29 @@ export const CaseStudyPage: React.FC = () => {
             </div>
           )}
 
+          {/* Visual RAG Grounding Pipeline Flow for Thriveward */}
+          {caseStudy.architecture.ragStack && (
+            <div className="cloud-visual-diagram">
+              <div className="diagram-title font-mono">END-TO-END RAG GROUNDING &amp; SEMANTIC RETRIEVAL PIPELINE</div>
+              
+              <div className="flow-nodes rag-flow-nodes">
+                {caseStudy.architecture.ragStack.map((node, idx) => (
+                  <React.Fragment key={idx}>
+                    <div className="flow-node">
+                      <div className={`node-box ${idx % 3 === 1 ? 'accent-cyan' : idx % 3 === 2 ? 'accent-purple' : 'accent-emerald'}`}>
+                        <span className="node-type font-mono">{node.subText}</span>
+                        <strong className="node-name">{node.nodeName}</strong>
+                      </div>
+                    </div>
+                    {idx < caseStudy.architecture.ragStack!.length - 1 && (
+                      <ArrowRight size={16} className="flow-arrow" />
+                    )}
+                  </React.Fragment>
+                ))}
+              </div>
+            </div>
+          )}
+
           <div className="architecture-card">
             <h3 className="arch-title">{caseStudy.architecture.title}</h3>
             <p className="arch-desc">{caseStudy.architecture.description}</p>
@@ -259,6 +284,70 @@ export const CaseStudyPage: React.FC = () => {
             </div>
           </div>
         </section>
+
+        {/* Technical Demo Section (if present) */}
+        {caseStudy.technicalDemo && (
+          <section className="case-section technical-demo-section">
+            <div className="section-header-row">
+              <h2 className="case-section-title font-mono">
+                <Video size={18} className="text-purple" /> {caseStudy.technicalDemo.title.toUpperCase()}
+              </h2>
+              <span className="demo-badge font-mono">{caseStudy.technicalDemo.label}</span>
+            </div>
+
+            <div className="technical-demo-card">
+              {/* Bounded Video Container for Vertical Recording */}
+              <div className="video-player-container">
+                <div className="video-player-wrapper">
+                  <video
+                    controls
+                    playsInline
+                    preload="metadata"
+                    poster={caseStudy.technicalDemo.posterPath}
+                    className="demo-video-player"
+                  >
+                    <source src={caseStudy.technicalDemo.videoPath} type="video/mp4" />
+                    Your browser does not support HTML5 video playback.
+                  </video>
+                </div>
+                {caseStudy.technicalDemo.caption && (
+                  <p className="video-caption font-mono">
+                    <Film size={14} className="text-purple" /> {caseStudy.technicalDemo.caption}
+                  </p>
+                )}
+              </div>
+
+              {/* Index Integrity Callout Grid */}
+              <div className="index-integrity-callout">
+                <div className="callout-header font-mono">
+                  <ShieldCheck size={16} className="text-emerald" /> INDEX INTEGRITY &amp; SAFEGUARDS
+                </div>
+
+                <div className="callout-grid">
+                  <div className="callout-card red">
+                    <span className="callout-label font-mono">THE PROBLEM</span>
+                    <p>{caseStudy.technicalDemo.problem}</p>
+                  </div>
+
+                  <div className="callout-card orange">
+                    <span className="callout-label font-mono">WHY IT MATTERS</span>
+                    <p>{caseStudy.technicalDemo.whyItMatters}</p>
+                  </div>
+
+                  <div className="callout-card cyan">
+                    <span className="callout-label font-mono">ENGINEERING RESPONSE</span>
+                    <p>{caseStudy.technicalDemo.engineeringResponse}</p>
+                  </div>
+
+                  <div className="callout-card emerald">
+                    <span className="callout-label font-mono">ENFORCED RESULT</span>
+                    <p>{caseStudy.technicalDemo.result}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* Engineering Roadmap Section (if present) */}
         {caseStudy.roadmapPhases && caseStudy.roadmapPhases.length > 0 && (
