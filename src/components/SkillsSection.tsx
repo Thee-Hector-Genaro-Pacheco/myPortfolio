@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { skillCategories } from '../data/portfolioData';
 import { 
   Code2, 
-  Layout, 
   Server, 
   Database, 
   Box, 
   Wrench, 
   Terminal,
   Check,
-  Cloud
+  Cloud,
+  Smartphone
 } from 'lucide-react';
 import './SkillsSection.css';
 
@@ -21,7 +21,8 @@ export const SkillsSection: React.FC = () => {
       case 'Code2':
         return <Code2 size={20} />;
       case 'Layout':
-        return <Layout size={20} />;
+      case 'Smartphone':
+        return <Smartphone size={20} />;
       case 'Server':
         return <Server size={20} />;
       case 'Database':
@@ -51,7 +52,7 @@ export const SkillsSection: React.FC = () => {
           </div>
           <h2 className="section-title">Categorized Engineering Skills</h2>
           <p className="section-description">
-            Organized across full-stack web software, containerized AWS cloud infrastructure, relational database systems, edge computing, and real-world industrial instrumentation.
+            Organized across full-stack web software, native Android development, containerized AWS infrastructure, AI/RAG systems, relational data platforms, edge computing, and industrial instrumentation.
           </p>
         </div>
 

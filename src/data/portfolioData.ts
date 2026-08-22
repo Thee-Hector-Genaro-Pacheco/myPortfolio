@@ -160,8 +160,8 @@ export interface PersonalInfo {
 export const personalInfo: PersonalInfo = {
   name: 'Hector Pacheco',
   title: 'Software Engineer',
-  subTitle: 'Full-Stack • Cloud Infrastructure • AI • IoT • Embedded Systems',
-  tagline: 'Building software across web, cloud infrastructure, AI, IoT, and real-world hardware.',
+  subTitle: 'Full-Stack • Cloud Infrastructure • AI • Mobile • IoT • Embedded Systems',
+  tagline: 'Building software across web, cloud infrastructure, AI, native mobile, IoT, and real-world hardware.',
   location: 'Southern California, USA',
   email: 'hector.genaro.pacheco@gmail.com',
   github: 'https://github.com/Thee-Hector-Genaro-Pacheco',
@@ -169,9 +169,9 @@ export const personalInfo: PersonalInfo = {
   linkedin: 'https://www.linkedin.com/in/hectorgenaropacheco/',
   resumePath: '/resume.pdf',
   resumeConfigured: true,
-  aboutText: `I am a Software Engineer with a distinct background spanning industrial instrumentation and controls, electrical systems, full-stack software development, cloud infrastructure, AI platforms, and IoT edge computing. 
+  aboutText: `I am a Software Engineer with a distinct background spanning full-stack web software, native Android development, AWS cloud infrastructure, retrieval-augmented AI systems, IoT edge computing, and industrial instrumentation & controls. 
 
-Having worked directly with PLC-connected devices, 4–20 mA loop instrumentation, calibration protocols, and field troubleshooting, I bring a physical-world systems mindset to modern software engineering. I engineer auditable, resilient software applications—ranging from AWS-backed industrial SaaS platforms and AI-assisted data pipelines to edge vision telemetry on Raspberry Pi.
+Having worked directly with PLC-connected devices, 4–20 mA loop instrumentation, calibration protocols, and field troubleshooting, I bring a physical-world systems mindset to modern software engineering. I engineer auditable, resilient software applications—ranging from AWS-backed industrial SaaS platforms and native Kotlin/Android mobile applications to AI-assisted data pipelines and edge vision telemetry on Raspberry Pi.
 
 My technical training also includes Palantir Foundry and AIP, with coursework in agentic AI workflows, enterprise data operations, data governance, and business-process modeling.`,
   corePrinciples: [
@@ -244,28 +244,29 @@ export const featuredProjects: Project[] = [
     id: 'caltrack',
     slug: 'caltrack',
     title: 'CalTrack',
-    subtitle: 'Industrial Calibration SaaS & Cloud Platform',
-    category: 'Industrial SaaS · Full-Stack · AWS Cloud',
+    subtitle: 'Industrial Calibration SaaS & Mobile Platform',
+    category: 'Industrial SaaS · Full-Stack · AWS Cloud · Native Android',
     accentColor: '#06B6D4',
     accentGradient: 'linear-gradient(135deg, rgba(6, 182, 212, 0.15) 0%, rgba(56, 189, 248, 0.05) 100%)',
     accentBg: 'rgba(6, 182, 212, 0.1)',
     accentBorder: 'rgba(6, 182, 212, 0.3)',
-    shortDescription: 'A full-stack industrial calibration platform deployed to AWS ECS Fargate and Vercel. Engineered to manage process plant instrument tags, calibration records, role-based access control, and persistent audit histories.',
-    technologies: ['React', 'TypeScript', 'Node.js', 'Express', 'AWS ECS Fargate', 'Amazon RDS', 'Docker'],
+    shortDescription: 'A full-stack industrial calibration platform deployed across AWS and Vercel with a native Android companion application for field workflows. Engineered for instrument tags, calibration records, RBAC, audit histories, and mobile barcode-assisted workflows.',
+    technologies: ['React', 'TypeScript', 'AWS ECS Fargate', 'PostgreSQL', 'Kotlin', 'Jetpack Compose', 'Node.js', 'Express', 'Docker', 'CameraX', 'ML Kit Barcode'],
     githubUrl: 'https://github.com/Thee-Hector-Genaro-Pacheco/caltrack',
     liveUrl: 'https://caltrack-web-six.vercel.app/login',
     liveUrlLabel: 'Live App',
     featured: true,
     status: 'Production Live',
     caseStudy: {
-      overview: 'CalTrack applies industrial instrumentation calibration protocols to modern cloud software architecture. Deployed in production with a React/TypeScript frontend on Vercel Edge and a containerized Node.js API on AWS ECS Fargate, it models real-world plant instrument workflows—managing instrument tags, process parameter metadata, user authentication, role-based access control, and persistent audit histories.',
+      overview: 'CalTrack applies industrial instrumentation calibration protocols to modern web and native mobile software architecture. Deployed in production with a React/TypeScript web frontend on Vercel Edge, a containerized Node.js API on AWS ECS Fargate, and a native Android companion application in Kotlin using Jetpack Compose, CameraX, and ML Kit for field calibration technicians.',
       problem: 'Industrial facilities frequently rely on disconnected spreadsheets or paper logbooks for recording instrument calibrations. This introduces compliance risks, untracked asset records, and unmonitored equipment drift across operating process units.',
-      solution: 'CalTrack provides a secure, cloud-hosted SaaS system for instrument tag indexing, calibration record management, user authentication, role-based access control (RBAC), audit history tracking, and persistent PostgreSQL data modeling deployed across AWS ECS Fargate and Vercel.',
+      solution: 'CalTrack provides a secure, cloud-hosted SaaS system and native Android application for instrument tag indexing, calibration record management, user authentication, role-based access control (RBAC), audit history tracking, and mobile barcode-assisted field workflows.',
       architecture: {
-        title: 'Production AWS Cloud & Full-Stack Architecture',
-        description: 'Multi-tier cloud deployment separating high-performance Vercel edge frontend delivery from containerized AWS backend microservices and managed relational storage.',
+        title: 'Production AWS Cloud, Full-Stack & Native Android Architecture',
+        description: 'Multi-tier architecture separating high-performance Vercel edge delivery, containerized AWS backend microservices, managed relational storage, and native Android mobile apps.',
         components: [
           'Frontend Layer: React & TypeScript SPA deployed on Vercel Edge Network',
+          'Native Mobile Layer: Android companion app built in Kotlin with Jetpack Compose, Material 3, ViewModels, Coroutines, CameraX, and ML Kit Barcode Scanning',
           'API Microservices: Node.js & Express application containerized via Docker and deployed on AWS ECS Fargate',
           'Container Registry: Amazon ECR for secure container image storage and deployment tagging',
           'Managed Relational DB: Amazon RDS PostgreSQL configured with isolated subnets and Prisma ORM',
@@ -302,20 +303,21 @@ export const featuredProjects: Project[] = [
         }
       ],
       mobileRoadmap: {
-        title: 'Planned Mobile & Field Engineering Roadmap',
-        status: 'Planned / Future Mobile Roadmap',
-        description: 'An offline-first mobile suite planned for field calibration technicians operating in remote facilities with low or zero cellular connectivity.',
+        title: 'Native Android Companion Application',
+        status: 'Implemented Native Mobile',
+        description: 'Native Android companion application built in Kotlin and Jetpack Compose for field calibration technicians operating in industrial plant facilities.',
         plannedFeatures: [
-          'Offline-First Field Workflows with Progressive Web App (PWA) support',
-          'Native Mobile Technician Application optimized for rugged tablets',
-          'Local SQLite Database Synchronization for zero-latency offline data entry',
-          'Auto-Reconnect Sync Protocol to push queued calibration runs upon network restoration',
-          'Bluetooth Low Energy (BLE) integration for direct digital calibrator data capture'
+          'Native Android UI built with Jetpack Compose & Material 3',
+          'CameraX integration with Google ML Kit Barcode Scanning (QR, Code 128, Data Matrix)',
+          'ViewModel & Coroutine architecture with DataStore auth token persistence',
+          'Retrofit & OkHttp API integration with automatic token refreshing via AuthInterceptor',
+          'Reference standard inspection, plant area mapping, and work order state views'
         ]
       },
-      technologies: ['React', 'TypeScript', 'Node.js', 'Express', 'AWS ECS Fargate', 'Amazon RDS PostgreSQL', 'Amazon ECR', 'AWS Secrets Manager', 'AWS KMS', 'Docker', 'Vercel', 'Prisma ORM'],
+      technologies: ['React', 'TypeScript', 'Node.js', 'Express', 'AWS ECS Fargate', 'Amazon RDS PostgreSQL', 'Kotlin', 'Android SDK', 'Jetpack Compose', 'CameraX', 'ML Kit Barcode', 'Docker', 'Vercel', 'Prisma ORM'],
       keyFeatures: [
         'Instrument Tag Database (Pressure, Temperature, Level, Flow, Control Valves)',
+        'Native Android Mobile Companion App (Kotlin, Jetpack Compose, CameraX, ML Kit Barcode Scanning)',
         'User Authentication & Role-Based Access Control (RBAC)',
         'Historical Calibration Record Management & Audit Trail Preservation',
         'Industrial Instrument Specification & Parameter Metadata Management',
@@ -324,17 +326,20 @@ export const featuredProjects: Project[] = [
       ],
       engineeringChallenges: [
         'Deploying a containerized Node.js API to AWS ECS Fargate while ensuring secure runtime secret injection via AWS Secrets Manager.',
+        'Integrating CameraX and ML Kit barcode scanning in Kotlin with Jetpack Compose for real-time barcode/QR tag resolution.',
         'Structuring relational database tables in PostgreSQL to maintain historic calibration snapshots even when physical instrument parameters are modified.',
         'Designing clean RESTful API contracts with Prisma ORM for efficient equipment query resolution.'
       ],
       whatIBuilt: [
         'Architected and containerized the Node.js backend using Docker and deployed to AWS ECS Fargate with Amazon ECR image hosting.',
+        'Engineered a native Android companion application in Kotlin using Jetpack Compose, Material 3, ViewModels, Retrofit, CameraX, and ML Kit for barcode-assisted field workflows.',
         'Configured Amazon RDS PostgreSQL for persistent relational data storage with Prisma ORM data modeling.',
         'Built frontend instrument registry components in React/TypeScript to manage instrument tags, user roles, and calibration records.',
         'Deployed the production web application on Vercel at caltrack-web-six.vercel.app/login.'
       ],
       whatILearned: [
-        'Gained hands-on experience deploying containerized applications with AWS ECS Fargate, ECR, Secrets Manager, and RDS.',
+        'Gained hands-on experience building native Android applications with Kotlin, Jetpack Compose, Material 3, CameraX, and ML Kit scanner integration.',
+        'Deployed containerized microservices with AWS ECS Fargate, ECR, Secrets Manager, and RDS.',
         'Designed full-stack data models for industrial equipment indexing and role-based audit trail preservation.'
       ]
     }
@@ -682,11 +687,11 @@ export const controlsToCodeSteps: ProgressionStep[] = [
   },
   {
     stepNumber: 4,
-    title: 'Full-Stack & Cloud Infrastructure',
-    subtitle: 'Scalable Software & AWS Deployments',
-    description: 'Engineering production web software and cloud systems—TypeScript, React, Node.js, AWS ECS Fargate, Amazon RDS PostgreSQL, Docker containers, and Vercel Edge.',
+    title: 'Full-Stack, Mobile & Cloud Infrastructure',
+    subtitle: 'Scalable Web, Mobile Apps & AWS Deployments',
+    description: 'Engineering production web software, native Android applications, and cloud systems—TypeScript, React, Kotlin, Jetpack Compose, Node.js, AWS ECS Fargate, Amazon RDS PostgreSQL, Docker containers, and Vercel Edge.',
     iconName: 'Cloud',
-    keySkills: ['TypeScript / React', 'Node.js & Express', 'AWS (ECS / ECR / RDS)', 'Docker & Vercel']
+    keySkills: ['TypeScript / React', 'Kotlin / Jetpack Compose', 'Node.js & Express', 'AWS (ECS / ECR / RDS)', 'Docker & Vercel']
   },
   {
     stepNumber: 5,
@@ -701,25 +706,27 @@ export const controlsToCodeSteps: ProgressionStep[] = [
 export const skillCategories: SkillCategory[] = [
   {
     title: 'Languages',
-    description: 'Core programming languages for web software, backend APIs, system scripting, and databases.',
+    description: 'Core programming languages for web software, native mobile apps, backend APIs, system scripting, and databases.',
     iconName: 'Code2',
     skills: [
       { name: 'JavaScript', featured: true, tag: 'ES6+' },
       { name: 'TypeScript', featured: true, tag: 'Strongly Typed' },
       { name: 'Python', featured: true, tag: 'Scripting / OpenCV' },
       { name: 'C++', featured: false, tag: 'Systems' },
-      { name: 'SQL', featured: true, tag: 'PostgreSQL / Queries' }
+      { name: 'SQL', featured: true, tag: 'PostgreSQL / Queries' },
+      { name: 'Kotlin', featured: true, tag: 'Native Android' }
     ]
   },
   {
-    title: 'Frontend Development',
-    description: 'Modern, responsive user interfaces built with performance, accessibility, and clean component systems.',
-    iconName: 'Layout',
+    title: 'Frontend & Mobile Development',
+    description: 'Modern web interfaces, responsive design systems, and native Android applications.',
+    iconName: 'Smartphone',
     skills: [
       { name: 'React', featured: true, tag: 'UI Framework' },
       { name: 'Next.js', featured: true, tag: 'SSR / Full-Stack' },
+      { name: 'Android', featured: true, tag: 'Native Mobile' },
+      { name: 'Jetpack Compose', featured: true, tag: 'Declarative UI' },
       { name: 'HTML5 & CSS3', featured: true, tag: 'Semantic Layout' },
-      { name: 'Modern CSS Systems', featured: true, tag: 'Variables / Flex / Grid' },
       { name: 'Responsive Design', featured: true, tag: 'Mobile First' }
     ]
   },

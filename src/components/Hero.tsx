@@ -10,7 +10,8 @@ import {
   ShieldCheck, 
   Cloud,
   Terminal,
-  Database
+  Database,
+  Smartphone
 } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 import './Hero.css';
@@ -41,7 +42,7 @@ export const Hero: React.FC = () => {
           </h1>
 
           <p className="hero-description">
-            I build software across web applications, cloud infrastructure (AWS / Vercel), AI platforms, IoT edge computing, and industrial technology. Bringing a physical-world systems mindset to scalable full-stack development.
+            I build software across web applications, cloud infrastructure (AWS / Vercel), AI platforms, native mobile (Android / Kotlin), IoT edge computing, and industrial technology. Bringing a physical-world systems mindset to scalable full-stack development.
           </p>
 
           <div className="hero-key-differentiator">
@@ -51,6 +52,10 @@ export const Hero: React.FC = () => {
             <span className="differentiator-divider">•</span>
             <span className="differentiator-tag">
               <Cloud size={14} /> Cloud &amp; AWS Infrastructure
+            </span>
+            <span className="differentiator-divider">•</span>
+            <span className="differentiator-tag">
+              <Smartphone size={14} /> Native Android &amp; Mobile
             </span>
             <span className="differentiator-divider">•</span>
             <span className="differentiator-tag">

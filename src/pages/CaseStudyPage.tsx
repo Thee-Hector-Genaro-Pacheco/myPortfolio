@@ -370,7 +370,7 @@ export const CaseStudyPage: React.FC = () => {
           </section>
         )}
 
-        {/* Mobile & Field Engineering Roadmap Section (if present) */}
+        {/* Mobile & Field Engineering Companion App Section (if present) */}
         {caseStudy.mobileRoadmap && (
           <section className="case-section mobile-roadmap-section">
             <h2 className="case-section-title font-mono">
@@ -378,18 +378,27 @@ export const CaseStudyPage: React.FC = () => {
             </h2>
             <div className="mobile-roadmap-card">
               <div className="roadmap-header">
-                <h3>Offline Field Technician Suite</h3>
-                <span className="roadmap-status-badge font-mono">{caseStudy.mobileRoadmap.status}</span>
+                <h3>{caseStudy.mobileRoadmap.title}</h3>
+                <span className={`roadmap-status-badge font-mono ${caseStudy.mobileRoadmap.status.includes('Implemented') ? 'status-implemented' : ''}`}>
+                  {caseStudy.mobileRoadmap.status}
+                </span>
               </div>
               <p className="roadmap-desc">{caseStudy.mobileRoadmap.description}</p>
 
               <div className="roadmap-features-grid">
-                {caseStudy.mobileRoadmap.plannedFeatures.map((feat, idx) => (
-                  <div key={idx} className="roadmap-feature-item planned">
-                    <Clock size={15} className="text-cyan" />
-                    <span>{feat}</span>
-                  </div>
-                ))}
+                {caseStudy.mobileRoadmap.plannedFeatures.map((feat, idx) => {
+                  const isImplemented = caseStudy.mobileRoadmap?.status.includes('Implemented');
+                  return (
+                    <div key={idx} className={`roadmap-feature-item ${isImplemented ? 'implemented' : 'planned'}`}>
+                      {isImplemented ? (
+                        <CheckCircle2 size={15} className="text-emerald" />
+                      ) : (
+                        <Clock size={15} className="text-cyan" />
+                      )}
+                      <span>{feat}</span>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </section>

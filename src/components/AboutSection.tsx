@@ -18,7 +18,7 @@ export const AboutSection: React.FC = () => {
           </div>
           <h2 className="section-title">About Hector Pacheco</h2>
           <p className="section-description">
-            Software Engineer building software across web, AI, IoT, and real-world hardware.
+            Software Engineer building software across web, cloud, AI, native mobile, IoT, and real-world hardware.
           </p>
         </div>
 
