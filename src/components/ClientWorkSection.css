@@ -7,7 +7,9 @@
 
 .client-grid {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
   width: 100%;
 }
 
@@ -76,6 +78,12 @@
   flex-shrink: 0;
 }
 
+.client-icon.camera-icon {
+  background: rgba(244, 63, 94, 0.1);
+  border-color: rgba(244, 63, 94, 0.25);
+  color: #f43f5e;
+}
+
 .client-name {
   font-size: 1.3rem;
   font-weight: 700;
@@ -106,6 +114,12 @@
   background: rgba(16, 185, 129, 0.12);
   border-color: rgba(16, 185, 129, 0.3);
   color: var(--accent-emerald);
+}
+
+.client-status-badge.active {
+  background: rgba(56, 189, 248, 0.12);
+  border-color: rgba(56, 189, 248, 0.3);
+  color: var(--accent-blue);
 }
 
 .client-description {
@@ -167,6 +181,13 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.35rem;
+}
+
+.client-action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 .visit-site-btn {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Github, ArrowRight, Activity, Terminal, Shield, Layers, ExternalLink, ShoppingBag, FileSpreadsheet } from 'lucide-react';
+import { Github, ArrowRight, Activity, Terminal, Shield, Layers, ExternalLink, ShoppingBag, FileSpreadsheet, Building2, Camera } from 'lucide-react';
 import { Project } from '../data/portfolioData';
 import './ProjectCard.css';
 
@@ -13,12 +13,16 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     switch (project.slug) {
       case 'caltrack':
         return <Shield size={20} />;
+      case 'estateos':
+        return <Building2 size={20} />;
       case 'procurement-tracking':
         return <FileSpreadsheet size={20} />;
       case 'fieldtrack-ai':
         return <Activity size={20} />;
       case 'thriveward-funding-intelligence':
         return <Layers size={20} />;
+      case 'photo-booth':
+        return <Camera size={20} />;
       case 'pi-arcade-os':
         return <Terminal size={20} />;
       case 'ecommerce-store':

@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { clientWorkItems } from '../data/portfolioData';
-import { Building2, Check, ExternalLink, Globe, ShieldCheck } from 'lucide-react';
+import { Building2, Check, ExternalLink, Globe, ShieldCheck, Camera, ArrowRight } from 'lucide-react';
 import './ClientWorkSection.css';
 
 export const ClientWorkSection: React.FC = () => {
@@ -14,7 +15,7 @@ export const ClientWorkSection: React.FC = () => {
           </div>
           <h2 className="section-title">Real-World Client Work</h2>
           <p className="section-description">
-            Production web platforms engineered for real commercial businesses—combining modern full-stack architecture, Supabase PostgreSQL, Next.js, Zod validation, lead generation, and production Vercel deployments.
+            Production web platforms and embedded hardware systems engineered for real-world client operations—combining full-stack architecture, cloud databases, edge computing, Linux automation, and unattended kiosk reliability.
           </p>
         </div>
 
@@ -24,20 +25,20 @@ export const ClientWorkSection: React.FC = () => {
             <div key={client.id} className="client-card">
               <div className="client-card-header">
                 <div className="client-identity">
-                  <div className="client-icon font-mono">
-                    <Globe size={20} />
+                  <div className={`client-icon font-mono ${client.iconName === 'Camera' ? 'camera-icon' : ''}`}>
+                    {client.iconName === 'Camera' ? <Camera size={20} /> : <Globe size={20} />}
                   </div>
                   <div>
                     <div className="client-title-row">
                       <h3 className="client-name">{client.clientName}</h3>
                       <span className="production-tag font-mono">
-                        <ShieldCheck size={12} /> PRODUCTION CLIENT WORK
+                        <ShieldCheck size={12} /> {client.tag || 'PRODUCTION CLIENT WORK'}
                       </span>
                     </div>
                     <span className="client-industry font-mono">{client.industry}</span>
                   </div>
                 </div>
-                <span className={`client-status-badge ${client.status.includes('Live') ? 'live' : ''}`}>
+                <span className={`client-status-badge ${client.status.includes('Live') ? 'live' : 'active'}`}>
                   {client.status}
                 </span>
               </div>
@@ -46,7 +47,7 @@ export const ClientWorkSection: React.FC = () => {
 
               {/* Deliverables Checklist */}
               <div className="client-deliverables">
-                <span className="deliverables-heading font-mono">KEY PRODUCTION DELIVERABLES & STACK</span>
+                <span className="deliverables-heading font-mono">KEY PRODUCTION DELIVERABLES &amp; STACK</span>
                 <ul className="deliverables-list">
                   {client.deliverables.map((deliv, idx) => (
                     <li key={idx}>
@@ -57,7 +58,7 @@ export const ClientWorkSection: React.FC = () => {
                 </ul>
               </div>
 
-              {/* Technologies & Live Action */}
+              {/* Technologies & Actions */}
               <div className="client-footer">
                 <div className="client-tech-stack">
                   {client.technologies.map((tech, idx) => (
@@ -67,18 +68,31 @@ export const ClientWorkSection: React.FC = () => {
                   ))}
                 </div>
 
-                {client.liveUrl && (
-                  <a
-                    href={client.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-primary btn-sm visit-site-btn"
-                    aria-label={`Visit live website for ${client.clientName}`}
-                  >
-                    <span>Visit Live Site</span>
-                    <ExternalLink size={14} />
-                  </a>
-                )}
+                <div className="client-action-buttons">
+                  {client.caseStudySlug && (
+                    <Link
+                      to={`/projects/${client.caseStudySlug}`}
+                      className="btn btn-secondary btn-sm case-study-btn"
+                      aria-label={`View case study for ${client.clientName}`}
+                    >
+                      <span>Case Study</span>
+                      <ArrowRight size={14} />
+                    </Link>
+                  )}
+
+                  {client.liveUrl && (
+                    <a
+                      href={client.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-primary btn-sm visit-site-btn"
+                      aria-label={`Visit live website for ${client.clientName}`}
+                    >
+                      <span>Visit Live Site</span>
+                      <ExternalLink size={14} />
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           ))}

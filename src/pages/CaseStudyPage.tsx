@@ -270,6 +270,31 @@ export const CaseStudyPage: React.FC = () => {
             </div>
           )}
 
+          {/* Visual Pipeline Flow for EstateOS and other pipeline architectures */}
+          {caseStudy.architecture.pipelineStack && (
+            <div className="cloud-visual-diagram">
+              <div className="diagram-title font-mono">
+                {caseStudy.architecture.pipelineStack.title || 'DETERMINISTIC & PROVENANCE-AWARE ANALYSIS PIPELINE'}
+              </div>
+              
+              <div className="flow-nodes rag-flow-nodes">
+                {caseStudy.architecture.pipelineStack.nodes.map((node, idx) => (
+                  <React.Fragment key={idx}>
+                    <div className="flow-node">
+                      <div className={`node-box ${idx % 4 === 0 ? 'accent-cyan' : idx % 4 === 1 ? 'accent-purple' : idx % 4 === 2 ? 'accent-emerald' : 'accent-cyan'}`}>
+                        <span className="node-type font-mono">{node.subText}</span>
+                        <strong className="node-name">{node.nodeName}</strong>
+                      </div>
+                    </div>
+                    {idx < caseStudy.architecture.pipelineStack!.nodes.length - 1 && (
+                      <ArrowRight size={16} className="flow-arrow" />
+                    )}
+                  </React.Fragment>
+                ))}
+              </div>
+            </div>
+          )}
+
           <div className="architecture-card">
             <h3 className="arch-title">{caseStudy.architecture.title}</h3>
             <p className="arch-desc">{caseStudy.architecture.description}</p>
@@ -433,6 +458,18 @@ export const CaseStudyPage: React.FC = () => {
             </div>
           </div>
         </section>
+
+        {/* Quality & Testing Checkpoint (if present) */}
+        {caseStudy.metricsOrNotes && (
+          <section className="case-section checkpoint-section">
+            <div className="checkpoint-card">
+              <div className="checkpoint-header font-mono">
+                <ShieldCheck size={16} className="text-emerald" /> VERIFIED ENGINEERING CHECKPOINT
+              </div>
+              <p className="checkpoint-text font-mono">{caseStudy.metricsOrNotes}</p>
+            </div>
+          </section>
+        )}
 
         {/* Engineering Challenges */}
         <section className="case-section challenges-section">

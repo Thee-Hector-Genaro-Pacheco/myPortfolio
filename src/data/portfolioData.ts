@@ -69,6 +69,13 @@ export interface CaseStudy {
       nodeName: string;
       subText: string;
     }[];
+    pipelineStack?: {
+      title?: string;
+      nodes: {
+        nodeName: string;
+        subText: string;
+      }[];
+    };
   };
   technicalDemo?: TechnicalDemo;
   roadmapPhases?: RoadmapPhase[];
@@ -128,9 +135,12 @@ export interface ClientWorkItem {
   description: string;
   deliverables: string[];
   technologies: string[];
-  status: 'Live / Deployed Production' | 'In Development' | 'Completed';
+  status: 'Live / Deployed Production' | 'In Development' | 'Completed' | 'Active Development';
+  tag?: string;
   liveUrl?: string;
   githubUrl?: string;
+  caseStudySlug?: string;
+  iconName?: 'Globe' | 'Camera';
 }
 
 export interface PersonalInfo {
@@ -345,6 +355,100 @@ export const featuredProjects: Project[] = [
     }
   },
   {
+    id: 'estateos',
+    slug: 'estateos',
+    title: 'EstateOS',
+    subtitle: 'Real Estate Investment Intelligence Platform',
+    category: 'Real Estate Intelligence · Deterministic Underwriting · Provenance-Aware Research',
+    accentColor: '#3B82F6',
+    accentGradient: 'linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(99, 102, 241, 0.05) 100%)',
+    accentBg: 'rgba(59, 130, 246, 0.1)',
+    accentBorder: 'rgba(59, 130, 246, 0.3)',
+    shortDescription: 'A full-stack real estate analysis platform that combines trusted property and distress data with deterministic underwriting and provenance-aware research. EstateOS calculates debt, equity, LTV/CLTV, evaluates investment strategies, and surfaces evidence, assumptions, warnings, and financial insights for human review.',
+    technologies: ['Next.js 16', 'React', 'TypeScript', 'Prisma', 'PostgreSQL', 'Vitest', 'Node.js', 'TailwindCSS', 'Zod'],
+    githubUrl: undefined, // Private repository - button omitted
+    liveUrl: undefined,
+    featured: true,
+    status: 'Active Development',
+    caseStudy: {
+      overview: 'EstateOS is a full-stack real estate investment intelligence platform engineered to turn fragmented property, ownership, debt, distress, valuation, and zoning records into a structured, auditable analysis workflow. The system combines external property data sources with pure TypeScript deterministic financial underwriting, identity-bound evidence snapshots, and provenance-aware research workflows to surface financial metrics, assumptions, and risk warnings for human decision-makers.',
+      problem: 'Real-estate investment research often requires combining fragmented property, ownership, debt, distress, valuation, zoning, and financial information before an investor can determine whether an opportunity is worth pursuing. Disconnected county recorder records, property assessor databases, commercial APIs, and unstructured documents lead to manual data gathering, hidden senior or subordinate liens, and missed financial risk factors. Delegating these critical calculations blindly to LLMs introduces hallucination risks and unverified assumptions.',
+      solution: 'EstateOS turns fragmented inputs into a structured investment-analysis workflow. Built with Next.js 16, React, TypeScript, Prisma, and PostgreSQL, EstateOS enforces a strict architectural boundary separating source facts, deterministic underwriting, and grounded research. All financial math—including debt capital stacks, LTV/CLTV, equity, cash flows, and multi-strategy screening—executes deterministically in TypeScript, while external property evidence is bound server-side to prevent untrusted input from contaminating investment evaluations.',
+      architecture: {
+        title: 'Provenance-Aware Real Estate Intelligence & Deterministic Underwriting Architecture',
+        description: 'Architectural separation between source facts, deterministic analysis, grounded provenance-aware research, and human review and action. Calculations and investment logic remain strictly deterministic rather than delegated blindly to an LLM.',
+        pipelineStack: {
+          title: 'DETERMINISTIC & PROVENANCE-AWARE ANALYSIS PIPELINE',
+          nodes: [
+            { nodeName: 'Source Facts', subText: 'RAW PROPERTY, DEBT & DISTRESS' },
+            { nodeName: 'Deterministic Analysis', subText: 'LTV, CLTV, EQUITY & STRATEGIES' },
+            { nodeName: 'Grounded Research', subText: 'PROVENANCE & AUTHORITY TIERS' },
+            { nodeName: 'Human Review & Action', subText: 'INVESTOR GATEWAY & DECISION' }
+          ]
+        },
+        components: [
+          'Source Data Ingestion & Normalization: Ingests structured property records, distress filings, and ownership intelligence from sources including ATTOM, Realie, Regrid, and public county recorder/tax data while capturing provider metadata and timestamps.',
+          'Deterministic Financial Underwriting Engine: Pure TypeScript calculation engine executing exact arithmetic for mortgage amortization, NOI, Cap Rate, net cash flows, Cash-on-Cash Return, and analytical DSCR without LLM delegation.',
+          'Debt Capital Stack & Leverage Analyzer: Models senior and subordinate lien positions, first-position balances, estimated equity, LTV (Loan-to-Value), CLTV (Combined Loan-to-Value), and complete debt stack verification.',
+          'Multi-Strategy Investment Screening: Deterministically evaluates opportunity viability across six distinct real estate strategies: Wholesale, Fix & Flip, BRRRR, Buy & Hold, Subject-To, and Seller Financing with transparent criteria scoring.',
+          'Identity-Bound Evidence Snapshots: Server-controlled PropertyEvidenceSnapshot domain cryptographically binding trusted source data to specific opportunity records, ensuring trusted source data is strictly distinguishable from untrusted development input.',
+          'Two-Layer Source Authority Classifier: Classifies research citations by authority tier (official municipal/government, established market data, secondary industry, commercial content) to maintain evidence integrity.',
+          'Human-in-the-Loop Review Gateway: Surfaces financial assumptions, warnings, missing-lien flags, and supporting evidence in structured panels, ensuring humans evaluate all opportunities before taking action.'
+        ]
+      },
+      roadmapPhases: [
+        {
+          phase: 'Phase 1',
+          title: 'Planning Authority & Zoning Containment',
+          description: 'Authoritative municipal jurisdiction synthesis, spatial boundary containment, and local zoning constraint mapping.',
+          status: 'In Progress'
+        },
+        {
+          phase: 'Phase 2',
+          title: 'Automated Scout Distress Discovery',
+          description: 'Autonomous ingestion of pre-foreclosure recorder filings and distressed leads with canonical parcel deduplication.',
+          status: 'Planned'
+        },
+        {
+          phase: 'Phase 3',
+          title: 'Agentic Task Harness & Worker Orchestration',
+          description: 'Supervised asynchronous multi-agent worker loops with structured task attempts, trace logging, and human checkpoints.',
+          status: 'Planned'
+        }
+      ],
+      technologies: ['Next.js 16', 'React', 'TypeScript', 'Prisma ORM', 'PostgreSQL', 'Vitest', 'Node.js', 'TailwindCSS', 'Zod'],
+      keyFeatures: [
+        'Deterministic Debt Capital Stack & Leverage Engine (LTV, CLTV, Senior/Subordinate Liens, Estimated Equity)',
+        'Multi-Strategy Investment Screening (Wholesale, Fix & Flip, BRRRR, Buy & Hold, Subject-To, Seller Finance)',
+        'Pure TypeScript Financial Calculators (NOI, Cap Rate, Debt Service, Cash Flow, Cash-on-Cash Return, DSCR)',
+        'Identity-Bound Property Evidence Snapshots (Server-Controlled Provenance & Trusted vs. Untrusted Separation)',
+        'Multi-Tier Source Authority Classifier (Official Government, Primary Assessor, Market Data, Secondary Industry)',
+        'Transparent Assumptions & Risk Warning Engine (Missing Lien Warnings, Vacancy Adjustments, Incomplete Stack Flags)',
+        'Grounded Research Integration Framework (Provenance-Aware Source Citations & Confidence Validation)',
+        'Rigorous Test Suite with 59 Test Files and 804 Tests Verified at Core Underwriting Checkpoint'
+      ],
+      engineeringChallenges: [
+        'Isolating deterministic financial math from LLM interpretation to ensure 100% auditable, reproducible underwriting results that investors can trust.',
+        'Architecting identity-bound evidence snapshots so that server-verified source data cannot be forged or superseded by untrusted client inputs.',
+        'Modeling complex multi-lien capital stacks with incomplete or estimated subordinate debt while explicitly surfacing assumption warnings to human reviewers.',
+        'Classifying external research sources by authority tiers to prevent low-credibility commercial web content from influencing regulatory and zoning evaluations.'
+      ],
+      whatIBuilt: [
+        'Engineered the deterministic financial underwriting core in TypeScript, calculating debt capital stacks, LTV/CLTV ratios, mortgage payments, NOI, and cash flows with rigorous input validation.',
+        'Built the multi-strategy investment screening engine evaluating opportunities across Wholesale, Fix & Flip, BRRRR, Buy & Hold, Subject-To, and Seller Finance models.',
+        'Designed the PropertyEvidenceSnapshot domain in Prisma and PostgreSQL to bind trusted property evidence to acquisition opportunities.',
+        'Implemented the two-layer source authority classifier and evidence guardrails to validate citation confidence levels against source domains.',
+        'Developed the opportunity analysis dashboard presenting financial metrics, strategy rankings, warnings, and provenance evidence for human evaluation.'
+      ],
+      whatILearned: [
+        'Deepened expertise in financial systems engineering, deterministic arithmetic invariants, and real-estate debt modeling (LTV, CLTV, subordinate lien mechanics).',
+        'Mastered provenance-aware data architecture, distinguishing authoritative primary sources from derivative calculations and unverified client inputs.',
+        'Designed robust test harness patterns for financial models, achieving 804 passing tests across 59 test files at the core underwriting checkpoint.'
+      ],
+      metricsOrNotes: 'Development Checkpoint: 59 test files • 804 tests passing (Vitest) • Clean ESLint • Clean production Next.js 16 build'
+    }
+  },
+  {
     id: 'procurement-tracking',
     slug: 'procurement-tracking',
     title: 'Procurement Tracking System',
@@ -541,6 +645,103 @@ export const featuredProjects: Project[] = [
       whatILearned: [
         'Mastered pgvector indexing in PostgreSQL, vector space mathematical invariants, index identity hashing, and RAG citation grounding design.'
       ]
+    }
+  },
+  {
+    id: 'photo-booth',
+    slug: 'photo-booth',
+    title: 'Interactive Photo Booth System',
+    subtitle: 'Raspberry Pi Hardware & Software Integration',
+    category: 'Client Hardware/Software · Embedded Linux · DSLR Automation',
+    accentColor: '#F43F5E',
+    accentGradient: 'linear-gradient(135deg, rgba(244, 63, 94, 0.15) 0%, rgba(251, 113, 133, 0.05) 100%)',
+    accentBg: 'rgba(244, 63, 94, 0.1)',
+    accentBorder: 'rgba(244, 63, 94, 0.3)',
+    shortDescription: 'A commercial interactive photo booth system built around a Raspberry Pi 5, DSLR camera integration, touchscreen kiosk interface, and peripheral integration. The system combines Linux services, camera automation, hardware/software integration, and a touch-first event workflow designed for reliable event operation.',
+    technologies: ['Raspberry Pi', 'Python', 'Linux', 'gphoto2', 'systemd', 'DSLR', 'Touchscreen', 'Hardware Integration'],
+    githubUrl: undefined, // Client hardware system - public repository button omitted
+    liveUrl: undefined, // Physical embedded system - live web app button omitted
+    featured: true,
+    status: 'Active Development',
+    caseStudy: {
+      overview: 'The Interactive Photo Booth System is a commercial hardware and software platform engineered for real-world event operations for a nonprofit client. Built around a Raspberry Pi 5, an Acer 15.6-inch touchscreen, and a Canon DSLR camera, the system integrates Linux operating system services, camera automation via gphoto2, touch-first kiosk presentation, and robust local media storage into a unified physical booth designed for reliable event operation.',
+      problem: 'Event photo booths frequently suffer from fragile desktop software, cumbersome manual reboots, disconnected consumer cameras, and delicate physical wiring that fails under heavy public use. The client required a portable, dedicated hardware-software system capable of booting automatically into an interactive kiosk interface, triggering high-resolution DSLR captures reliably, processing event media locally, and running continuously without technical intervention.',
+      solution: 'Architected an integrated edge kiosk system powered by a Raspberry Pi 5 running 64-bit Linux with active thermal cooling. The solution pairs photobooth-app (v8.7.0) with a gphoto2 camera control backend to drive a tethered Canon Rebel T100 DSLR, automated via systemd user services and a custom kiosk startup script to launch an Acer PM161QT touchscreen interface upon boot. All configuration, media frames, databases, and logs are persisted deterministically in structured user directories.',
+      architecture: {
+        title: 'Layered Kiosk, Linux Daemon & Hardware Automation Architecture',
+        description: 'Multi-tier embedded architecture isolating touch user input, application presentation, operating system process supervision, camera driver protocols, and persistent local media pipelines.',
+        pipelineStack: {
+          title: 'PHOTO BOOTH HARDWARE & SOFTWARE WORKFLOW PIPELINE',
+          nodes: [
+            { nodeName: 'Touchscreen Interface', subText: '15.6" ACER PM161QT' },
+            { nodeName: 'Photo Booth App', subText: 'PHOTOBOOTH-APP V8.7.0' },
+            { nodeName: 'Raspberry Pi 5 / Linux', subText: 'SYSTEMD USER DAEMON' },
+            { nodeName: 'Camera Control Layer', subText: 'GPHOTO2 BACKEND' },
+            { nodeName: 'Canon DSLR', subText: 'CANON REBEL T100' },
+            { nodeName: 'Image / Media Workflow', subText: '~/PHOTOBOOTH/MEDIA' },
+            { nodeName: 'Output / Peripherals', subText: 'EVENT ATTENDANT DISPATCH' }
+          ]
+        },
+        components: [
+          'Touchscreen Kiosk Interface: Acer PM161QT 15.6-inch portable touchscreen delivering responsive, touch-first event interaction with custom kiosk launch scripts.',
+          'Photo Booth Application Core: Photobooth-app (v8.7.0) managing live preview framing, countdown states, capture triggers, and local gallery views.',
+          'Linux Service & Process Supervisor: Systemd user service (~/.local/share/systemd/user/photobooth-app.service) providing daemonized background execution and automatic restart protection.',
+          'Programmatic Camera Control Layer: GPhoto2 abstraction backend communicating directly with the Canon DSLR over USB PTP (Picture Transfer Protocol).',
+          'Tethered DSLR Optical Capture: Canon Rebel T100 delivering high-resolution optical image capture superior to standard webcams or mobile sensors.',
+          'Deterministic Media & Configuration Storage: Structured local filesystem storage (~/photobooth/) partitioning config, databases, frames, logs, media, processed_full, and userdata.',
+          'Thermal & Physical Management: Raspberry Pi Active Cooler maintaining sustained clock frequencies and low thermal thresholds during multi-hour event runtime.'
+        ]
+      },
+      roadmapPhases: [
+        {
+          phase: 'Phase 1',
+          title: 'Hardware Kiosk & DSLR Capture Baseline',
+          description: 'Raspberry Pi 5 active-cooled setup, systemd user services, kiosk-mode touch interface, and Canon T100 gphoto2 integration.',
+          status: 'In Progress'
+        },
+        {
+          phase: 'Phase 2',
+          title: 'Event Printing Workflow & Enclosure Hardening',
+          description: 'Thermal/dye-sublimation photo printer driver integration, custom event framing presets, and ruggedized transport enclosure.',
+          status: 'Planned'
+        },
+        {
+          phase: 'Phase 3',
+          title: 'Modular Device Services & Native Image Processing',
+          description: 'The system is planned to evolve toward a more modular architecture with a lightweight Go device-service layer for hardware health, job orchestration, and telemetry, along with a native C++/OpenCV image-processing component for performance-sensitive media and computer-vision workflows.',
+          status: 'Planned'
+        }
+      ],
+      technologies: ['Raspberry Pi 5', 'Linux', 'Python', 'photobooth-app 8.7.0', 'gphoto2', 'Canon DSLR', 'systemd', 'Touchscreen Kiosk', 'Hardware Integration'],
+      keyFeatures: [
+        'Tethered Canon T100 DSLR Camera Control via gphoto2 USB PTP Backend',
+        'Interactive 15.6-inch Acer PM161QT Touchscreen Event Kiosk Interface',
+        'Unattended Background Daemon Execution via systemd User Service',
+        'Automatic Kiosk Startup Script for Instant Power-On Event Readiness',
+        'Deterministic Persistent Storage Hierarchy for Config, Databases, Media, and Logs',
+        'Hardware Active Cooling Preventing Thermal Throttling in Closed Enclosures',
+        'Touch-First Event Workflow with Countdown Timers and Real-Time Review',
+        'Engineered as Real Commercial Client Hardware for Nonprofit Operations'
+      ],
+      engineeringChallenges: [
+        'Managing USB bus power distribution and device locking when communicating programmatically with the Canon T100 DSLR through gphoto2 without OS desktop automount conflicts.',
+        'Ensuring reliable touch input coordination and display synchronization on an external portable touchscreen connected to Raspberry Pi 5 under kiosk window managers.',
+        'Structuring fault-tolerant systemd service definitions and shell scripts to guarantee hands-off reboot recovery during live unattended event operation.',
+        'Maintaining low thermal signatures and stable clock speeds under continuous capture workloads using active cooling within physical booth enclosures.'
+      ],
+      whatIBuilt: [
+        'Configured the Raspberry Pi 5 hardware platform with active cooling, USB peripheral mapping, and display/touch wiring harnesses.',
+        'Implemented automated systemd service definitions (photobooth-app.service) and shell startup scripts (~/photobooth-kiosk.sh) for resilient kiosk operation.',
+        'Integrated and calibrated the Canon T100 DSLR camera using gphoto2 for reliable programmatic shutter release and high-resolution photo transfer.',
+        'Deployed and customized photobooth-app v8.7.0, structuring persistent directories for configuration, databases, frames, processed media, and logs.',
+        'Conducted physical bench testing of display responsiveness, USB stability, and touch calibration to support unattended public event usage.'
+      ],
+      whatILearned: [
+        'Deepened practical expertise in embedded Linux system administration, systemd user daemons, and kiosk window orchestration on Raspberry Pi.',
+        'Mastered low-level USB camera control protocols, gphoto2 device configuration, and physical peripheral troubleshooting.',
+        'Gained hands-on experience designing end-to-end hardware/software systems for real client operational requirements and unattended public interaction.'
+      ],
+      metricsOrNotes: 'Current Implementation: photobooth-app v8.7.0 • Canon T100 DSLR via gphoto2 • Raspberry Pi 5 Linux systemd service • 15.6" Touchscreen Kiosk'
     }
   },
   {
@@ -839,6 +1040,26 @@ export const clientWorkItems: ClientWorkItem[] = [
     ],
     technologies: ['Next.js', 'TypeScript', 'Supabase PostgreSQL', 'Zod Validation', 'Vercel'],
     status: 'Live / Deployed Production',
+    iconName: 'Globe',
     liveUrl: 'https://www.ocwaterfeaturesinc.com/'
+  },
+  {
+    id: 'client-2',
+    clientName: 'Interactive Photo Booth System',
+    industry: 'Nonprofit Event Operations & Hardware Systems',
+    focusAreas: ['Embedded Linux Kiosk', 'DSLR Camera Automation', 'Touchscreen Integration', 'Hardware Reliability'],
+    description: 'A commercial interactive photo booth system engineered for a nonprofit client, integrating a Raspberry Pi 5, Canon DSLR camera automation via gphoto2, a 15.6-inch touchscreen kiosk interface, systemd background services, and unattended event execution.',
+    deliverables: [
+      'Raspberry Pi 5 and Active Cooler hardware assembly with touch/display connectivity',
+      'Canon T100 DSLR integration using gphoto2 for automated tethered capture',
+      'Acer PM161QT 15.6-inch touchscreen display and kiosk-mode event interface',
+      'Systemd user service automation (photobooth-app.service) for reliable background daemon execution',
+      'Kiosk startup scripts and persistent directory hierarchy for media, configuration, and logs'
+    ],
+    technologies: ['Raspberry Pi 5', 'Linux', 'Python', 'photobooth-app', 'gphoto2', 'Canon DSLR', 'systemd', 'Touchscreen'],
+    status: 'Active Development',
+    tag: 'CLIENT HARDWARE WORK',
+    iconName: 'Camera',
+    caseStudySlug: 'photo-booth'
   }
 ];
