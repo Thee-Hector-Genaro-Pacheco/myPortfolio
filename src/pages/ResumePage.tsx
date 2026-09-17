@@ -46,17 +46,17 @@ export const ResumePage: React.FC = () => {
           {/* Header */}
           <header className="resume-doc-header">
             <h1 className="doc-name">{personalInfo.name}</h1>
-            <p className="doc-title">Software Engineer | Full-Stack • Cloud • AI • IoT • Embedded Systems</p>
+            <p className="doc-title">Software Engineer | Full-Stack • Cloud &amp; APIs • Embedded Systems &amp; IoT • Deterministic Systems</p>
             <div className="doc-contact-row font-mono">
               <span>{personalInfo.location}</span>
               <span>•</span>
               <a href={`mailto:${personalInfo.email}`}>{personalInfo.email}</a>
               <span>•</span>
-              <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">LinkedIn</a>
+              <a href="https://my-portfolio-sigma-lac-94.vercel.app" target="_blank" rel="noopener noreferrer">Portfolio</a>
               <span>•</span>
               <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">GitHub</a>
               <span>•</span>
-              <a href={personalInfo.gitlab} target="_blank" rel="noopener noreferrer" aria-label="GitLab Profile">GitLab</a>
+              <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">LinkedIn</a>
             </div>
           </header>
 
@@ -64,7 +64,7 @@ export const ResumePage: React.FC = () => {
           <section className="doc-section">
             <h2 className="doc-section-title font-mono">PROFESSIONAL SUMMARY</h2>
             <p className="doc-text">
-              Software Engineer with a physical-world engineering background spanning full-stack development, AWS cloud infrastructure, retrieval-augmented AI systems, native Android development, IoT edge computing, and industrial instrumentation &amp; controls. Builds auditable software across cloud SaaS, GraphQL business systems, governed RAG pipelines, mobile applications, and Raspberry Pi hardware-integrated systems.
+              Software Engineer with a strong physical-world systems background spanning full-stack web applications, REST &amp; GraphQL APIs, AWS cloud infrastructure, PostgreSQL/Prisma data models, and Linux/Raspberry Pi embedded hardware integration. Experienced in delivering auditable, production-grade systems ranging from industrial calibration SaaS and real-estate investment analysis engines to custom kiosk client hardware solutions.
             </p>
           </section>
 
@@ -74,48 +74,48 @@ export const ResumePage: React.FC = () => {
             <div className="doc-skills-grid font-sans">
               <div className="doc-skill-group">
                 <strong className="doc-skill-cat-title">Languages:</strong>{' '}
-                <span className="doc-skill-names">TypeScript, JavaScript, Python, SQL, C++, Kotlin</span>
+                <span className="doc-skill-names">TypeScript, JavaScript, Python, SQL, C++</span>
               </div>
               <div className="doc-skill-group">
-                <strong className="doc-skill-cat-title">Frontend &amp; Mobile:</strong>{' '}
-                <span className="doc-skill-names">React, Next.js, Android, Jetpack Compose, HTML5, CSS3</span>
+                <strong className="doc-skill-cat-title">Frontend:</strong>{' '}
+                <span className="doc-skill-names">React, Next.js, HTML5, CSS3, Responsive Design</span>
               </div>
               <div className="doc-skill-group">
                 <strong className="doc-skill-cat-title">Backend &amp; APIs:</strong>{' '}
-                <span className="doc-skill-names">Node.js, Express, GraphQL, REST APIs, FastAPI, WebSockets, Zod</span>
+                <span className="doc-skill-names">Node.js, Express, REST APIs, GraphQL, Zod, FastAPI, WebSockets</span>
               </div>
               <div className="doc-skill-group">
-                <strong className="doc-skill-cat-title">AI &amp; Retrieval:</strong>{' '}
-                <span className="doc-skill-names">OpenAI API, RAG, Embeddings, pgvector, Semantic Retrieval, Structured LLM Output</span>
+                <strong className="doc-skill-cat-title">Data &amp; Storage:</strong>{' '}
+                <span className="doc-skill-names">PostgreSQL, Prisma, Supabase, MongoDB</span>
               </div>
               <div className="doc-skill-group">
-                <strong className="doc-skill-cat-title">Cloud &amp; Infrastructure:</strong>{' '}
-                <span className="doc-skill-names">AWS ECS Fargate, ECR, RDS, Secrets Manager, KMS, VPC, Docker, Vercel, Linux, Git/GitHub</span>
+                <strong className="doc-skill-cat-title">Cloud &amp; DevOps:</strong>{' '}
+                <span className="doc-skill-names">AWS (ECS Fargate, ECR, RDS, Secrets Manager), Docker, Linux, Vercel, Git/GitHub</span>
               </div>
               <div className="doc-skill-group">
-                <strong className="doc-skill-cat-title">Data:</strong>{' '}
-                <span className="doc-skill-names">PostgreSQL, Prisma, MongoDB, Supabase, Apollo</span>
+                <strong className="doc-skill-cat-title">Systems &amp; IoT:</strong>{' '}
+                <span className="doc-skill-names">Raspberry Pi 5, Linux systemd, GPIO, GPS/NMEA, Hardware/Software Integration</span>
               </div>
               <div className="doc-skill-group">
-                <strong className="doc-skill-cat-title">Embedded &amp; Industrial:</strong>{' '}
-                <span className="doc-skill-names">Raspberry Pi 5, GPIO, GPS/NMEA, Sensors, 4–20 mA Instrumentation, PLC I/O</span>
+                <strong className="doc-skill-cat-title">Industrial Systems:</strong>{' '}
+                <span className="doc-skill-names">PLC I/O, 4–20 mA Current Loops, Instrumentation Commissioning, Fault Isolation</span>
               </div>
               <div className="doc-skill-group">
-                <strong className="doc-skill-cat-title">AI &amp; Data Platforms:</strong>{' '}
-                <span className="doc-skill-names">Palantir Foundry, Palantir AIP, Data Governance</span>
+                <strong className="doc-skill-cat-title">Platforms:</strong>{' '}
+                <span className="doc-skill-names">Palantir Foundry, Palantir AIP</span>
               </div>
             </div>
           </section>
 
           {/* Featured Engineering Projects */}
           <section className="doc-section">
-            <h2 className="doc-section-title font-mono">FEATURED DEPLOYED &amp; ENGINEERING PROJECTS</h2>
+            <h2 className="doc-section-title font-mono">FEATURED ENGINEERING PROJECTS</h2>
             
             {/* CalTrack */}
             <div className="doc-project-item">
               <div className="doc-project-header">
                 <div className="doc-project-title-group">
-                  <strong className="doc-project-name">CalTrack — Industrial Calibration SaaS &amp; Mobile Platform</strong>
+                  <strong className="doc-project-name">CalTrack — Industrial Calibration SaaS Platform</strong>
                   <div className="doc-project-links">
                     <a
                       href="https://caltrack-web-six.vercel.app/login"
@@ -139,82 +139,88 @@ export const ResumePage: React.FC = () => {
                     </a>
                   </div>
                 </div>
-                <span className="doc-project-tech font-mono">React • TypeScript • Node • PostgreSQL • AWS • Kotlin • Jetpack Compose</span>
+                <span className="doc-project-tech font-mono">React • TypeScript • Node.js • Express • PostgreSQL • Prisma • Docker • AWS ECS Fargate</span>
               </div>
               <ul className="doc-bullet-list">
                 <li>
                   <CheckCircle2 size={14} className="text-emerald" />
-                  <span>Architected and deployed a full-stack industrial calibration platform for instrument tags, calibration records, RBAC, and audit histories.</span>
+                  <span>Architected and deployed a full-stack industrial calibration platform for tracking instrument tags, calibration records, scheduled recertifications, and audit histories.</span>
                 </li>
                 <li>
                   <CheckCircle2 size={14} className="text-emerald" />
-                  <span>Containerized Node/Express backend with Docker on AWS ECS Fargate, ECR, RDS PostgreSQL, Secrets Manager, KMS, and Vercel.</span>
+                  <span>Containerized backend services with Docker on AWS ECS Fargate, ECR, RDS PostgreSQL, Secrets Manager, KMS, and Vercel for scalable industrial workflows.</span>
                 </li>
                 <li>
                   <CheckCircle2 size={14} className="text-emerald" />
-                  <span>Engineered a native Android companion application in Kotlin using Jetpack Compose, Material 3, CameraX, and ML Kit for QR/barcode scanning.</span>
+                  <span>Enforced strict validation schemas, multi-role RBAC, and automated integration test suites for high-reliability operational compliance.</span>
                 </li>
               </ul>
             </div>
 
-            {/* Procurement Tracking System */}
+            {/* EstateOS */}
             <div className="doc-project-item">
               <div className="doc-project-header">
                 <div className="doc-project-title-group">
-                  <strong className="doc-project-name">Procurement Tracking System — Enterprise Procurement Workflow Platform</strong>
+                  <strong className="doc-project-name">EstateOS — Real Estate Investment Intelligence Platform</strong>
                   <div className="doc-project-links">
                     <a
-                      href="https://procurement-tracking-xg87.vercel.app/"
+                      href="https://my-portfolio-sigma-lac-94.vercel.app/projects/estateos"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="doc-link-btn live"
-                      aria-label="Procurement Tracking System Live App"
+                      aria-label="EstateOS Case Study"
                     >
-                      <span>LIVE APP</span>
+                      <span>CASE STUDY</span>
                       <ExternalLink size={12} />
-                    </a>
-                    <a
-                      href="https://github.com/Thee-Hector-Genaro-Pacheco/procurementTracking"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="doc-link-btn github"
-                      aria-label="Procurement Tracking System GitHub Repository"
-                    >
-                      <Github size={12} />
-                      <span>GITHUB</span>
                     </a>
                   </div>
                 </div>
-                <span className="doc-project-tech font-mono">React • TypeScript • GraphQL • Apollo • Express • Prisma • PostgreSQL</span>
+                <span className="doc-project-tech font-mono">Next.js • React • TypeScript • PostgreSQL • Prisma • Tailwind CSS • Automated Testing</span>
               </div>
               <ul className="doc-bullet-list">
                 <li>
                   <CheckCircle2 size={14} className="text-emerald" />
-                  <span>Built a deployed procurement operations platform supporting purchase requests, approval workflows, vendor management, purchase orders, goods receiving, and multi-role RBAC.</span>
+                  <span>Engineered a full-stack real-estate investment analysis platform combining property/distress data ingestion with deterministic financial underwriting algorithms.</span>
                 </li>
                 <li>
                   <CheckCircle2 size={14} className="text-emerald" />
-                  <span>Implemented GraphQL APIs with Apollo Server/Client, Prisma/PostgreSQL persistence, JWT auth, and resolver permission enforcement.</span>
+                  <span>Implemented capital-stack modeling (debt, equity, senior/subordinate loans, LTV/CLTV) and investment strategy evaluation (Buy &amp; Hold, BRRRR, Fix &amp; Flip).</span>
+                </li>
+                <li>
+                  <CheckCircle2 size={14} className="text-emerald" />
+                  <span>Built evidence-governed research workflows surfacing provenance-aware citations, assumptions, and risk guardrails backed by comprehensive test suites.</span>
                 </li>
               </ul>
             </div>
 
-            {/* Thriveward Funding Intelligence */}
+            {/* Interactive Photo Booth System */}
             <div className="doc-project-item">
               <div className="doc-project-header">
                 <div className="doc-project-title-group">
-                  <strong className="doc-project-name">Thriveward Funding Intelligence — Retrieval-Augmented Funding Intelligence Platform</strong>
+                  <strong className="doc-project-name">Interactive Photo Booth System — Event Hardware &amp; Kiosk Integration</strong>
+                  <div className="doc-project-links">
+                    <a
+                      href="https://my-portfolio-sigma-lac-94.vercel.app/projects/photo-booth"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="doc-link-btn live"
+                      aria-label="Interactive Photo Booth Case Study"
+                    >
+                      <span>CASE STUDY</span>
+                      <ExternalLink size={12} />
+                    </a>
+                  </div>
                 </div>
-                <span className="doc-project-tech font-mono">TypeScript • Express • PostgreSQL • pgvector • OpenAI • RAG</span>
+                <span className="doc-project-tech font-mono">Raspberry Pi 5 • Linux (Debian) • Python • gphoto2 • Canon DSLR • systemd • Touchscreen UI</span>
               </div>
               <ul className="doc-bullet-list">
                 <li>
                   <CheckCircle2 size={14} className="text-emerald" />
-                  <span>Built a governed RAG pipeline spanning PDF document ingestion, deterministic page-bounded chunking, OpenAI embeddings, pgvector cosine retrieval, grounded evidence construction, and structured gpt-4o-mini analysis.</span>
+                  <span>Engineered and deployed a custom commercial photo booth kiosk on Raspberry Pi 5 integrating high-resolution Canon DSLR capture via gphoto2 and Linux systemd.</span>
                 </li>
                 <li>
                   <CheckCircle2 size={14} className="text-emerald" />
-                  <span>Engineered index-integrity controls using provider/model/configuration hashes and versioned indexes to prevent stale or incompatible embeddings from contaminating semantic retrieval.</span>
+                  <span>Built responsive touchscreen user workflows with automated session management, camera tethering, error recovery, peripheral integration, and automated service startup for reliable event operation.</span>
                 </li>
               </ul>
             </div>
@@ -223,7 +229,7 @@ export const ResumePage: React.FC = () => {
             <div className="doc-project-item">
               <div className="doc-project-header">
                 <div className="doc-project-title-group">
-                  <strong className="doc-project-name">FieldTrack AI — Edge Computing &amp; Sensor Telemetry Platform</strong>
+                  <strong className="doc-project-name">FieldTrack AI — Edge Telemetry &amp; Sensor Processing</strong>
                   <div className="doc-project-links">
                     <a
                       href="https://github.com/Thee-Hector-Genaro-Pacheco/fieldtrack-ai"
@@ -237,12 +243,12 @@ export const ResumePage: React.FC = () => {
                     </a>
                   </div>
                 </div>
-                <span className="doc-project-tech font-mono">Raspberry Pi 5 • Python • FastAPI • Node • React • WebSockets</span>
+                <span className="doc-project-tech font-mono">Raspberry Pi 5 • Python • FastAPI • Node.js • React • WebSockets • GPS/NMEA</span>
               </div>
               <ul className="doc-bullet-list">
                 <li>
                   <CheckCircle2 size={14} className="text-emerald" />
-                  <span>Built an edge-computing platform combining Python hardware services, GPS/NMEA parsing, PIR motion sensing, camera/computer-vision processing, and real-time React telemetry over WebSockets.</span>
+                  <span>Built an edge-computing telemetry platform integrating Python sensor daemons, GPS/NMEA stream parsing, motion detection, and real-time React dashboard updates over WebSockets.</span>
                 </li>
               </ul>
             </div>
@@ -250,46 +256,23 @@ export const ResumePage: React.FC = () => {
 
           {/* Production Client Work & Additional Projects */}
           <section className="doc-section">
-            <h2 className="doc-section-title font-mono">PRODUCTION CLIENT WORK &amp; ADDITIONAL PROJECTS</h2>
-
-            <div className="doc-project-item">
-              <div className="doc-project-header">
-                <div className="doc-project-title-group">
-                  <strong className="doc-project-name">OC Water Features — Production Full-Stack Web Platform</strong>
-                  <div className="doc-project-links">
-                    <a
-                      href="https://www.ocwaterfeaturesinc.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="doc-link-btn live"
-                      aria-label="OC Water Features Production Site"
-                    >
-                      <span>LIVE SITE</span>
-                      <ExternalLink size={12} />
-                    </a>
-                  </div>
-                </div>
-                <span className="doc-project-tech font-mono">Next.js • TypeScript • Supabase • PostgreSQL • Vercel</span>
-              </div>
-              <ul className="doc-bullet-list">
-                <li>
-                  <CheckCircle2 size={14} className="text-emerald" />
-                  <span>Built and deployed a production business platform combining SEO, lead intake workflows, customer forms, administrative tooling, and persistent database-backed workflows.</span>
-                </li>
-              </ul>
-            </div>
+            <h2 className="doc-section-title font-mono">ADDITIONAL ENGINEERING &amp; CLIENT WORK</h2>
 
             <div className="additional-projects-card font-sans">
-              <strong className="additional-label font-mono">Additional Engineering Repositories:</strong>
               <div className="additional-items">
+                <div className="additional-item">
+                  <strong>Procurement Tracking System</strong> <span className="text-muted">— Full-Stack GraphQL Workflow Platform (React • TypeScript • GraphQL • Apollo • Express • Prisma • PostgreSQL)</span>
+                  <a href="https://procurement-tracking-xg87.vercel.app/" target="_blank" rel="noopener noreferrer" className="doc-link-btn live" aria-label="Procurement Tracking System Live App">LIVE APP</a>
+                  <a href="https://github.com/Thee-Hector-Genaro-Pacheco/procurementTracking" target="_blank" rel="noopener noreferrer" className="doc-link-btn github" aria-label="Procurement Tracking System GitHub Repository">GITHUB</a>
+                </div>
+                <div className="additional-item">
+                  <strong>OC Water Features</strong> <span className="text-muted">— Production Web Platform (Next.js • TypeScript • Supabase • PostgreSQL • Vercel)</span>
+                  <a href="https://www.ocwaterfeaturesinc.com/" target="_blank" rel="noopener noreferrer" className="doc-link-btn live" aria-label="OC Water Features Production Site">LIVE SITE</a>
+                </div>
                 <div className="additional-item">
                   <strong>Pi Arcade OS</strong> <span className="text-muted">— Embedded Gaming Platform (Raspberry Pi • Python • Pygame • GPIO)</span>
                   <a href="https://thee-hector-genaro-pacheco.github.io/pi-arcade-os/" target="_blank" rel="noopener noreferrer" className="doc-link-btn live" aria-label="Pi Arcade OS Project Site">PROJECT SITE</a>
                   <a href="https://github.com/Thee-Hector-Genaro-Pacheco/pi-arcade-os" target="_blank" rel="noopener noreferrer" className="doc-link-btn github" aria-label="Pi Arcade OS GitHub Repository">GITHUB</a>
-                </div>
-                <div className="additional-item">
-                  <strong>E-Commerce Store</strong> <span className="text-muted">— Full-Stack GraphQL Store (React • GraphQL • MongoDB • AWS S3)</span>
-                  <a href="https://github.com/Thee-Hector-Genaro-Pacheco/ecommerce-store" target="_blank" rel="noopener noreferrer" className="doc-link-btn github" aria-label="E-Commerce Store GitHub Repository">GITHUB</a>
                 </div>
               </div>
             </div>
@@ -308,11 +291,11 @@ export const ResumePage: React.FC = () => {
               <ul className="doc-bullet-list">
                 <li>
                   <CheckCircle2 size={14} className="text-emerald" />
-                  <span>Calibrated, commissioned, and troubleshot 4–20 mA process instrumentation, PLC I/O, terminal blocks, relays, and industrial control systems across 480VAC, 120VAC, and 24VDC environments.</span>
+                  <span>Calibrated, commissioned, and troubleshot 4–20 mA process instrumentation, PLC I/O, relays, and industrial control circuits across 480VAC, 120VAC, and 24VDC environments.</span>
                 </li>
                 <li>
                   <CheckCircle2 size={14} className="text-emerald" />
-                  <span>Applied systematic fault isolation while maintaining traceable calibration and maintenance documentation.</span>
+                  <span>Applied systematic fault isolation, signal validation, and root-cause diagnosis in high-reliability operating environments with strict documentation compliance.</span>
                 </li>
               </ul>
             </div>
