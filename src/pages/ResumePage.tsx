@@ -205,6 +205,9 @@ export const ResumePage: React.FC = () => {
                     <strong className="doc-project-name">
                       {project.title} — {project.subtitle}
                     </strong>
+                    {project.period && (
+                      <span className="doc-project-period font-mono">{project.period}</span>
+                    )}
                     <div className="doc-project-links">
                       {project.links.map((link, lIdx) => (
                         <a

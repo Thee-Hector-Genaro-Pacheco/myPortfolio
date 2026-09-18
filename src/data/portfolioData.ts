@@ -425,7 +425,7 @@ export const featuredProjects: Project[] = [
         'Multi-Tier Source Authority Classifier (Official Government, Primary Assessor, Market Data, Secondary Industry)',
         'Transparent Assumptions & Risk Warning Engine (Missing Lien Warnings, Vacancy Adjustments, Incomplete Stack Flags)',
         'Grounded Research Integration Framework (Provenance-Aware Source Citations & Confidence Validation)',
-        'Rigorous Test Suite with 59 Test Files and 804 Tests Verified at Core Underwriting Checkpoint'
+        'Rigorous Automated Test Harness with 1,234 Passing Tests across 76 Tracked Vitest Suites'
       ],
       engineeringChallenges: [
         'Isolating deterministic financial math from LLM interpretation to ensure 100% auditable, reproducible underwriting results that investors can trust.',
@@ -443,9 +443,9 @@ export const featuredProjects: Project[] = [
       whatILearned: [
         'Deepened expertise in financial systems engineering, deterministic arithmetic invariants, and real-estate debt modeling (LTV, CLTV, subordinate lien mechanics).',
         'Mastered provenance-aware data architecture, distinguishing authoritative primary sources from derivative calculations and unverified client inputs.',
-        'Designed robust test harness patterns for financial models, achieving 804 passing tests across 59 test files at the core underwriting checkpoint.'
+        'Designed robust test harness patterns for financial models, achieving 1,234 passing automated tests across 76 tracked Vitest suites.'
       ],
-      metricsOrNotes: 'Development Checkpoint: 59 test files • 804 tests passing (Vitest) • Clean ESLint • Clean production Next.js 16 build'
+      metricsOrNotes: 'Development Checkpoint: 76 tracked Vitest suites • 1,234 passing automated tests • Clean ESLint • Clean production Next.js 16 build'
     }
   },
   {

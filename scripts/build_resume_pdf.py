@@ -266,15 +266,16 @@ HTML_CONTENT = """<!DOCTYPE html>
     <div class="project-item">
       <div class="item-header">
         <div>
-          <span class="item-title">EstateOS</span> <span class="item-subtitle">— Real Estate Investment Intelligence Platform</span>
+          <span class="item-title">EstateOS</span> <span class="item-subtitle">— Agentic Real Estate Investment Intelligence Platform</span>
+          <span class="item-period font-mono">(Aug 2026 – Sep 2026)</span>
           <a href="https://my-portfolio-sigma-lac-94.vercel.app/projects/estateos" target="_blank" class="link-badge case-badge">CASE STUDY ↗</a>
         </div>
-        <span class="item-date">Next.js 16 • React • TypeScript • PostgreSQL • Prisma ORM • Vitest • TailwindCSS</span>
+        <span class="item-date">Next.js 16 • TypeScript • Claude API • Multi-Agent • PostgreSQL • Prisma • Vitest</span>
       </div>
       <ul class="bullet-list">
-        <li>Built a full-stack real estate analysis platform featuring deterministic financial underwriting, debt capital stacks, LTV/CLTV, and equity calculations.</li>
-        <li>Engineered multi-strategy screening (Wholesale, Fix &amp; Flip, BRRRR, Buy &amp; Hold) with pure TypeScript calculators and strict input validation.</li>
-        <li>Architected identity-bound evidence snapshots (PropertyEvidenceSnapshot) and source authority classifiers, verified by an 804-test suite in Vitest.</li>
+        <li>Built a full-stack real-estate intelligence platform combining Claude-powered research and multi-agent orchestration with deterministic TypeScript underwriting.</li>
+        <li>Implemented cash flow, cap rate, cash-on-cash return, LTV/CLTV, debt/equity analysis, multi-strategy screening, and evidence provenance/source-authority guardrails.</li>
+        <li>Validated core logic, agent behavior, repositories, and integrations with 1,234 passing automated tests across 76 tracked Vitest suites, including PostgreSQL/Prisma integration coverage.</li>
       </ul>
     </div>
 

@@ -141,6 +141,13 @@ CSS_STYLES = """
       color: #475569;
       font-style: italic;
     }
+    .item-period {
+      font-family: 'SF Mono', SFMono-Regular, ui-monospace, Menlo, monospace;
+      font-size: 7.2pt;
+      color: #64748b;
+      margin-left: 2px;
+      margin-right: 3px;
+    }
     .item-date {
       font-size: 7.5pt;
       font-weight: bold;
@@ -215,25 +222,27 @@ RESUMES = [
             ("Backend & APIs:", "Node.js, Express, REST APIs, GraphQL, FastAPI, Zod"),
             ("Systems & Hardware:", "Raspberry Pi 5, gphoto2, systemd, GPIO, 4–20 mA, PLC"),
             ("AI & Platforms:", "Palantir Foundry, Palantir AIP, OpenAI API, RAG"),
-            ("Quality & Testing:", "Vitest, Unit & Integration Testing, Test-Driven Dev, Audit Logging")
+            ("Quality & Testing:", "Vitest, Unit & Integration Testing, Automated Testing, Audit Logging")
         ],
         "featured_projects": [
             {
                 "title": "EstateOS",
-                "subtitle": "Real Estate Investment Intelligence Platform",
-                "tech": "Next.js 16 • React • TypeScript • PostgreSQL • Prisma ORM • Vitest • TailwindCSS",
+                "subtitle": "Agentic Real Estate Investment Intelligence Platform",
+                "period": "Aug 2026 – Sep 2026",
+                "tech": "Next.js 16 • TypeScript • Claude API • Multi-Agent • PostgreSQL • Prisma • Vitest",
                 "links": [
                     ("CASE STUDY ↗", "https://my-portfolio-sigma-lac-94.vercel.app/projects/estateos", "case-badge")
                 ],
                 "bullets": [
-                    "Built a full-stack real estate analysis platform featuring deterministic financial underwriting, debt capital stacks, LTV/CLTV, and equity calculations.",
-                    "Engineered multi-strategy screening (Wholesale, Fix & Flip, BRRRR, Buy & Hold) with pure TypeScript calculators and strict input validation.",
-                    "Architected identity-bound evidence snapshots (PropertyEvidenceSnapshot) and source authority classifiers, verified by an 804-test suite in Vitest."
+                    "Built a full-stack real-estate intelligence platform combining Claude-powered research and multi-agent orchestration with deterministic TypeScript underwriting.",
+                    "Implemented cash flow, cap rate, cash-on-cash return, LTV/CLTV, debt/equity analysis, multi-strategy screening, and evidence provenance/source-authority guardrails.",
+                    "Validated core logic, agent behavior, repositories, and integrations with 1,234 passing automated tests across 76 tracked Vitest suites, including PostgreSQL/Prisma integration coverage."
                 ]
             },
             {
                 "title": "CalTrack",
                 "subtitle": "Industrial Calibration SaaS & Mobile Platform",
+                "period": "Jun 2026 – Jul 2026",
                 "tech": "React • TypeScript • Node.js • Express • PostgreSQL • Docker • AWS ECS Fargate • Kotlin / Android",
                 "links": [
                     ("LIVE APP ↗", "https://caltrack-web-six.vercel.app/login", "live-badge"),
@@ -314,6 +323,7 @@ RESUMES = [
             {
                 "title": "CalTrack",
                 "subtitle": "Industrial Calibration SaaS & API Platform",
+                "period": "Jun 2026 – Jul 2026",
                 "tech": "Node.js • Express • TypeScript • PostgreSQL • Prisma • Docker • AWS ECS Fargate • ECR",
                 "links": [
                     ("LIVE APP ↗", "https://caltrack-web-six.vercel.app/login", "live-badge"),
@@ -328,20 +338,22 @@ RESUMES = [
             },
             {
                 "title": "EstateOS",
-                "subtitle": "Real Estate Investment Intelligence Platform",
-                "tech": "TypeScript • Node.js • Next.js 16 • PostgreSQL • Prisma ORM • Vitest • Zod",
+                "subtitle": "Agentic Real Estate Investment Intelligence Platform",
+                "period": "Aug 2026 – Sep 2026",
+                "tech": "TypeScript • Node.js • Next.js 16 • Claude API • PostgreSQL • Prisma ORM • Vitest",
                 "links": [
                     ("CASE STUDY ↗", "https://my-portfolio-sigma-lac-94.vercel.app/projects/estateos", "case-badge")
                 ],
                 "bullets": [
-                    "Engineered deterministic backend underwriting engine and data models in TypeScript and Prisma, processing mortgage amortization, capital stacks, and LTV/CLTV.",
-                    "Built server-controlled PropertyEvidenceSnapshot domain in PostgreSQL, isolating trusted municipal assessor/tax data from untrusted client inputs.",
-                    "Established rigorous automated test harness achieving 804 passing tests across 59 test files using Vitest, validating debt math invariants and schema validation."
+                    "Architected multi-agent orchestration service integrating Claude API research with deterministic underwriting engines and real-time SSE progress streaming.",
+                    "Engineered server-side evidence snapshot repositories in PostgreSQL/Prisma, enforcing source-authority tiers and cryptographic deduplication to isolate trusted data.",
+                    "Achieved 1,234 passing automated tests across 76 tracked Vitest suites, validating financial invariant math, agent workflows, and database repository transactions."
                 ]
             },
             {
                 "title": "Procurement Tracking System",
                 "subtitle": "Enterprise GraphQL Platform",
+                "period": "May 2026 – Jul 2026",
                 "tech": "Node.js • Express 5 • GraphQL • Apollo Server 4 • Prisma ORM 6 • PostgreSQL • JWT",
                 "links": [
                     ("LIVE APP ↗", "https://procurement-tracking-xg87.vercel.app/", "live-badge"),
@@ -422,6 +434,7 @@ RESUMES = [
             {
                 "title": "FieldTrack AI",
                 "subtitle": "Edge Computing & Sensor Telemetry Platform",
+                "period": "Jul 2026 – Aug 2026",
                 "tech": "Raspberry Pi 5 • Python • FastAPI • Node.js • React • WebSockets • GPS/NMEA",
                 "links": [
                     ("GITHUB ↗", "https://github.com/Thee-Hector-Genaro-Pacheco/fieldtrack-ai", "github-badge")
@@ -434,6 +447,7 @@ RESUMES = [
             {
                 "title": "CalTrack",
                 "subtitle": "Industrial Calibration SaaS & Mobile Platform",
+                "period": "Jun 2026 – Jul 2026",
                 "tech": "React • TypeScript • Node.js • Express • PostgreSQL • Docker • AWS ECS Fargate",
                 "links": [
                     ("LIVE APP ↗", "https://caltrack-web-six.vercel.app/login", "live-badge"),
@@ -451,7 +465,7 @@ RESUMES = [
           <a href="https://thee-hector-genaro-pacheco.github.io/pi-arcade-os/" target="_blank" class="link-badge live-badge">SITE ↗</a>
           <a href="https://github.com/Thee-Hector-Genaro-Pacheco/pi-arcade-os" target="_blank" class="link-badge github-badge">GITHUB ↗</a>
           &nbsp;•&nbsp;
-          <strong>EstateOS</strong> — Real Estate Intelligence (Deterministic Underwriting)
+          <strong>EstateOS</strong> — Agentic Real Estate Platform (Multi-Agent Orchestration & Underwriting)
           <a href="https://my-portfolio-sigma-lac-94.vercel.app/projects/estateos" target="_blank" class="link-badge case-badge">CASE STUDY ↗</a>
           &nbsp;•&nbsp;
           <strong>Procurement Tracking</strong> — Full-Stack GraphQL Workflow Platform
@@ -506,12 +520,13 @@ def render_html(data):
         for b in p["bullets"]:
             bullets_html += f'<li>{b}</li>'
 
+        period_html = f'<span class="item-period">({p["period"]})</span> ' if p.get("period") else ""
         projects_items += f'''
     <div class="project-item">
       <div class="item-header">
         <div>
           <span class="item-title">{p["title"]}</span> <span class="item-subtitle">— {p["subtitle"]}</span>
-          {links_html}
+          {period_html}{links_html}
         </div>
         <span class="item-date">{p["tech"]}</span>
       </div>
