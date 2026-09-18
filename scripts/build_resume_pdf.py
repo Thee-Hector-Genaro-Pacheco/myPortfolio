@@ -407,5 +407,11 @@ if let doc = PDFDocument(url: url) {{
     print("\n--- AUTHORITATIVE SWIFT PDFKIT VERIFICATION ---")
     print(swift_res.stdout)
 
+import subprocess
+import sys
+import os
+
 if __name__ == '__main__':
-    generate_pdf()
+    script = os.path.join(os.path.dirname(__file__), "build_resumes.py")
+    res = subprocess.run([sys.executable, script])
+    sys.exit(res.returncode)
