@@ -21,7 +21,10 @@ import {
   Clock,
   Compass,
   Video,
-  Film
+  Film,
+  History,
+  UserCheck,
+  XCircle
 } from 'lucide-react';
 import './CaseStudyPage.css';
 
@@ -99,6 +102,19 @@ export const CaseStudyPage: React.FC = () => {
                 aria-label={`Open ${project.title} live link`}
               >
                 <span>{project.liveUrlLabel || 'View Live App'}</span>
+                <ExternalLink size={16} />
+              </a>
+            )}
+
+            {project.companyUrl && (
+              <a
+                href={project.companyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-outline btn-sm company-site-btn"
+                aria-label={`Visit ${project.companyUrlLabel || 'Company Website'}`}
+              >
+                <span>{project.companyUrlLabel || 'Company Website'}</span>
                 <ExternalLink size={16} />
               </a>
             )}
@@ -309,6 +325,108 @@ export const CaseStudyPage: React.FC = () => {
             </div>
           </div>
         </section>
+
+        {/* Prototype & Hardware Evolution Section (if present) */}
+        {caseStudy.hardwareEvolution && (
+          <section className="case-section hardware-evolution-section">
+            <h2 className="case-section-title font-mono">
+              <History size={18} className="text-rose" /> {caseStudy.hardwareEvolution.title.toUpperCase()}
+            </h2>
+            <p className="evolution-section-desc">{caseStudy.hardwareEvolution.description}</p>
+            <div className="evolution-stages-grid">
+              {caseStudy.hardwareEvolution.stages.map((stage, idx) => (
+                <div key={idx} className="evolution-stage-card">
+                  <div className="stage-card-header">
+                    <span className="stage-badge font-mono">{stage.stageBadge}</span>
+                    <h3 className="stage-title">{stage.title}</h3>
+                  </div>
+                  <p className="stage-desc">{stage.description}</p>
+                  <div className="stage-takeaways">
+                    <span className="takeaways-label font-mono">KEY ENGINEERING MILESTONES</span>
+                    <ul className="takeaways-list">
+                      {stage.keyMilestones.map((milestone, mIdx) => (
+                        <li key={mIdx}>
+                          <CheckCircle2 size={14} className="text-emerald" />
+                          <span>{milestone}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="stage-tech-tags">
+                    {stage.technologies.map((tech, tIdx) => (
+                      <span key={tIdx} className="tech-badge">{tech}</span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Human-in-the-Loop Safety Model & Approval Architecture Section (if present) */}
+        {caseStudy.approvalWorkflow && (
+          <section className="case-section approval-workflow-section">
+            <h2 className="case-section-title font-mono">
+              <UserCheck size={18} className="text-emerald" /> {caseStudy.approvalWorkflow.title.toUpperCase()}
+            </h2>
+            <p className="workflow-section-desc">{caseStudy.approvalWorkflow.description}</p>
+            
+            <div className="safety-model-card">
+              <div className="safety-header font-mono">
+                <ShieldCheck size={16} className="text-emerald" /> CORE SAFETY MODEL &amp; CAPABILITY BOUNDARIES
+              </div>
+              <p className="safety-overview">{caseStudy.approvalWorkflow.safetyModelOverview}</p>
+              
+              <div className="safety-principles-grid">
+                {caseStudy.approvalWorkflow.safetyPrinciples.map((principle, idx) => (
+                  <div key={idx} className={`safety-principle-card ${principle.allowed ? 'allowed' : 'forbidden'}`}>
+                    <div className="principle-status-row font-mono">
+                      {principle.allowed ? (
+                        <span className="status-pill allowed">
+                          <CheckCircle2 size={13} /> PERMITTED AUTONOMOUSLY
+                        </span>
+                      ) : (
+                        <span className="status-pill forbidden">
+                          <XCircle size={13} /> STRICTLY FORBIDDEN WITHOUT APPROVAL
+                        </span>
+                      )}
+                    </div>
+                    <h4 className="principle-title">{principle.title}</h4>
+                    <p className="principle-detail">{principle.detail}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="state-machine-card">
+              <div className="state-machine-header font-mono">
+                <Lock size={16} className="text-purple" /> DETERMINISTIC ACTIONSTATUS FINITE STATE MACHINE
+              </div>
+              <div className="state-machine-table-wrapper">
+                <table className="state-machine-table font-mono">
+                  <thead>
+                    <tr>
+                      <th>From Status</th>
+                      <th>To Status</th>
+                      <th>Trigger Event</th>
+                      <th>Safety Guard / Condition</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {caseStudy.approvalWorkflow.stateMachineTransitions.map((trans, idx) => (
+                      <tr key={idx}>
+                        <td className="status-cell from-cell">{trans.fromState}</td>
+                        <td className="status-cell to-cell">{trans.toState}</td>
+                        <td className="trigger-cell">{trans.trigger}</td>
+                        <td className="guard-cell">{trans.guard}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* Technical Demo Section (if present) */}
         {caseStudy.technicalDemo && (

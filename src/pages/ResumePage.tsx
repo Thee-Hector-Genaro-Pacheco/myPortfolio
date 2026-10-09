@@ -194,9 +194,50 @@ export const ResumePage: React.FC = () => {
             </div>
           </section>
 
-          {/* Featured Engineering Projects */}
+          {/* Professional & Technical Experience */}
           <section className="doc-section">
-            <h2 className="doc-section-title font-mono">FEATURED ENGINEERING PROJECTS</h2>
+            <h2 className="doc-section-title font-mono">PROFESSIONAL &amp; TECHNICAL EXPERIENCE</h2>
+            {currentData.experience.map((exp, idx) => (
+              <div key={idx} className="doc-experience-item">
+                <div className="doc-exp-top">
+                  <div className="doc-exp-title-group">
+                    <strong className="doc-exp-role">{exp.role}</strong> —{' '}
+                    <span className="doc-exp-company">{exp.company}</span>
+                    {exp.links && exp.links.length > 0 && (
+                      <div className="doc-project-links" style={{ display: 'inline-flex', marginLeft: '6px' }}>
+                        {exp.links.map((link, lIdx) => (
+                          <a
+                            key={lIdx}
+                            href={link.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="doc-link-btn live"
+                            aria-label={`${exp.company} ${link.label}`}
+                          >
+                            <span>{link.label}</span>
+                            <ExternalLink size={12} />
+                          </a>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                  <span className="doc-exp-period font-mono">{exp.period}</span>
+                </div>
+                <ul className="doc-bullet-list">
+                  {exp.bullets.map((bullet, bIdx) => (
+                    <li key={bIdx}>
+                      <CheckCircle2 size={14} className="text-emerald" />
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </section>
+
+          {/* Featured Software Engineering Projects */}
+          <section className="doc-section">
+            <h2 className="doc-section-title font-mono">FEATURED SOFTWARE ENGINEERING PROJECTS</h2>
 
             {currentData.featuredProjects.map((project, idx) => (
               <div key={idx} className="doc-project-item">
@@ -242,7 +283,7 @@ export const ResumePage: React.FC = () => {
           {/* Additional Projects */}
           {currentData.additionalProjects && currentData.additionalProjects.length > 0 && (
             <section className="doc-section">
-              <h2 className="doc-section-title font-mono">ADDITIONAL ENGINEERING &amp; CLIENT WORK</h2>
+              <h2 className="doc-section-title font-mono">ADDITIONAL REPOSITORIES &amp; DEPLOYMENTS</h2>
               <div className="additional-projects-card font-sans">
                 <div className="additional-items">
                   {currentData.additionalProjects.map((addProj, idx) => (
@@ -269,30 +310,6 @@ export const ResumePage: React.FC = () => {
               </div>
             </section>
           )}
-
-          {/* Technical & Industrial Experience */}
-          <section className="doc-section">
-            <h2 className="doc-section-title font-mono">TECHNICAL &amp; INDUSTRIAL EXPERIENCE</h2>
-            {currentData.experience.map((exp, idx) => (
-              <div key={idx} className="doc-experience-item">
-                <div className="doc-exp-top">
-                  <div className="doc-exp-title-group">
-                    <strong className="doc-exp-role">{exp.role}</strong> —{' '}
-                    <span className="doc-exp-company">{exp.company}</span>
-                  </div>
-                  <span className="doc-exp-period font-mono">{exp.period}</span>
-                </div>
-                <ul className="doc-bullet-list">
-                  {exp.bullets.map((bullet, bIdx) => (
-                    <li key={bIdx}>
-                      <CheckCircle2 size={14} className="text-emerald" />
-                      <span>{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </section>
 
           {/* Education & Professional Training */}
           <section className="doc-section">

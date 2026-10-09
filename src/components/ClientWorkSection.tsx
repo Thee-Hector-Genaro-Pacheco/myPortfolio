@@ -69,6 +69,33 @@ export const ClientWorkSection: React.FC = () => {
                 </div>
 
                 <div className="client-action-buttons">
+                  {client.liveUrl && (
+                    <a
+                      href={client.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-primary btn-sm visit-site-btn"
+                      aria-label={`Visit live website for ${client.clientName}`}
+                    >
+                      <span>{client.liveUrlLabel || 'Visit Live Site'}</span>
+                      <ExternalLink size={14} />
+                    </a>
+                  )}
+
+                  {client.secondaryLinks?.map((secLink, idx) => (
+                    <a
+                      key={idx}
+                      href={secLink.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-outline btn-sm secondary-site-btn"
+                      aria-label={`View ${secLink.label} for ${client.clientName}`}
+                    >
+                      <span>{secLink.label}</span>
+                      <ExternalLink size={14} />
+                    </a>
+                  ))}
+
                   {client.caseStudySlug && (
                     <Link
                       to={`/projects/${client.caseStudySlug}`}
@@ -78,19 +105,6 @@ export const ClientWorkSection: React.FC = () => {
                       <span>Case Study</span>
                       <ArrowRight size={14} />
                     </Link>
-                  )}
-
-                  {client.liveUrl && (
-                    <a
-                      href={client.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn btn-primary btn-sm visit-site-btn"
-                      aria-label={`Visit live website for ${client.clientName}`}
-                    >
-                      <span>Visit Live Site</span>
-                      <ExternalLink size={14} />
-                    </a>
                   )}
                 </div>
               </div>

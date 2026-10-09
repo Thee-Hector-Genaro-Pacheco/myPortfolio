@@ -213,32 +213,51 @@ RESUMES = [
         "id": "general",
         "output_pdf": "resume-software-engineer.pdf",
         "doc_title": "Software Engineer | Full-Stack • Backend & APIs • Cloud Infrastructure • Mobile Systems",
-        "summary": "Versatile Software Engineer with experience delivering standalone systems and collaborative contributions in shared codebases. Background spans full-stack web platforms, containerized cloud infrastructure on AWS ECS Fargate, type-safe REST/GraphQL APIs, relational database modeling (PostgreSQL/Prisma), native Android mobile apps (Kotlin/Jetpack Compose), embedded Linux daemons, and Jira/GitLab-driven team workflows with automated testing.",
+        "summary": "Software Engineer and Founder at Pacific Horizon Labs LLC with a physical-world systems mindset. Proven track record of end-to-end product ownership spanning full-stack web platforms, native mobile applications (SwiftUI & Kotlin), containerized cloud infrastructure on AWS ECS Fargate, type-safe REST APIs (Node.js/Express), relational data modeling (PostgreSQL/Prisma), and human-in-the-loop AI workflows. Experienced across collaborative team codebases and independent product delivery with comprehensive automated test suites.",
         "skills": [
-            ("Languages:", "TypeScript, JavaScript, Python, SQL, C++, Kotlin"),
+            ("Languages:", "TypeScript, JavaScript, Python, Swift, SQL, Kotlin, C++"),
             ("Cloud & DevOps:", "AWS (ECS Fargate, ECR, RDS, Secrets Mgr), Docker, Linux, Git, GitLab, Jira, Vercel"),
-            ("Frontend & Mobile:", "React, Next.js 16, Android (Kotlin), Jetpack Compose, HTML5, CSS3, Tailwind CSS"),
-            ("Data & Databases:", "PostgreSQL, Prisma ORM, MongoDB, Supabase"),
-            ("Backend & APIs:", "Node.js, Express, REST APIs, GraphQL, FastAPI, Zod"),
-            ("Systems & Hardware:", "Raspberry Pi 5, gphoto2, systemd, GPIO, 4–20 mA, PLC"),
-            ("AI & Platforms:", "Palantir Foundry, Palantir AIP, OpenAI API, RAG"),
-            ("Quality & Testing:", "Vitest, Unit & Integration Testing, Automated Testing, Audit Logging")
+            ("Frontend & Mobile:", "React, Next.js 16, SwiftUI (iPadOS), Android (Kotlin), Jetpack Compose, HTML5, CSS3"),
+            ("Data & Databases:", "PostgreSQL, Prisma ORM, Supabase, Relational Schema Design"),
+            ("Backend & APIs:", "Node.js, Express, REST APIs, GraphQL, FastAPI, Zod, RBAC"),
+            ("AI & Automation:", "Human-in-the-Loop AI, Twilio Voice API, Claude API, Palantir Foundry / AIP"),
+            ("Quality & Testing:", "Vitest, Unit & Integration Testing, Automated Testing, Audit Logging"),
+            ("Systems & Hardware:", "Raspberry Pi 5, AVFoundation, Touchscreen, systemd, GPIO, 4–20 mA, PLC")
         ],
-        "featured_projects": [
+        "experience": [
             {
-                "title": "EstateOS",
-                "subtitle": "Agentic Real Estate Investment Intelligence Platform",
-                "period": "Aug 2026 – Sep 2026",
-                "tech": "Next.js 16 • TypeScript • Claude API • Multi-Agent • PostgreSQL • Prisma • Vitest",
+                "title": "Pacific Horizon Labs LLC",
+                "subtitle": "Founder & Software Engineer",
+                "date": "2026 – Present",
                 "links": [
-                    ("CASE STUDY ↗", "https://my-portfolio-sigma-lac-94.vercel.app/projects/estateos", "case-badge")
+                    ("COMPANY SITE ↗", "https://pacific-horizon-labs.netlify.app/", "live-badge"),
+                    ("PHOTO BOOTH ↗", "https://pacific-horizon-labs.netlify.app/photobooth", "live-badge"),
+                    ("RISING OPS ↗", "https://pacific-horizon-labs.netlify.app/rising-ops", "live-badge")
                 ],
                 "bullets": [
-                    "Built a full-stack real-estate intelligence platform combining Claude-powered research and multi-agent orchestration with deterministic TypeScript underwriting.",
-                    "Implemented cash flow, cap rate, cash-on-cash return, LTV/CLTV, debt/equity analysis, multi-strategy screening, and evidence provenance/source-authority guardrails.",
-                    "Validated core logic, agent behavior, repositories, and integrations with 1,234 passing automated tests across 76 tracked Vitest suites, including PostgreSQL/Prisma integration coverage."
+                    "Founded commercial software entity developing production event and operations systems; engineered Pacific Horizon Photo Booth, advancing an active-cooled Raspberry Pi 5 / Linux hardware prototype into a native SwiftUI / iPadOS product with AVFoundation capture and Supabase cloud delivery.",
+                    "Architected Pacific Rising Ops, a business operations system integrating Twilio Voice and Gmail APIs with a deterministic action state machine and Zod validation, strictly requiring human-in-the-loop approval before protected external actions.",
+                    "Own end-to-end engineering across product architecture, type-safe REST APIs, native mobile software, automated workflow pipelines, and customer-facing business systems."
                 ]
             },
+            {
+                "title": "Instrumentation & Controls Technician",
+                "subtitle": "Process Control & Industrial Systems",
+                "date": "Field Engineering Experience",
+                "bullets": [
+                    "Calibrated, commissioned, and troubleshot 4–20 mA process instrumentation (pressure, temperature, flow, level), PLC I/O wiring, relays, and industrial power loops across 480VAC, 120VAC, and 24VDC systems with systematic fault isolation and auditable logs."
+                ]
+            },
+            {
+                "title": "Software Engineering Contributor",
+                "subtitle": "Nonprofit serving underserved communities",
+                "date": "Collaborative Contribution",
+                "bullets": [
+                    "Collaborated on an existing nonprofit software platform using Jira-driven ticket workflows, Git/GitLab version control, REST API investigation, and team code debugging in a shared codebase."
+                ]
+            }
+        ],
+        "featured_projects": [
             {
                 "title": "CalTrack",
                 "subtitle": "Industrial Calibration SaaS & Mobile Platform",
@@ -249,54 +268,38 @@ RESUMES = [
                     ("GITHUB ↗", "https://github.com/Thee-Hector-Genaro-Pacheco/caltrack", "github-badge")
                 ],
                 "bullets": [
-                    "Architected and deployed a full-stack industrial calibration SaaS platform managing instrument tags, calibration logs, RBAC, and auditable history snapshots.",
-                    "Containerized Node/Express backend with Docker on AWS ECS Fargate, ECR, RDS PostgreSQL, Secrets Manager, KMS, and Vercel Edge.",
+                    "Architected and deployed a full-stack industrial calibration SaaS platform managing instrument tags, calibration logs, RBAC, and auditable history snapshots using Prisma ORM and PostgreSQL.",
+                    "Containerized Node/Express REST API with Docker on AWS ECS Fargate with RDS PostgreSQL in isolated VPC subnets, automated ECR image deployment, and Secrets Manager integration.",
                     "Engineered a native Android field companion application in Kotlin with Jetpack Compose, ViewModels, CameraX, and ML Kit barcode scanning."
                 ]
             },
             {
-                "title": "Interactive Photo Booth System",
-                "subtitle": "Client Hardware/Software Integration",
-                "tech": "Raspberry Pi 5 • Linux • Python • photobooth-app • gphoto2 • Canon DSLR • systemd",
+                "title": "EstateOS",
+                "subtitle": "Agentic Real Estate Investment Intelligence Platform",
+                "period": "Aug 2026 – Sep 2026",
+                "tech": "Next.js 16 • TypeScript • Claude API • Multi-Agent • PostgreSQL • Prisma • Vitest",
                 "links": [
-                    ("CASE STUDY ↗", "https://my-portfolio-sigma-lac-94.vercel.app/projects/photo-booth", "case-badge")
+                    ("CASE STUDY ↗", "https://my-portfolio-sigma-lac-94.vercel.app/projects/estateos", "case-badge")
                 ],
                 "bullets": [
-                    "Built an event photo booth system for a nonprofit client, integrating Raspberry Pi 5, active cooling, an Acer 15.6\" touchscreen, and tethered Canon DSLR.",
-                    "Automated camera capture via gphoto2 over USB PTP and configured systemd user services with kiosk startup scripts for reliable event operation."
+                    "Built an agentic real estate intelligence platform in Next.js 16 and TypeScript, combining Claude-powered research orchestration with deterministic underwriting calculations.",
+                    "Implemented capital-stack analysis, LTV/CLTV thresholds, cash flow, debt/equity evaluation, multi-strategy screening, and provenance-aware evidence verification backed by PostgreSQL and Prisma ORM.",
+                    "Protected underwriting calculations, agent orchestration workflows, and database repository transactions with comprehensive automated Vitest test suites."
                 ]
             }
         ],
         "additional_line": """
           <span class="skill-label">Additional Repositories &amp; Deployments:</span>
+          <strong>FieldTrack AI</strong> — Edge Telemetry (Raspberry Pi/Python/React)
+          <a href="https://github.com/Thee-Hector-Genaro-Pacheco/fieldtrack-ai" target="_blank" class="link-badge github-badge">GITHUB ↗</a>
+          &nbsp;•&nbsp;
           <strong>Procurement Tracking</strong> — Full-Stack GraphQL App (React/Apollo/Prisma/PostgreSQL)
           <a href="https://procurement-tracking-xg87.vercel.app/" target="_blank" class="link-badge live-badge">LIVE APP ↗</a>
           <a href="https://github.com/Thee-Hector-Genaro-Pacheco/procurementTracking" target="_blank" class="link-badge github-badge">GITHUB ↗</a>
           &nbsp;•&nbsp;
-          <strong>FieldTrack AI</strong> — Edge Telemetry (Raspberry Pi/Python/React)
-          <a href="https://github.com/Thee-Hector-Genaro-Pacheco/fieldtrack-ai" target="_blank" class="link-badge github-badge">GITHUB ↗</a>
-          &nbsp;•&nbsp;
           <strong>OC Water Features</strong> — Production Web (Next.js/Supabase/Vercel)
           <a href="https://www.ocwaterfeaturesinc.com/" target="_blank" class="link-badge live-badge">LIVE SITE ↗</a>
         """,
-        "experience": [
-            {
-                "title": "Software Engineering Contributor",
-                "subtitle": "Nonprofit serving underserved communities",
-                "date": "Collaborative Contribution",
-                "bullets": [
-                    "Contributed to an existing nonprofit software platform using Jira-based development workflows, Git/GitLab version control, API investigation, and collaborative debugging within a shared codebase."
-                ]
-            },
-            {
-                "title": "Instrumentation & Controls Technician",
-                "subtitle": "Process Control & Industrial Systems",
-                "date": "Field Engineering Experience",
-                "bullets": [
-                    "Calibrated, commissioned, and troubleshot 4–20 mA process instrumentation, PLC I/O wiring, relays, and field sensors across 480VAC, 120VAC, and 24VDC power systems with systematic fault isolation and auditable logs."
-                ]
-            }
-        ],
         "education": [
             ("Western Governors University (WGU)", "B.S. Software Engineering (In Progress, 2026–Present)"),
             ("Palantir Technologies", "Foundry & AIP Learning Credentials (May 2026)"),
@@ -311,13 +314,46 @@ RESUMES = [
         "summary": "Backend and cloud-focused software engineer with experience across standalone cloud architectures and collaborative team development in shared codebases. Hands-on experience building containerized REST & GraphQL microservices, relational PostgreSQL/Prisma schemas, AWS ECS Fargate deployments, zero-secret runtime configuration (AWS Secrets Manager/KMS), Jira-driven ticket workflows, Git/GitLab version control, and automated testing.",
         "skills": [
             ("Languages:", "TypeScript, JavaScript, Python, SQL, Bash/Shell"),
-            ("Backend & APIs:", "Node.js, Express, REST APIs, GraphQL, Apollo Server, FastAPI, Zod, RBAC"),
+            ("Backend & APIs:", "Node.js, Express, Twilio Voice API, REST APIs, GraphQL, Apollo Server, FastAPI, Zod, RBAC"),
             ("Cloud & Infra:", "AWS (ECS Fargate, ECR, RDS, Secrets Mgr, KMS, VPC, IAM), Vercel"),
             ("Containers & OS:", "Docker, Multi-Stage Builds, Container Registries (ECR), Linux, systemd"),
             ("Databases:", "PostgreSQL, Prisma ORM, Neon, Supabase, Relational Modeling, Indexing"),
             ("DevOps & Testing:", "Git, GitLab, GitHub, Jira, Docker CLI, Vitest, Integration Testing, Build Verification"),
             ("Architecture:", "Microservices, API Contract Design, Data Isolation, Deterministic Math"),
-            ("Security & Auth:", "JWT Authentication, HTTP-only Cookies, Secrets Injection, Least Privilege")
+            ("Security & Auth:", "JWT Authentication, HTTP-only Cookies, Secrets Injection, Human-in-the-Loop Approval Gates")
+        ],
+        "experience": [
+            {
+                "title": "Pacific Horizon Labs LLC",
+                "subtitle": "Founder & Software Engineer",
+                "date": "2026 – Present",
+                "links": [
+                    ("COMPANY SITE ↗", "https://pacific-horizon-labs.netlify.app/", "live-badge"),
+                    ("RISING OPS ↗", "https://pacific-horizon-labs.netlify.app/rising-ops", "live-badge"),
+                    ("PHOTO BOOTH ↗", "https://pacific-horizon-labs.netlify.app/photobooth", "live-badge")
+                ],
+                "bullets": [
+                    "Architected Pacific Rising Ops, an operations automation service integrating Twilio Voice and Gmail API draft intelligence, enforcing a deterministic finite state machine where protected external actions strictly require explicit human voice approval.",
+                    "Engineered cloud backend services and media asset storage pipelines on Supabase with dynamic signed token generation and automated retention cleanup.",
+                    "Designed zero-trust approval gates and immutable audit logging for sensitive business operations, ensuring safe AI boundary enforcement."
+                ]
+            },
+            {
+                "title": "Instrumentation & Controls Technician",
+                "subtitle": "Process Control & Industrial Systems",
+                "date": "Field Engineering Experience",
+                "bullets": [
+                    "Maintained high-availability industrial control infrastructure, diagnosing electrical loops, PLC I/O wiring, relays, and field instrumentation across 480VAC, 120VAC, and 24VDC systems with systematic root-cause isolation."
+                ]
+            },
+            {
+                "title": "Software Engineering Contributor",
+                "subtitle": "Nonprofit serving underserved communities",
+                "date": "Collaborative Contribution",
+                "bullets": [
+                    "Collaborated on an existing nonprofit codebase using Jira-driven ticket workflows, Git/GitLab version control, API integration investigation, local environment configuration, and shared build and test workflows."
+                ]
+            }
         ],
         "featured_projects": [
             {
@@ -347,7 +383,7 @@ RESUMES = [
                 "bullets": [
                     "Architected multi-agent orchestration service integrating Claude API research with deterministic underwriting engines and real-time SSE progress streaming.",
                     "Engineered server-side evidence snapshot repositories in PostgreSQL/Prisma, enforcing source-authority tiers and cryptographic deduplication to isolate trusted data.",
-                    "Achieved 1,234 passing automated tests across 76 tracked Vitest suites, validating financial invariant math, agent workflows, and database repository transactions."
+                    "Validated deterministic financial invariant calculations, agent workflows, and database repository transactions with automated Vitest suites."
                 ]
             },
             {
@@ -367,8 +403,8 @@ RESUMES = [
         ],
         "additional_line": """
           <span class="skill-label">Additional Repositories &amp; Deployments:</span>
-          <strong>Interactive Photo Booth</strong> — Linux systemd Daemon (Raspberry Pi 5/Python)
-          <a href="https://my-portfolio-sigma-lac-94.vercel.app/projects/photo-booth" target="_blank" class="link-badge case-badge">CASE STUDY ↗</a>
+          <strong>FieldTrack AI</strong> — Edge Telemetry (Raspberry Pi/Python/React)
+          <a href="https://github.com/Thee-Hector-Genaro-Pacheco/fieldtrack-ai" target="_blank" class="link-badge github-badge">GITHUB ↗</a>
           &nbsp;•&nbsp;
           <strong>OC Water Features</strong> — Production Web Platform (Next.js/Supabase/Vercel)
           <a href="https://www.ocwaterfeaturesinc.com/" target="_blank" class="link-badge live-badge">LIVE SITE ↗</a>
@@ -377,24 +413,6 @@ RESUMES = [
           <a href="https://thee-hector-genaro-pacheco.github.io/pi-arcade-os/" target="_blank" class="link-badge live-badge">SITE ↗</a>
           <a href="https://github.com/Thee-Hector-Genaro-Pacheco/pi-arcade-os" target="_blank" class="link-badge github-badge">GITHUB ↗</a>
         """,
-        "experience": [
-            {
-                "title": "Software Engineering Contributor",
-                "subtitle": "Nonprofit serving underserved communities",
-                "date": "Collaborative Contribution",
-                "bullets": [
-                    "Collaborated on an existing nonprofit codebase using Jira-driven ticket workflows, Git/GitLab version control, API integration investigation, local environment configuration, and shared build and test workflows."
-                ]
-            },
-            {
-                "title": "Instrumentation & Controls Technician",
-                "subtitle": "Process Control & Industrial Systems",
-                "date": "Field Engineering Experience",
-                "bullets": [
-                    "Maintained high-availability industrial control infrastructure, diagnosing electrical loops, PLC I/O wiring, relays, and field instrumentation across 480VAC, 120VAC, and 24VDC systems with systematic root-cause isolation."
-                ]
-            }
-        ],
         "education": [
             ("Western Governors University (WGU)", "B.S. Software Engineering (In Progress, 2026–Present)"),
             ("Palantir Technologies", "Foundry & AIP Learning Credentials (May 2026)"),
@@ -406,31 +424,51 @@ RESUMES = [
         "id": "embedded-iot",
         "output_pdf": "resume-embedded-iot.pdf",
         "doc_title": "Software Engineer | Embedded Systems • IoT • Physical Systems",
-        "summary": "Software Engineer combining computer science with a professional industrial Instrumentation & Controls background, experienced in both hardware systems engineering and collaborative software development. Track record includes embedded Linux systems on Raspberry Pi 5, programmatic camera control via gphoto2, real-time sensor telemetry pipelines, industrial calibration software, Jira/GitLab workflows, and systematic physical-world troubleshooting.",
+        "summary": "Software Engineer combining computer science with a professional industrial Instrumentation & Controls background, experienced in both hardware systems engineering and collaborative software development. Track record includes embedded Linux systems on Raspberry Pi 5, native iPadOS applications in Swift/SwiftUI, programmatic camera control via gphoto2 and AVFoundation, real-time sensor telemetry pipelines, Jira/GitLab workflows, and systematic physical-world troubleshooting.",
         "skills": [
-            ("Languages:", "Python, C++, TypeScript, JavaScript, SQL, Bash"),
-            ("Embedded & Linux:", "Raspberry Pi 5, Debian/Linux, systemd Services, Kiosk Mode, GPIO, Active Cooling"),
-            ("Hardware Protocols:", "gphoto2, USB PTP, GPS/NMEA (UART/Serial), PIR Motion, 4–20 mA Loops, HART"),
+            ("Languages:", "Swift, Python, C++, TypeScript, JavaScript, SQL, Bash"),
+            ("Embedded & Linux:", "Raspberry Pi 5, iPadOS / iOS, Debian/Linux, systemd Services, Kiosk Mode, GPIO, Active Cooling"),
+            ("Hardware Protocols:", "AVFoundation, gphoto2, USB PTP, GPS/NMEA (UART/Serial), PIR Motion, 4–20 mA Loops, HART"),
             ("Industrial Controls:", "PLC Systems & I/O, Relay Logic, 480VAC/120VAC/24VDC, Fluke 789, Trex HART"),
             ("Networking & APIs:", "FastAPI, WebSockets, REST APIs, Node.js, Express, Docker"),
             ("Software & Tools:", "Git, GitLab, Jira, React, PostgreSQL, Prisma ORM, Systematic Fault Isolation, Calibration Logs"),
-            ("Platforms:", "Palantir Foundry, Palantir AIP"),
+            ("Platforms:", "Palantir Foundry, Palantir AIP, Human-in-the-Loop AI"),
             ("Quality & Standards:", "Signal Validation, Preventative Maintenance, MPE Tolerances, Industrial Auditing")
         ],
-        "featured_projects": [
+        "experience": [
             {
-                "title": "Interactive Photo Booth System",
-                "subtitle": "Client Hardware/Software Integration",
-                "tech": "Raspberry Pi 5 • Linux (Debian) • Python • photobooth-app • gphoto2 • Canon DSLR • systemd",
+                "title": "Pacific Horizon Labs LLC",
+                "subtitle": "Founder & Software Engineer",
+                "date": "2026 – Present",
                 "links": [
-                    ("CASE STUDY ↗", "https://my-portfolio-sigma-lac-94.vercel.app/projects/photo-booth", "case-badge")
+                    ("COMPANY SITE ↗", "https://pacific-horizon-labs.netlify.app/", "live-badge"),
+                    ("PHOTO BOOTH ↗", "https://pacific-horizon-labs.netlify.app/photobooth", "live-badge"),
+                    ("RISING OPS ↗", "https://pacific-horizon-labs.netlify.app/rising-ops", "live-badge")
                 ],
                 "bullets": [
-                    "Architected and built an event photo kiosk powered by an active-cooled Raspberry Pi 5 and 15.6\" Acer touchscreen for a nonprofit client.",
-                    "Automated tethered Canon Rebel T100 DSLR control over USB PTP using gphoto2, managing camera state, shutter triggers, and photo transfers.",
-                    "Authored systemd user service definitions and kiosk boot scripts ensuring hands-off reboot recovery, persistent logging, and reliable event operation."
+                    "Engineered a commercial event kiosk platform operated under Pacific Horizon Labs LLC, transitioning from an embedded Linux hardware prototype into a native Apple iPadOS SwiftUI application.",
+                    "Built foundational generation with active-cooled Raspberry Pi 5, 64-bit Debian, systemd daemons, and gphoto2 USB PTP Canon DSLR automation for unattended event reliability.",
+                    "Architected Pacific Rising Ops, an operations automation platform integrating Twilio Voice interactions with deterministic human-in-the-loop approval state machines."
                 ]
             },
+            {
+                "title": "Instrumentation & Controls Technician",
+                "subtitle": "Process Control & Industrial Systems",
+                "date": "Field Engineering Experience",
+                "bullets": [
+                    "Calibrated and commissioned 4–20 mA process transmitters (pressure, temperature, flow, level) and troubleshot PLC I/O wiring, relays, and industrial power loops with systematic fault isolation and auditable logs."
+                ]
+            },
+            {
+                "title": "Software Engineering Contributor",
+                "subtitle": "Nonprofit serving underserved communities",
+                "date": "Collaborative Contribution",
+                "bullets": [
+                    "Contributed to an existing codebase within a collaborative team environment, utilizing Jira issue tracking, Git/GitLab workflows, and peer technical communication."
+                ]
+            }
+        ],
+        "featured_projects": [
             {
                 "title": "FieldTrack AI",
                 "subtitle": "Edge Computing & Sensor Telemetry Platform",
@@ -472,24 +510,6 @@ RESUMES = [
           <a href="https://procurement-tracking-xg87.vercel.app/" target="_blank" class="link-badge live-badge">LIVE APP ↗</a>
           <a href="https://github.com/Thee-Hector-Genaro-Pacheco/procurementTracking" target="_blank" class="link-badge github-badge">GITHUB ↗</a>
         """,
-        "experience": [
-            {
-                "title": "Software Engineering Contributor",
-                "subtitle": "Nonprofit serving underserved communities",
-                "date": "Collaborative Contribution",
-                "bullets": [
-                    "Contributed to an existing codebase within a collaborative team environment, utilizing Jira issue tracking, Git/GitLab workflows, and peer technical communication."
-                ]
-            },
-            {
-                "title": "Instrumentation & Controls Technician",
-                "subtitle": "Process Control & Industrial Systems",
-                "date": "Field Engineering Experience",
-                "bullets": [
-                    "Calibrated and commissioned 4–20 mA process transmitters (pressure, temperature, flow, level) and troubleshot PLC I/O wiring, relays, and industrial power loops with systematic fault isolation and auditable logs."
-                ]
-            }
-        ],
         "education": [
             ("Western Governors University (WGU)", "B.S. Software Engineering (In Progress, 2026–Present)"),
             ("Mirion Technologies", "SU-890 iCAM Operations & Maintenance (March 2026, 16.00 Continued Education Credits)"),
@@ -544,12 +564,16 @@ def render_html(data):
     # Experience
     exp_items = ""
     for exp in data["experience"]:
+        links_html = ""
+        for label, url, badge_cls in exp.get("links", []):
+            links_html += f'<a href="{url}" target="_blank" class="link-badge {badge_cls}">{label}</a> '
         exp_bullets = "".join([f'<li>{b}</li>' for b in exp["bullets"]])
         exp_items += f'''
     <div class="project-item" style="margin-bottom: 2px;">
       <div class="item-header">
         <div>
           <span class="item-title">{exp["title"]}</span> <span class="item-subtitle">— {exp["subtitle"]}</span>
+          {links_html}
         </div>
         <span class="item-date">{exp["date"]}</span>
       </div>
@@ -560,7 +584,7 @@ def render_html(data):
 
     exp_html = f'''
   <div class="section">
-    <div class="section-title">Technical &amp; Industrial Experience</div>
+    <div class="section-title">Professional &amp; Technical Experience</div>
     {exp_items}
   </div>'''
 
@@ -604,13 +628,14 @@ def render_html(data):
     </div>
   </div>
 
+{exp_html}
+
   <div class="section">
-    <div class="section-title">Featured Software &amp; Systems Engineering Projects</div>
+    <div class="section-title">Featured Software Engineering Projects</div>
 {projects_items}
 {add_line_html}
   </div>
 
-{exp_html}
 {edu_html}
 </body>
 </html>

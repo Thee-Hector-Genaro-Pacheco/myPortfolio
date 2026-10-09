@@ -748,4 +748,282 @@
   line-height: 1.6;
 }
 
+/* Prototype & Hardware Evolution Styles */
+.evolution-section-desc,
+.workflow-section-desc {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.75rem;
+  line-height: 1.6;
+}
+
+.evolution-stages-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+}
+
+@media (min-width: 868px) {
+  .evolution-stages-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.evolution-stage-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  box-shadow: var(--shadow-card);
+  transition: all var(--transition-normal);
+}
+
+.evolution-stage-card:first-child {
+  border-left: 4px solid var(--accent-orange);
+}
+
+.evolution-stage-card:last-child {
+  border-left: 4px solid var(--case-accent, var(--accent-rose));
+}
+
+.stage-card-header {
+  margin-bottom: 1rem;
+}
+
+.stage-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  display: inline-block;
+  margin-bottom: 0.6rem;
+}
+
+.evolution-stage-card:first-child .stage-badge {
+  color: var(--accent-orange);
+  background: rgba(249, 115, 22, 0.1);
+  border-color: rgba(249, 115, 22, 0.25);
+}
+
+.evolution-stage-card:last-child .stage-badge {
+  color: var(--accent-rose, #f43f5e);
+  background: rgba(244, 63, 94, 0.1);
+  border-color: rgba(244, 63, 94, 0.25);
+}
+
+.stage-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-bright);
+}
+
+.stage-desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.stage-takeaways {
+  margin-bottom: 1.5rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+}
+
+.takeaways-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+}
+
+.takeaways-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.takeaways-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.88rem;
+  color: var(--text-primary);
+  line-height: 1.45;
+}
+
+.takeaways-list li svg {
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.stage-tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+/* Human-in-the-Loop Safety Model & Approval Workflow Styles */
+.safety-model-card,
+.state-machine-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  margin-bottom: 1.75rem;
+  box-shadow: var(--shadow-card);
+}
+
+.safety-header,
+.state-machine-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--accent-emerald);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+}
+
+.state-machine-header {
+  color: var(--accent-purple);
+}
+
+.safety-overview {
+  font-size: 0.98rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.safety-principles-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .safety-principles-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.safety-principle-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.safety-principle-card.allowed {
+  border-left: 3px solid var(--accent-emerald);
+}
+
+.safety-principle-card.forbidden {
+  border-left: 3px solid #f43f5e;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 0.15rem 0.45rem;
+  border-radius: 3px;
+}
+
+.status-pill.allowed {
+  color: var(--accent-emerald);
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.status-pill.forbidden {
+  color: #f43f5e;
+  background: rgba(244, 63, 94, 0.1);
+}
+
+.principle-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-bright);
+}
+
+.principle-detail {
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* State Machine Table */
+.state-machine-table-wrapper {
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+
+.state-machine-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  text-align: left;
+}
+
+.state-machine-table th {
+  padding: 0.75rem 1rem;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border-medium);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.state-machine-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  line-height: 1.45;
+}
+
+.status-cell {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.from-cell {
+  color: var(--accent-blue);
+}
+
+.to-cell {
+  color: var(--accent-emerald);
+}
+
+.trigger-cell {
+  color: var(--text-bright);
+}
+
+.guard-cell {
+  color: var(--text-secondary);
+}
+
 

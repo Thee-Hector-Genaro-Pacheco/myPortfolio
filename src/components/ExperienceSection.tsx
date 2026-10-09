@@ -1,6 +1,6 @@
 import React from 'react';
 import { experienceItems } from '../data/portfolioData';
-import { Briefcase, Calendar, MapPin, CheckCircle2 } from 'lucide-react';
+import { Briefcase, Calendar, MapPin, CheckCircle2, ExternalLink } from 'lucide-react';
 import './ExperienceSection.css';
 
 export const ExperienceSection: React.FC = () => {
@@ -46,6 +46,24 @@ export const ExperienceSection: React.FC = () => {
                   )}
                 </div>
               </div>
+
+              {item.links && item.links.length > 0 && (
+                <div className="timeline-actions">
+                  {item.links.map((link, idx) => (
+                    <a
+                      key={idx}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`btn btn-sm ${link.primary ? 'btn-primary visit-company-btn' : 'btn-outline secondary-company-btn'}`}
+                      aria-label={`${link.label} for ${item.companyOrContext}`}
+                    >
+                      <span>{link.label}</span>
+                      <ExternalLink size={13} />
+                    </a>
+                  ))}
+                </div>
+              )}
 
               <p className="timeline-summary">{item.summary}</p>
 

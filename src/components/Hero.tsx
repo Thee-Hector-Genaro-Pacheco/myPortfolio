@@ -4,14 +4,12 @@ import {
   Github, 
   Mail, 
   Cpu, 
-  Layers, 
   Activity, 
   Radio, 
   ShieldCheck, 
   Cloud,
-  Terminal,
-  Database,
-  Smartphone
+  Smartphone,
+  PhoneCall
 } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 import './Hero.css';
@@ -42,7 +40,7 @@ export const Hero: React.FC = () => {
           </h1>
 
           <p className="hero-description">
-            I build software across web applications, cloud infrastructure (AWS / Vercel), AI platforms, native mobile (Android / Kotlin), IoT edge computing, and industrial technology. Bringing a physical-world systems mindset to scalable full-stack development.
+            I build production software across full-stack web applications, cloud infrastructure (AWS / Vercel), native mobile (SwiftUI / iPadOS &amp; Android / Kotlin), human-in-the-loop AI systems, and edge hardware. Founder &amp; Software Engineer at Pacific Horizon Labs LLC, bringing a physical-world systems mindset to scalable software products.
           </p>
 
           <div className="hero-key-differentiator">
@@ -55,15 +53,15 @@ export const Hero: React.FC = () => {
             </span>
             <span className="differentiator-divider">•</span>
             <span className="differentiator-tag">
-              <Smartphone size={14} /> Native Android &amp; Mobile
+              <Smartphone size={14} /> Native Mobile (SwiftUI &amp; Kotlin)
             </span>
             <span className="differentiator-divider">•</span>
             <span className="differentiator-tag">
-              <Layers size={14} /> Industrial Controls
+              <PhoneCall size={14} /> Human-in-the-Loop AI
             </span>
             <span className="differentiator-divider">•</span>
             <span className="differentiator-tag">
-              <Activity size={14} /> IoT &amp; Edge AI
+              <Activity size={14} /> IoT &amp; Edge Hardware
             </span>
           </div>
 
@@ -140,13 +138,28 @@ export const Hero: React.FC = () => {
 
                 <div className="system-node-row">
                   <div className="node-icon bg-purple">
-                    <Layers size={16} />
+                    <Smartphone size={16} />
                   </div>
                   <div className="node-info">
-                    <span className="node-title">Thriveward Ingestion</span>
-                    <span className="node-subtitle">React → Express → Prisma → PostgreSQL</span>
+                    <span className="node-title">Pacific Horizon Photo Booth</span>
+                    <span className="node-subtitle">Native SwiftUI / iPadOS → Vision AR → Supabase</span>
                   </div>
-                  <span className="node-badge blue">ACTIVE</span>
+                  <span className="node-badge blue">PRODUCT</span>
+                </div>
+
+                <div className="node-connector">
+                  <div className="connector-line"></div>
+                </div>
+
+                <div className="system-node-row">
+                  <div className="node-icon bg-orange">
+                    <PhoneCall size={16} />
+                  </div>
+                  <div className="node-info">
+                    <span className="node-title">Pacific Rising Ops</span>
+                    <span className="node-subtitle">Twilio Voice → Claude LLM → Human Approval Gate</span>
+                  </div>
+                  <span className="node-badge blue">OPERATIONS</span>
                 </div>
 
                 <div className="node-connector">
@@ -171,8 +184,28 @@ export const Hero: React.FC = () => {
                     <Cloud size={16} />
                   </div>
                   <div className="node-info">
-                    <span className="node-title">CLOUD INFRASTRUCTURE</span>
-                    <span className="node-subtitle">AWS ECS Fargate • Amazon RDS • ECR • Vercel</span>
+                    <span className="node-title">CLOUD &amp; BACKEND APIS</span>
+                    <span className="node-subtitle">AWS ECS Fargate • Amazon RDS • Express • Supabase</span>
+                  </div>
+                </div>
+
+                <div className="system-node-row margin-top-sm">
+                  <div className="node-icon bg-purple">
+                    <Smartphone size={16} />
+                  </div>
+                  <div className="node-info">
+                    <span className="node-title">NATIVE MOBILE &amp; CLIENTS</span>
+                    <span className="node-subtitle">SwiftUI (iPadOS) • AVFoundation • Kotlin • React</span>
+                  </div>
+                </div>
+
+                <div className="system-node-row margin-top-sm">
+                  <div className="node-icon bg-orange">
+                    <PhoneCall size={16} />
+                  </div>
+                  <div className="node-info">
+                    <span className="node-title">HUMAN-IN-THE-LOOP AI</span>
+                    <span className="node-subtitle">Twilio Voice • Claude API • Deterministic FSM • Drafts</span>
                   </div>
                 </div>
 
@@ -181,28 +214,8 @@ export const Hero: React.FC = () => {
                     <Cpu size={16} />
                   </div>
                   <div className="node-info">
-                    <span className="node-title">EDGE &amp; EMBEDDED</span>
-                    <span className="node-subtitle">Raspberry Pi 5 • Python FastAPI • GPIO • Linux</span>
-                  </div>
-                </div>
-
-                <div className="system-node-row margin-top-sm">
-                  <div className="node-icon bg-purple">
-                    <Database size={16} />
-                  </div>
-                  <div className="node-info">
-                    <span className="node-title">FULL-STACK WEB &amp; APIS</span>
-                    <span className="node-subtitle">React • TypeScript • Node.js • Express • PostgreSQL</span>
-                  </div>
-                </div>
-
-                <div className="system-node-row margin-top-sm">
-                  <div className="node-icon bg-orange">
-                    <Terminal size={16} />
-                  </div>
-                  <div className="node-info">
-                    <span className="node-title">INDUSTRIAL CONTROLS</span>
-                    <span className="node-subtitle">PLC I/O • 4–20 mA Loops • Instrument Calibration</span>
+                    <span className="node-title">EDGE &amp; HARDWARE SYSTEMS</span>
+                    <span className="node-subtitle">Raspberry Pi 5 • Linux/systemd • gphoto2 • Industrial I/O</span>
                   </div>
                 </div>
               </div>
