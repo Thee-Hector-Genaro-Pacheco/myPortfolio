@@ -40,6 +40,15 @@ export interface EducationItemResume {
   dateOrStatus: string;
 }
 
+export interface DevelopmentFoundationItem {
+  title: string;
+  subtitle: string;
+  period: string;
+  tech?: string;
+  links?: ProjectLink[];
+  bullets: string[];
+}
+
 export interface ResumeVariantData {
   id: ResumeVariantId;
   label: string;
@@ -54,6 +63,7 @@ export interface ResumeVariantData {
   additionalProjects: AdditionalProject[];
   experience: ExperienceItemResume[];
   education: EducationItemResume[];
+  foundations?: DevelopmentFoundationItem[];
 }
 
 export const resumeVariantsData: Record<ResumeVariantId, ResumeVariantData> = {
@@ -71,7 +81,7 @@ export const resumeVariantsData: Record<ResumeVariantId, ResumeVariantData> = {
     pdfPath: '/resume-software-engineer.pdf',
     downloadFilename: 'Hector_Pacheco_Software_Engineer_Resume.pdf',
     summary:
-      'Software Engineer and Founder at Pacific Horizon Labs LLC with a physical-world systems mindset. Proven track record of end-to-end product ownership spanning full-stack web platforms, native mobile applications (SwiftUI & Kotlin), containerized cloud infrastructure on AWS ECS Fargate, type-safe REST APIs (Node.js/Express), relational data modeling (PostgreSQL/Prisma), and human-in-the-loop AI workflows. Experienced across collaborative team codebases and independent product delivery with comprehensive automated test suites.',
+      'Software Engineer and Founder at Pacific Horizon Labs LLC with hands-on software development and technical training dating to 2017, progressing from foundational web development and intensive full-stack training through university computer science coursework, collaborative engineering, containerized cloud infrastructure on AWS ECS Fargate, native mobile applications (SwiftUI & Kotlin), and commercial product delivery. Proven track record of end-to-end product ownership spanning type-safe REST APIs (Node.js/Express), relational data modeling (PostgreSQL/Prisma), human-in-the-loop AI workflows, and comprehensive automated test suites across collaborative team codebases and commercial products.',
     skills: [
       { label: 'Languages:', value: 'TypeScript, JavaScript, Python, Swift, SQL, Kotlin, C++' },
       { label: 'Cloud & DevOps:', value: 'AWS (ECS Fargate, ECR, RDS, Secrets Mgr), Docker, Linux, Git, GitLab, Jira, Vercel' },
@@ -111,19 +121,28 @@ export const resumeVariantsData: Record<ResumeVariantId, ResumeVariantData> = {
         ]
       },
       {
-        role: 'Instrumentation & Controls Technician',
-        company: 'Process Control & Industrial Systems',
-        period: 'Field Engineering Experience',
+        role: 'Instructional Student Assistant / Grader (Computer Science)',
+        company: 'California State University, Fullerton',
+        period: 'Jan 2025 – Dec 2025',
         bullets: [
-          'Calibrated, commissioned, and troubleshot 4–20 mA process instrumentation (pressure, temperature, flow, level), PLC I/O wiring, relays, and industrial power loops across 480VAC, 120VAC, and 24VDC systems with systematic fault isolation and auditable logs.'
+          'Mentored and evaluated 150+ students in introductory computer science (CPSC 120 / C++), diagnosing compilation and runtime errors while clarifying control flow, functions, arrays, and memory fundamentals.',
+          'Conducted technical debugging sessions with students to explain programming logic and algorithmic problem-solving rather than providing direct solutions, while reinforcing Git and GitHub version control workflows.'
         ]
       },
       {
         role: 'Software Engineering Contributor',
         company: 'Nonprofit serving underserved communities',
-        period: 'Collaborative Contribution',
+        period: '2025 – 2026',
         bullets: [
           'Collaborated on an existing nonprofit software platform using Jira-driven ticket workflows, Git/GitLab version control, REST API investigation, and team code debugging in a shared codebase.'
+        ]
+      },
+      {
+        role: 'Instrumentation & Controls Technician',
+        company: 'Process Control & Industrial Systems',
+        period: 'Field Engineering Experience',
+        bullets: [
+          'Calibrated, commissioned, and troubleshot 4–20 mA process instrumentation (pressure, temperature, flow, level), PLC I/O wiring, relays, and industrial power loops across 480VAC, 120VAC, and 24VDC systems with systematic fault isolation and auditable logs.'
         ]
       }
     ],
@@ -196,9 +215,19 @@ export const resumeVariantsData: Record<ResumeVariantId, ResumeVariantData> = {
     ],
     education: [
       {
+        institution: 'The Last Mile',
+        credential: 'Full-Stack Software Development Program (MERN Stack, REST APIs, Git)',
+        dateOrStatus: '2017 – 2021'
+      },
+      {
         institution: 'Western Governors University (WGU)',
         credential: 'B.S. Software Engineering',
         dateOrStatus: 'In Progress, 2026–Present'
+      },
+      {
+        institution: 'California State University, Fullerton',
+        credential: 'B.S. Computer Science Coursework / Project Rebound Scholar',
+        dateOrStatus: '2024 – 2025'
       },
       {
         institution: 'Palantir Technologies',
@@ -209,6 +238,64 @@ export const resumeVariantsData: Record<ResumeVariantId, ResumeVariantData> = {
         institution: 'Mirion Technologies',
         credential: 'SU-890 iCAM Operations & Maintenance',
         dateOrStatus: 'March 2026, 16.00 Continued Education Credits'
+      }
+    ],
+    foundations: [
+      {
+        title: 'The Last Mile',
+        subtitle: 'Full-Stack Software Development Program',
+        period: '2017 – 2021',
+        tech: 'HTML5 • CSS3 • Responsive Design • JavaScript (ES6+) • DOM Manipulation • React • Node.js • Express • MongoDB • REST APIs • Git',
+        bullets: [
+          'Completed an intensive full-stack software development curriculum, progressing from semantic HTML/CSS structure, responsive design, and CSS specificity through JavaScript DOM programming, event handling, and dynamic UI behavior.',
+          'Advanced into full-stack application development using the MERN stack (MongoDB, Express, React, Node.js), engineering RESTful APIs, MongoDB data models, and asynchronous workflows.',
+          'Facilitated peer-led technical workshops and coding presentations, reinforcing foundational programming principles, code hygiene, and collaborative Git version control.'
+        ]
+      },
+      {
+        title: 'Early Independent & Student Projects',
+        subtitle: 'Frontend Fundamentals, DOM Programming & Unit Testing',
+        period: '2024',
+        tech: 'HTML5 • CSS3 • JavaScript (ES6+) • DOM Manipulation • Functional Programming • Jest • JSDOM • GitHub',
+        links: [
+          {
+            label: 'STAR RATING GITHUB',
+            url: 'https://github.com/Thee-Hector-Genaro-Pacheco/star-rating',
+            type: 'github'
+          },
+          {
+            label: 'UNIT CONVERSION GITHUB',
+            url: 'https://github.com/Thee-Hector-Genaro-Pacheco/units-conversion-web',
+            type: 'github'
+          },
+          {
+            label: 'CPSC 120L PORTFOLIO GITHUB',
+            url: 'https://github.com/Thee-Hector-Genaro-Pacheco/thee-hector-genaro-pacheco.github.io',
+            type: 'github'
+          }
+        ],
+        bullets: [
+          'Star Rating (June 2024): Developed an interactive star rating component demonstrating functional programming and DOM manipulation with custom helper abstractions (dom-helpers.js), click event listeners, and dynamic state styling in vanilla JavaScript.',
+          'Unit Web Conversion (October 2024): Engineered a culinary conversion utility (milliliters to teaspoons, tablespoons, fluid ounces, and cups) with real-time form inputs, DOM rendering, and automated unit test coverage using Jest and JSDOM.',
+          'CSUF Lab Portfolio (December 2024): Published a developer journal documenting hands-on CPSC 120L coursework, contrasting C++ pure functions (Blackjack terminal app) and vectors with JavaScript array methods and DOM manipulation.'
+        ]
+      },
+      {
+        title: 'California State University, Fullerton',
+        subtitle: 'Computer Science Foundations & Academic Progression',
+        period: '2024 – 2025',
+        tech: 'C++ • CPSC 120 • CPSC 131 (Data Structures) • Linux • Git • Project Rebound',
+        links: [
+          {
+            label: 'MYVECTOR GITHUB',
+            url: 'https://github.com/Thee-Hector-Genaro-Pacheco/cpsc131-project1-myvector',
+            type: 'github'
+          }
+        ],
+        bullets: [
+          'Completed introductory and intermediate computer science coursework in C++ (CPSC 120 and CPSC 131), engineering console applications, custom vector containers (myvector), and algorithmic problem solving.',
+          'Project Rebound Scholar (2024 – Present): Recognized scholar actively participating in university academic programs, peer mentorship, and STEM community initiatives.'
+        ]
       }
     ]
   },

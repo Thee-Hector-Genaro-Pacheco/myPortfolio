@@ -311,6 +311,56 @@ export const ResumePage: React.FC = () => {
             </section>
           )}
 
+          {/* Development Foundations & Early Milestones */}
+          {currentData.foundations && currentData.foundations.length > 0 && (
+            <section className="doc-section">
+              <h2 className="doc-section-title font-mono">DEVELOPMENT FOUNDATIONS &amp; CHRONOLOGY</h2>
+              {currentData.foundations.map((item, idx) => (
+                <div key={idx} className="doc-project-item">
+                  <div className="doc-project-header">
+                    <div className="doc-project-title-group">
+                      <strong className="doc-project-name">
+                        {item.title} — {item.subtitle}
+                      </strong>
+                      {item.period && (
+                        <span className="doc-project-period font-mono">{item.period}</span>
+                      )}
+                      {item.links && item.links.length > 0 && (
+                        <div className="doc-project-links">
+                          {item.links.map((link, lIdx) => (
+                            <a
+                              key={lIdx}
+                              href={link.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className={`doc-link-btn ${link.type === 'live' ? 'live' : 'github'}`}
+                              aria-label={`${item.title} ${link.label}`}
+                            >
+                              {link.type === 'github' ? <Github size={12} /> : null}
+                              <span>{link.label}</span>
+                              {link.type !== 'github' ? <ExternalLink size={12} /> : null}
+                            </a>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                    {item.tech && (
+                      <span className="doc-project-tech font-mono">{item.tech}</span>
+                    )}
+                  </div>
+                  <ul className="doc-bullet-list">
+                    {item.bullets.map((bullet, bIdx) => (
+                      <li key={bIdx}>
+                        <CheckCircle2 size={14} className="text-emerald" />
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </section>
+          )}
+
           {/* Education & Professional Training */}
           <section className="doc-section">
             <h2 className="doc-section-title font-mono">EDUCATION &amp; PROFESSIONAL TRAINING</h2>

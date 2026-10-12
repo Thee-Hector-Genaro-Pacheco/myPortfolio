@@ -213,7 +213,7 @@ RESUMES = [
         "id": "general",
         "output_pdf": "resume-software-engineer.pdf",
         "doc_title": "Software Engineer | Full-Stack • Backend & APIs • Cloud Infrastructure • Mobile Systems",
-        "summary": "Software Engineer and Founder at Pacific Horizon Labs LLC with a physical-world systems mindset. Proven track record of end-to-end product ownership spanning full-stack web platforms, native mobile applications (SwiftUI & Kotlin), containerized cloud infrastructure on AWS ECS Fargate, type-safe REST APIs (Node.js/Express), relational data modeling (PostgreSQL/Prisma), and human-in-the-loop AI workflows. Experienced across collaborative team codebases and independent product delivery with comprehensive automated test suites.",
+        "summary": "Software Engineer and Founder at Pacific Horizon Labs LLC with hands-on software development and technical training dating to 2017, progressing from foundational web development and intensive full-stack training through university computer science coursework, collaborative engineering, containerized cloud infrastructure on AWS ECS Fargate, native mobile applications (SwiftUI & Kotlin), and commercial product delivery. Proven track record of end-to-end product ownership spanning type-safe REST APIs (Node.js/Express), relational data modeling (PostgreSQL/Prisma), human-in-the-loop AI workflows, and comprehensive automated test suites across collaborative team codebases and commercial products.",
         "skills": [
             ("Languages:", "TypeScript, JavaScript, Python, Swift, SQL, Kotlin, C++"),
             ("Cloud & DevOps:", "AWS (ECS Fargate, ECR, RDS, Secrets Mgr), Docker, Linux, Git, GitLab, Jira, Vercel"),
@@ -241,19 +241,27 @@ RESUMES = [
                 ]
             },
             {
-                "title": "Instrumentation & Controls Technician",
-                "subtitle": "Process Control & Industrial Systems",
-                "date": "Field Engineering Experience",
+                "title": "California State University, Fullerton",
+                "subtitle": "Instructional Student Assistant / Grader (Computer Science)",
+                "date": "Jan 2025 – Dec 2025",
                 "bullets": [
-                    "Calibrated, commissioned, and troubleshot 4–20 mA process instrumentation (pressure, temperature, flow, level), PLC I/O wiring, relays, and industrial power loops across 480VAC, 120VAC, and 24VDC systems with systematic fault isolation and auditable logs."
+                    "Mentored and evaluated 150+ students in introductory computer science (CPSC 120 / C++), diagnosing compiler errors, explaining data structures, and guiding students through Git/GitHub workflows."
                 ]
             },
             {
                 "title": "Software Engineering Contributor",
                 "subtitle": "Nonprofit serving underserved communities",
-                "date": "Collaborative Contribution",
+                "date": "2025 – 2026",
                 "bullets": [
                     "Collaborated on an existing nonprofit software platform using Jira-driven ticket workflows, Git/GitLab version control, REST API investigation, and team code debugging in a shared codebase."
+                ]
+            },
+            {
+                "title": "Instrumentation & Controls Technician",
+                "subtitle": "Process Control & Industrial Systems",
+                "date": "Field Engineering Experience",
+                "bullets": [
+                    "Calibrated, commissioned, and troubleshot 4–20 mA process instrumentation (pressure, temperature, flow, level), PLC I/O wiring, relays, and industrial power loops across 480VAC, 120VAC, and 24VDC systems with systematic fault isolation and auditable logs."
                 ]
             }
         ],
@@ -301,9 +309,10 @@ RESUMES = [
           <a href="https://www.ocwaterfeaturesinc.com/" target="_blank" class="link-badge live-badge">LIVE SITE ↗</a>
         """,
         "education": [
+            ("The Last Mile", "Full-Stack Software Development Program (2017 – 2021) — Intensive curriculum progressing from semantic HTML/CSS and responsive design through JavaScript DOM programming, React, Node.js/Express, REST APIs, MongoDB, and Git"),
             ("Western Governors University (WGU)", "B.S. Software Engineering (In Progress, 2026–Present)"),
-            ("Palantir Technologies", "Foundry & AIP Learning Credentials (May 2026)"),
-            ("Mirion Technologies", "SU-890 iCAM Operations & Maintenance (March 2026, 16.00 Continued Education Credits)")
+            ("California State University, Fullerton", "B.S. Computer Science Coursework / Project Rebound Scholar (2024–2025)"),
+            ("Palantir Technologies & Mirion", "Foundry & AIP Credentials (May 2026) • SU-890 iCAM Certification")
         ]
     },
 
