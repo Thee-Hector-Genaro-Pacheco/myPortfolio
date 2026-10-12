@@ -250,10 +250,10 @@ RESUMES = [
             },
             {
                 "title": "Software Engineering Contributor",
-                "subtitle": "Nonprofit serving underserved communities",
-                "date": "2025 – 2026",
+                "subtitle": "Collaborative Nonprofit Software Platform",
+                "date": "2024–2026",
                 "bullets": [
-                    "Collaborated on an existing nonprofit software platform using Jira-driven ticket workflows, Git/GitLab version control, REST API investigation, and team code debugging in a shared codebase."
+                    "Collaborated on an existing software platform using Jira-driven ticket workflows, Git/GitLab version control, REST API investigation, and team code debugging in a shared codebase."
                 ]
             },
             {
@@ -309,7 +309,7 @@ RESUMES = [
           <a href="https://www.ocwaterfeaturesinc.com/" target="_blank" class="link-badge live-badge">LIVE SITE ↗</a>
         """,
         "education": [
-            ("The Last Mile", "Full-Stack Software Development Program (2017 – 2021) — Intensive curriculum progressing from semantic HTML/CSS and responsive design through JavaScript DOM programming, React, Node.js/Express, REST APIs, MongoDB, and Git"),
+            ("Full-Stack Software Development Training", "2017 – 2021 — Intensive curriculum progressing from semantic HTML/CSS and responsive design through JavaScript DOM programming, React, Node.js/Express, REST APIs, MongoDB, and Git"),
             ("Western Governors University (WGU)", "B.S. Software Engineering (In Progress, 2026–Present)"),
             ("California State University, Fullerton", "B.S. Computer Science Coursework / Project Rebound Scholar (2024–2025)"),
             ("Palantir Technologies & Mirion", "Foundry & AIP Credentials (May 2026) • SU-890 iCAM Certification")
@@ -357,10 +357,10 @@ RESUMES = [
             },
             {
                 "title": "Software Engineering Contributor",
-                "subtitle": "Nonprofit serving underserved communities",
-                "date": "Collaborative Contribution",
+                "subtitle": "Collaborative Nonprofit Software Platform",
+                "date": "2024–2026",
                 "bullets": [
-                    "Collaborated on an existing nonprofit codebase using Jira-driven ticket workflows, Git/GitLab version control, API integration investigation, local environment configuration, and shared build and test workflows."
+                    "Collaborated on an existing software platform using Jira-driven ticket workflows, Git/GitLab version control, API integration investigation, local environment configuration, and shared build and test workflows."
                 ]
             }
         ],
@@ -470,10 +470,10 @@ RESUMES = [
             },
             {
                 "title": "Software Engineering Contributor",
-                "subtitle": "Nonprofit serving underserved communities",
-                "date": "Collaborative Contribution",
+                "subtitle": "Collaborative Nonprofit Software Platform",
+                "date": "2024–2026",
                 "bullets": [
-                    "Contributed to an existing codebase within a collaborative team environment, utilizing Jira issue tracking, Git/GitLab workflows, and peer technical communication."
+                    "Contributed to an existing software platform within a collaborative team environment, utilizing Jira issue tracking, Git/GitLab workflows, and peer technical communication."
                 ]
             }
         ],

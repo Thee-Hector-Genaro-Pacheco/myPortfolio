@@ -131,10 +131,10 @@ export const resumeVariantsData: Record<ResumeVariantId, ResumeVariantData> = {
       },
       {
         role: 'Software Engineering Contributor',
-        company: 'Nonprofit serving underserved communities',
-        period: '2025 – 2026',
+        company: 'Collaborative Nonprofit Software Platform',
+        period: '2024–2026',
         bullets: [
-          'Collaborated on an existing nonprofit software platform using Jira-driven ticket workflows, Git/GitLab version control, REST API investigation, and team code debugging in a shared codebase.'
+          'Collaborated on an existing software platform using Jira-driven ticket workflows, Git/GitLab version control, REST API investigation, and team code debugging in a shared codebase.'
         ]
       },
       {
@@ -215,8 +215,8 @@ export const resumeVariantsData: Record<ResumeVariantId, ResumeVariantData> = {
     ],
     education: [
       {
-        institution: 'The Last Mile',
-        credential: 'Full-Stack Software Development Program (MERN Stack, REST APIs, Git)',
+        institution: 'Full-Stack Software Development Training',
+        credential: 'Comprehensive Full-Stack Curriculum (MERN Stack, REST APIs, Git)',
         dateOrStatus: '2017 – 2021'
       },
       {
@@ -242,8 +242,8 @@ export const resumeVariantsData: Record<ResumeVariantId, ResumeVariantData> = {
     ],
     foundations: [
       {
-        title: 'The Last Mile',
-        subtitle: 'Full-Stack Software Development Program',
+        title: 'Full-Stack Software Development Training',
+        subtitle: 'Comprehensive Full-Stack Curriculum',
         period: '2017 – 2021',
         tech: 'HTML5 • CSS3 • Responsive Design • JavaScript (ES6+) • DOM Manipulation • React • Node.js • Express • MongoDB • REST APIs • Git',
         bullets: [
@@ -351,10 +351,10 @@ export const resumeVariantsData: Record<ResumeVariantId, ResumeVariantData> = {
       },
       {
         role: 'Software Engineering Contributor',
-        company: 'Nonprofit serving underserved communities',
-        period: 'Collaborative Contribution',
+        company: 'Collaborative Nonprofit Software Platform',
+        period: '2024–2026',
         bullets: [
-          'Collaborated on an existing nonprofit codebase using Jira-driven ticket workflows, Git/GitLab version control, API integration investigation, local environment configuration, and shared build and test workflows.'
+          'Collaborated on an existing software platform using Jira-driven ticket workflows, Git/GitLab version control, API integration investigation, local environment configuration, and shared build and test workflows.'
         ]
       }
     ],
@@ -518,10 +518,10 @@ export const resumeVariantsData: Record<ResumeVariantId, ResumeVariantData> = {
       },
       {
         role: 'Software Engineering Contributor',
-        company: 'Nonprofit serving underserved communities',
-        period: 'Collaborative Contribution',
+        company: 'Collaborative Nonprofit Software Platform',
+        period: '2024–2026',
         bullets: [
-          'Contributed to an existing codebase within a collaborative team environment, utilizing Jira issue tracking, Git/GitLab workflows, and peer technical communication.'
+          'Contributed to an existing software platform within a collaborative team environment, utilizing Jira issue tracking, Git/GitLab workflows, and peer technical communication.'
         ]
       }
     ],
